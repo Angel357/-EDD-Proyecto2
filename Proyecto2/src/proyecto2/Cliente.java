@@ -17,6 +17,8 @@ public class Cliente extends javax.swing.JFrame {
     public Cliente() {
         initComponents();
         this.setLocationRelativeTo(null);
+        txtKey.setVisible(true);
+                
         
     }
 
@@ -183,7 +185,10 @@ public class Cliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
+        MenuCliente m=new MenuCliente();
+        m.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
@@ -237,7 +242,13 @@ public class Cliente extends javax.swing.JFrame {
                 btnAccion.setText("Modificar");
                 txtKey.setVisible(true);
                 lblKey.setVisible(true);
+                //para que no puedan mostrarse los textos
                 txtDPI.enable(false);
+                txtNombre.enable(false);
+                txtApellido.enable(false);
+                txtGenero.enable(false);
+                txtTelefono.enable(false);
+                txtDireccion.enable(false);
                 
                 break;
             case "eliminar":
@@ -245,7 +256,13 @@ public class Cliente extends javax.swing.JFrame {
                 btnAccion.setText("Eliminar");
                 txtKey.setVisible(true);
                 lblKey.setVisible(true);
-                
+                //para que no puedan modificarse los textos 
+                txtDPI.enable(false);
+                txtNombre.enable(false);
+                txtApellido.enable(false);
+                txtGenero.enable(false);
+                txtTelefono.enable(false);
+                txtDireccion.enable(false);
                 
                 break;
         }
