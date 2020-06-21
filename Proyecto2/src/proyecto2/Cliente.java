@@ -226,12 +226,12 @@ public class Cliente extends javax.swing.JFrame {
         });
     }
 
-       Cliente(String titulo,String accion){
+    public void Accion(String accion){
         switch(accion)
         {
             case "agregar":
-                lblTitulo.setText("Registro de clientes");
-                btnAccion.setText("Agregar");
+                //lblTitulo.setText("Registro de clientes");
+                btnAccion.setText("Agregar usuario");
                 lblKey.setVisible(false);
                 txtKey.setVisible(false);
                 
@@ -265,6 +265,22 @@ public class Cliente extends javax.swing.JFrame {
                 txtDireccion.enable(false);
                 
                 break;
+            case "mostrar":
+                lblTitulo.setText("Mostrar un usuario");
+                btnAccion.setText("Mostrar");
+                txtKey.setVisible(true);
+                lblKey.setVisible(true);
+                //para que no puedan modificarse los textos 
+                txtDPI.enable(false);
+                txtNombre.enable(false);
+                txtApellido.enable(false);
+                txtGenero.enable(false);
+                txtTelefono.enable(false);
+                txtDireccion.enable(false);
+                break;
+                
+                
+            
         }
     }
     
