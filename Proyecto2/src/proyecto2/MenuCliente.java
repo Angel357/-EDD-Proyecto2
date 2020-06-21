@@ -29,27 +29,37 @@ public class MenuCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnMostrar = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Menu Cliente");
 
-        jButton1.setText("Agregar");
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Modificar");
-        jButton2.setToolTipText("");
+        btnModificar.setText("Modificar");
+        btnModificar.setToolTipText("");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Eliminar");
+        btnEliminar.setText("Eliminar");
 
-        jButton4.setText("Mostrar");
+        btnMostrar.setText("Mostrar");
 
-        jButton5.setText("Reporte");
+        btnReporte.setText("Reporte");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,16 +74,16 @@ public class MenuCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton2)
+                            .addComponent(btnModificar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4))
+                            .addComponent(btnMostrar))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1)
+                            .addComponent(btnAgregar)
                             .addGap(74, 74, 74)
-                            .addComponent(jButton3)))
+                            .addComponent(btnEliminar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(77, 77, 77)
-                        .addComponent(jButton5)))
+                        .addComponent(btnReporte)))
                 .addGap(80, 80, 80))
         );
         layout.setVerticalGroup(
@@ -83,25 +93,36 @@ public class MenuCliente extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
+                    .addComponent(btnAgregar)
+                    .addComponent(btnEliminar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4))
+                    .addComponent(btnModificar)
+                    .addComponent(btnMostrar))
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(btnReporte)
                 .addContainerGap(87, Short.MAX_VALUE))
         );
 
-        jButton1.getAccessibleContext().setAccessibleName("btnAgregar");
-        jButton2.getAccessibleContext().setAccessibleName("btnModificar");
-        jButton3.getAccessibleContext().setAccessibleName("btnEliminar");
-        jButton4.getAccessibleContext().setAccessibleName("btnMostrar");
-        jButton5.getAccessibleContext().setAccessibleName("btnReporte");
+        btnAgregar.getAccessibleContext().setAccessibleName("btnAgregar");
+        btnModificar.getAccessibleContext().setAccessibleName("btnModificar");
+        btnEliminar.getAccessibleContext().setAccessibleName("btnEliminar");
+        btnMostrar.getAccessibleContext().setAccessibleName("btnMostrar");
+        btnReporte.getAccessibleContext().setAccessibleName("btnReporte");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+                // TODO add your handling code here:
+        Cliente c=new Cliente("prueba","agregar");
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,11 +164,11 @@ public class MenuCliente extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnMostrar;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
