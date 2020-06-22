@@ -22,6 +22,12 @@ public class Proyecto2 {
         Vehiculo v = new Vehiculo(1);
         v.setVisible(true);
         
+        
+        String placa1 = "";
+        String placa2 = "";
+        
+        if(placa1.compareToIgnoreCase(placa2)==0)
+            System.out.println();
         // Prueba de insercion arbol B
         /*
         ArbolB t = new ArbolB(5);
