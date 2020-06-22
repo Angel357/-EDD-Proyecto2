@@ -14,10 +14,18 @@ public class MenuCliente extends javax.swing.JFrame {
     /**
      * Creates new form MenuCliente
      */
+    TablaHash h;
+    Cliente c;
+    
     public MenuCliente() {
         initComponents();
         this.setLocationRelativeTo(null);
+        c=new Cliente();
+        c.setDatos(h, this);
+       // this.h = t;
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,31 +138,31 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
                 // TODO add your handling code here:
-        Cliente c=new Cliente();
+       // Cliente c=new Cliente(h);
+        this.setVisible(false);
         c.Accion("agregar");
         c.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        Cliente c=new Cliente();
+       // Cliente c=new Cliente(h);
         c.Accion("modificar");
         c.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        Cliente c=new Cliente();
+      //  Cliente c=new Cliente(h);
         c.Accion("eliminar");
         c.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-       Cliente c=new Cliente();
+       // Cliente c=new Cliente(h);
         c.Accion("mostrar");
         c.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
@@ -196,6 +204,10 @@ public class MenuCliente extends javax.swing.JFrame {
         });
     }
     
+    public void setHash(TablaHash t)
+    {
+        h=t;
+    }
     
   
     
