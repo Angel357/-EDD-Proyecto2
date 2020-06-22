@@ -25,7 +25,7 @@ public class Proyecto2 {
 //        BigInteger dpi=new BigInteger(numero);
 //        BigInteger mod=new BigInteger("37");
 //        int num= dpi.mod(mod).intValue();
-//        System.out.println(num);sss
+//        System.out.println(num);ssss
         
         
         //primer commit
