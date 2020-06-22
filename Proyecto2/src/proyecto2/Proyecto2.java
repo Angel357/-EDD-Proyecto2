@@ -17,13 +17,15 @@ public class Proyecto2 {
      */
     public static void main(String[] args) {
       
-//        TablaHash t=new TablaHash(37);
-//        MenuCliente m=new MenuCliente();
-//        m.setHash(t);
-//        m.setVisible(true);
-        BigInteger dpi=new BigInteger("3002875340101");
-        BigInteger mod=new BigInteger("37");
-        System.out.println(dpi.mod(mod));
+        TablaHash t=new TablaHash(37);
+        MenuCliente m=new MenuCliente();
+        m.setHash(t);
+        m.setVisible(true);
+//        String numero="3002875340101";
+//        BigInteger dpi=new BigInteger(numero);
+//        BigInteger mod=new BigInteger("37");
+//        int num= dpi.mod(mod).intValue();
+//        System.out.println(num);
         
         
         //primer commit

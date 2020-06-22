@@ -5,6 +5,8 @@
  */
 package proyecto2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author luisa
@@ -14,13 +16,26 @@ public class Cliente extends javax.swing.JFrame {
     /**
      * Creates new form Cliente
      */
+     TablaHash t;
+     MenuCliente m;
+     String opcion;
+     
+    
     public Cliente() {
+        
         initComponents();
         this.setLocationRelativeTo(null);
-        txtKey.setVisible(true);
-                
+        txtKey.setVisible(true); 
         
     }
+    public void setDatos(TablaHash t, MenuCliente m)
+    {
+        this.m=m;
+        this.t=t;
+    }
+
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,6 +63,8 @@ public class Cliente extends javax.swing.JFrame {
         btnRegresar = new javax.swing.JButton();
         lblKey = new javax.swing.JLabel();
         txtKey = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +90,11 @@ public class Cliente extends javax.swing.JFrame {
         jLabel7.setText("Direccion:");
 
         btnAccion.setText("Agregar");
+        btnAccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAccionActionPerformed(evt);
+            }
+        });
 
         btnRegresar.setText("Rregresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +105,20 @@ public class Cliente extends javax.swing.JFrame {
 
         lblKey.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblKey.setText("DPI de usuario a gestionar");
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnImprimir.setText("Imprimir");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,8 +164,13 @@ public class Cliente extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(lblKey, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtKey)))))
-                .addGap(52, 333, Short.MAX_VALUE))
+                                .addComponent(txtKey)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(btnImprimir)))
+                .addGap(52, 244, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,8 +180,9 @@ public class Cliente extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblKey)
-                    .addComponent(txtKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                    .addComponent(txtKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtDPI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,7 +210,9 @@ public class Cliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAccion)
                     .addComponent(btnRegresar))
-                .addGap(139, 139, 139))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnImprimir)
+                .addGap(107, 107, 107))
         );
 
         lblTitulo.getAccessibleContext().setAccessibleName("lblTitulo");
@@ -186,10 +230,27 @@ public class Cliente extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
             // TODO add your handling code here:
-        MenuCliente m=new MenuCliente();
-        m.setVisible(true);
-        this.dispose();
+       this.setVisible(false);
+       m.setVisible(true);
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnAccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccionActionPerformed
+        // TODO add your handling code here:
+        switch(opcion)
+        {
+            case "agregar":
+                Insertar(txtDPI.getText() ,txtDPI.getText(),txtDPI.getText(),txtDPI.getText(),txtDPI.getText(),txtDPI.getText());
+                break;
+        }
+    }//GEN-LAST:event_btnAccionActionPerformed
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+       t.imprimir();
+    }//GEN-LAST:event_btnImprimirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,6 +288,7 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     public void Accion(String accion){
+        opcion=accion;
         switch(accion)
         {
             case "agregar":
@@ -234,6 +296,7 @@ public class Cliente extends javax.swing.JFrame {
                 btnAccion.setText("Agregar usuario");
                 lblKey.setVisible(false);
                 txtKey.setVisible(false);
+                btnBuscar.setVisible(false);
                 
                 
                 break;
@@ -242,6 +305,7 @@ public class Cliente extends javax.swing.JFrame {
                 btnAccion.setText("Modificar");
                 txtKey.setVisible(true);
                 lblKey.setVisible(true);
+                btnBuscar.setVisible(false);
                 //para que no puedan mostrarse los textos
                 txtDPI.enable(false);
                 txtNombre.enable(false);
@@ -286,8 +350,31 @@ public class Cliente extends javax.swing.JFrame {
     
     
     
+    public void Insertar(String DPI, String Nombre, String Apellido , String Genero, String Telefono, String Direccion){
+        t.Insertar(DPI, Nombre, Apellido, Genero, Telefono, Direccion);
+        JOptionPane.showMessageDialog(null, "se registro el cliente: "+Nombre);
+    }
+    
+    public void Modificar(String DPI, String Nombre, String Apellido , String Genero, String Telefono, String Direccion){
+        
+    }
+    
+    public void Eliminar(String DPI, String Nombre, String Apellido , String Genero, String Telefono, String Direccion){
+        
+    }
+    
+    public void Mostrar(String DPI){
+        
+    }
+    
+  
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccion;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
