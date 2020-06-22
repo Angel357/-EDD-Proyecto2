@@ -15,6 +15,19 @@ public class MenuVehiculo extends javax.swing.JFrame {
     /** Creates new form MenuVehiculo */
     public MenuVehiculo() {
         initComponents();
+        /*
+         ArbolB t = new ArbolB(5);
+        t.insertar(10);
+        t.insertar(20);
+        t.insertar(5);
+        t.insertar(6);
+        t.insertar(12);
+        t.insertar(30);
+        t.insertar(7);
+        t.insertar(17);
+        
+        System.out.println("Impresion del arbol construido");
+        t.imprimir();*/
     }
 
     /** This method is called from within the constructor to
