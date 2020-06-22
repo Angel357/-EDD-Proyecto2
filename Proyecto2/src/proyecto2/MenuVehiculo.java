@@ -15,9 +15,7 @@ public class MenuVehiculo extends javax.swing.JFrame {
     /** Creates new form MenuVehiculo */
     public MenuVehiculo() {
         initComponents();
-<<<<<<< HEAD
         this.setLocationRelativeTo(null);
-=======
         /*
          ArbolB t = new ArbolB(5);
         t.insertar(10);
@@ -31,7 +29,6 @@ public class MenuVehiculo extends javax.swing.JFrame {
         
         System.out.println("Impresion del arbol construido");
         t.imprimir();*/
->>>>>>> arbol
     }
 
     /** This method is called from within the constructor to
