@@ -27,7 +27,7 @@ public class ArbolB {
         System.out.println();
     }
    
-    public nodoArbolB buscar(int k)
+    public nodoArbolB buscar(String k)
     {
         if(this.root == null)
             return null;
@@ -35,8 +35,13 @@ public class ArbolB {
             return this.root.buscar(k);
     }
     
+    public int currentKey()
+    {
+        return this.root.i;
+    }
     
-    public void insertar(int k)
+    
+    public void insertar(String k)
     {
         if(root == null)
         {
@@ -53,7 +58,7 @@ public class ArbolB {
                 s.separarHijo(0, root);
                 
                 int i = 0;
-                if(s.keys[0] < k)
+                if(s.keys[0].compareToIgnoreCase(k) < 0)
                     i++;
                 s.C[i].insertarNoLleno(k);
                 

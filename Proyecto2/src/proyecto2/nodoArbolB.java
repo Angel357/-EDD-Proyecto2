@@ -10,7 +10,7 @@ package proyecto2;
  * @author wilson
  */
 public class nodoArbolB {
-    int[] keys;
+    String[] keys;
     int t;
     nodoArbolB[] C;
     int n;
@@ -20,7 +20,7 @@ public class nodoArbolB {
     {
         this.t = t;
         this.hoja = hoja;
-        this.keys = new int[2*t - 1];
+        this.keys = new String[2*t - 1];
         this.C = new nodoArbolB[2*t];
         this.n = 0;
     }
@@ -43,29 +43,40 @@ public class nodoArbolB {
     }
     
     // Buscar algun nodo, regresa nulo si no existe
-    nodoArbolB buscar(int k)
+    int i;
+    
+    
+    nodoArbolB buscar(String k)
     {
-        int i = 0;
-        while(i < n && k > keys[i])
+        i = 0;
+        while(i < n && k.compareToIgnoreCase(keys[i]) > 0)
             i++;
         
-        if(keys[i]  == k)
+        if(keys[i].compareToIgnoreCase(k) == 0)
+        {
+            setCurrentKey(i);
             return this;
-        
+        }
+            
         if(hoja==true)
             return null;
         
         return C[i].buscar(k);
     }
     
-    public void insertarNoLleno(int k)
+    public void setCurrentKey(int i)
+    {
+        this.i = i;
+    }
+    
+    public void insertarNoLleno(String k)
     {
         int i = n - 1;
         
         // si es hoja
         if(hoja == true)
         {
-            while(i >= 0 && keys[i] > k)
+            while(i >= 0 && keys[i].compareToIgnoreCase(k) > 0)
             {
                 keys[i+1] = keys[i];
                 i--;
@@ -75,7 +86,7 @@ public class nodoArbolB {
         }
         else // si no es hoja
         {
-            while(i >= 0 && keys[i] > k)
+            while(i >= 0 && keys[i].compareToIgnoreCase(k) > 0)
                 i--;
             
             if(C[i+1].n == 2*t-1)
@@ -83,7 +94,7 @@ public class nodoArbolB {
                 separarHijo(i+1,C[i+1]);
                 
                 
-                if(keys[i+1] < k)
+                if(keys[i+1].compareToIgnoreCase(k) < 0)
                     i++;
             }
             C[i+1].insertarNoLleno(k);

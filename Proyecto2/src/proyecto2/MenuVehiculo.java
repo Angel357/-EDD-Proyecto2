@@ -16,19 +16,25 @@ public class MenuVehiculo extends javax.swing.JFrame {
     public MenuVehiculo() {
         initComponents();
         this.setLocationRelativeTo(null);
-        /*
+        
          ArbolB t = new ArbolB(5);
-        t.insertar(10);
-        t.insertar(20);
-        t.insertar(5);
-        t.insertar(6);
-        t.insertar(12);
-        t.insertar(30);
-        t.insertar(7);
-        t.insertar(17);
+         
+        t.insertar("P10D");
+        t.insertar("P10A");
+        t.insertar("P10B");
+        t.insertar("P10C");
+        t.insertar("P10E");
+        t.insertar("P10F");
+        t.insertar("P10G");
+        t.insertar("P10H");
+        
+        if(t.buscar("P10F")!= null)
+        {
+            System.out.println(t.buscar("P10F").keys[t.currentKey()]);
+        }
         
         System.out.println("Impresion del arbol construido");
-        t.imprimir();*/
+        t.imprimir();
     }
 
     /** This method is called from within the constructor to
