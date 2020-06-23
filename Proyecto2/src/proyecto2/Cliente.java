@@ -19,6 +19,7 @@ public class Cliente extends javax.swing.JFrame {
      TablaHash t;
      MenuCliente m;
      String opcion;
+     NodoLS auxBusqueda;
      
     
     public Cliente() {
@@ -33,10 +34,81 @@ public class Cliente extends javax.swing.JFrame {
         this.m=m;
         this.t=t;
     }
-
     
+     public void Accion(String accion){
+        opcion=accion;
+        switch(accion)
+        {
+            case "agregar":
+                lblTitulo.setText("Registro de clientes");
+                btnAccion.setText("Agregar usuario");
+                lblKey.setVisible(false);
+                txtKey.setVisible(false);
+                btnBuscar.setVisible(false);
+                btnAccion.setVisible(true);
+                
+                txtDPI.enable(true);
+                txtNombre.enable(true);
+                txtApellido.enable(true);
+                txtGenero.enable(true);
+                txtTelefono.enable(true);
+                txtDireccion.enable(true);
+                
+                
+                break;
+            case "modificar":
+                lblTitulo.setText("Modificar usuario");
+                btnAccion.setText("Modificar");
+                txtKey.setVisible(true);
+                lblKey.setVisible(true);
+                btnBuscar.setVisible(true);
+                btnAccion.setVisible(true);
+                //para que no puedan mostrarse los textos
+                txtDPI.enable(false);
+                txtNombre.enable(false);
+                txtApellido.enable(false);
+                txtGenero.enable(false);
+                txtTelefono.enable(false);
+                txtDireccion.enable(false);
+                
+                break;
+            case "eliminar":
+                lblTitulo.setText("Eliminar usuario");
+                btnAccion.setText("Eliminar");
+                txtKey.setVisible(true);
+                lblKey.setVisible(true);
+                btnBuscar.setVisible(true);
+                btnAccion.setVisible(true);
+                //para que no puedan modificarse los textos 
+                txtDPI.enable(false);
+                txtNombre.enable(false);
+                txtApellido.enable(false);
+                txtGenero.enable(false);
+                txtTelefono.enable(false);
+                txtDireccion.enable(false);
+                
+                break;
+            case "mostrar":
+                lblTitulo.setText("Mostrar un usuario");
+                btnAccion.setText("Mostrar");
+                btnBuscar.setVisible(true);
+                txtKey.setVisible(true);
+                lblKey.setVisible(true);
+                btnAccion.setVisible(false);
+                //para que no puedan modificarse los textos 
+                txtDPI.enable(false);
+                txtNombre.enable(false);
+                txtApellido.enable(false);
+                txtGenero.enable(false);
+                txtTelefono.enable(false);
+                txtDireccion.enable(false);
+                break;
+                
+                
+            
+        }
+    }
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -230,12 +302,37 @@ public class Cliente extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
             // TODO add your handling code here:
-       this.setVisible(false);
-       m.setVisible(true);
+           Limpiar();
+           m.setHash(t);
+           m.setVisible(true);
+           this.setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        
+        auxBusqueda=t.Buscar(txtKey.getText());
+        System.out.println("  paso por aca" );
+        
+        if(auxBusqueda!=null){
+            txtDPI.setText(auxBusqueda.DPI);
+            txtNombre.setText(auxBusqueda.Nombre);
+            txtApellido.setText(auxBusqueda.Apellido);
+            txtGenero.setText(auxBusqueda.Genero);
+            txtTelefono.setText(auxBusqueda.Telefono);
+            txtDireccion.setText(auxBusqueda.Direccion);
+        }else{
+            JOptionPane.showMessageDialog(null, "No se encontro al Cliente con numero de DPI: "+txtKey.getText());
+        }
+        if(opcion.equals("modificar")){
+           
+            txtNombre.enable(true);
+            txtApellido.enable(true);
+            txtGenero.enable(true);
+            txtTelefono.enable(true);
+            txtDireccion.enable(true);
+        }
+            
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccionActionPerformed
@@ -243,9 +340,32 @@ public class Cliente extends javax.swing.JFrame {
         switch(opcion)
         {
             case "agregar":
-                Insertar(txtDPI.getText() ,txtDPI.getText(),txtDPI.getText(),txtDPI.getText(),txtDPI.getText(),txtDPI.getText());
+                if(txtDPI.getText().equals("")||txtNombre.getText().equals("")|| txtApellido.getText().equals("")|| txtGenero.getText().equals("")||txtTelefono.getText().equals("")||txtDireccion.getText().equals("")){
+                    JOptionPane.showMessageDialog(null, "llenar todas las casillas, de lo contrario no es imposible agregar clientes");
+                }else{
+                    t.Insertar(txtDPI.getText(), txtNombre.getText(), txtApellido.getText(), txtGenero.getText(), txtTelefono.getText(), txtDireccion.getText(),0);
+                    
+                    Limpiar();
+                }
+                break;
+            case "modificar":
+                if(txtDPI.getText().equals("")||txtNombre.getText().equals("")|| txtApellido.getText().equals("")|| txtGenero.getText().equals("")||txtTelefono.getText().equals("")||txtDireccion.getText().equals("")){
+                    JOptionPane.showMessageDialog(null, "llenar todas las casillas, de lo contrario no es imposible agregar clientes");
+                }else{
+                    JOptionPane.showMessageDialog(null, "se Modifico el cliente: "+txtNombre.getText());
+                    t.Modificar(txtDPI.getText(), txtNombre.getText(), txtApellido.getText(), txtGenero.getText(), txtTelefono.getText(), txtDireccion.getText());
+                    
+                    Limpiar();
+                }
+                break;
+            case "eliminar":
+                t.Eliminar(txtKey.getText());
+                break;
+            case "mostrar":
+                
                 break;
         }
+        
     }//GEN-LAST:event_btnAccionActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
@@ -287,86 +407,19 @@ public class Cliente extends javax.swing.JFrame {
         });
     }
 
-    public void Accion(String accion){
-        opcion=accion;
-        switch(accion)
-        {
-            case "agregar":
-                //lblTitulo.setText("Registro de clientes");
-                btnAccion.setText("Agregar usuario");
-                lblKey.setVisible(false);
-                txtKey.setVisible(false);
-                btnBuscar.setVisible(false);
-                
-                
-                break;
-            case "modificar":
-                lblTitulo.setText("Modificar usuario");
-                btnAccion.setText("Modificar");
-                txtKey.setVisible(true);
-                lblKey.setVisible(true);
-                btnBuscar.setVisible(false);
-                //para que no puedan mostrarse los textos
-                txtDPI.enable(false);
-                txtNombre.enable(false);
-                txtApellido.enable(false);
-                txtGenero.enable(false);
-                txtTelefono.enable(false);
-                txtDireccion.enable(false);
-                
-                break;
-            case "eliminar":
-                lblTitulo.setText("Eliminar usuario");
-                btnAccion.setText("Eliminar");
-                txtKey.setVisible(true);
-                lblKey.setVisible(true);
-                //para que no puedan modificarse los textos 
-                txtDPI.enable(false);
-                txtNombre.enable(false);
-                txtApellido.enable(false);
-                txtGenero.enable(false);
-                txtTelefono.enable(false);
-                txtDireccion.enable(false);
-                
-                break;
-            case "mostrar":
-                lblTitulo.setText("Mostrar un usuario");
-                btnAccion.setText("Mostrar");
-                txtKey.setVisible(true);
-                lblKey.setVisible(true);
-                //para que no puedan modificarse los textos 
-                txtDPI.enable(false);
-                txtNombre.enable(false);
-                txtApellido.enable(false);
-                txtGenero.enable(false);
-                txtTelefono.enable(false);
-                txtDireccion.enable(false);
-                break;
-                
-                
-            
-        }
+   
+    
+    public void Limpiar() {
+        txtKey.setText("");
+        txtDPI.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtGenero.setText("");
+        txtTelefono.setText("");
+        txtDireccion.setText("");
     }
     
-    
-    
-    public void Insertar(String DPI, String Nombre, String Apellido , String Genero, String Telefono, String Direccion){
-        t.Insertar(DPI, Nombre, Apellido, Genero, Telefono, Direccion);
-        JOptionPane.showMessageDialog(null, "se registro el cliente: "+Nombre);
-    }
-    
-    public void Modificar(String DPI, String Nombre, String Apellido , String Genero, String Telefono, String Direccion){
-        
-    }
-    
-    public void Eliminar(String DPI, String Nombre, String Apellido , String Genero, String Telefono, String Direccion){
-        
-    }
-    
-    public void Mostrar(String DPI){
-        
-    }
-    
+  
   
     
     

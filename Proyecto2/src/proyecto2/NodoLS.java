@@ -29,7 +29,7 @@ public class NodoLS {
         this.Telefono = Telefono;
         this.Direccion = Direccion;
         this.siguiente = null;
-        this.anterior = null;
+        this.anterior=null;
     }
     
     

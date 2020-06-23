@@ -21,7 +21,6 @@ public class MenuCliente extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         c=new Cliente();
-        c.setDatos(h, this);
        // this.h = t;
     }
 
@@ -139,13 +138,15 @@ public class MenuCliente extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
                 // TODO add your handling code here:
        // Cliente c=new Cliente(h);
-        this.setVisible(false);
+        c.setDatos(h, this);
         c.Accion("agregar");
         c.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
        // Cliente c=new Cliente(h);
+        c.setDatos(h, this);
         c.Accion("modificar");
         c.setVisible(true);
         this.setVisible(false);
@@ -153,6 +154,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
       //  Cliente c=new Cliente(h);
+        c.setDatos(h, this);
         c.Accion("eliminar");
         c.setVisible(true);
         this.setVisible(false);
@@ -160,6 +162,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
        // Cliente c=new Cliente(h);
+        c.setDatos(h, this);
         c.Accion("mostrar");
         c.setVisible(true);
         this.setVisible(false);
