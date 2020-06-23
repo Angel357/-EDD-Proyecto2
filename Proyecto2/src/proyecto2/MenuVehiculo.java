@@ -12,29 +12,18 @@ package proyecto2;
  */
 public class MenuVehiculo extends javax.swing.JFrame {
 
+    ArbolB tree; 
+    Vehiculo agregar;
+    Vehiculo modificar;
+    
     /** Creates new form MenuVehiculo */
     public MenuVehiculo() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
-         ArbolB t = new ArbolB(5);
-         
-        t.insertar("P10D");
-        t.insertar("P10A");
-        t.insertar("P10B");
-        t.insertar("P10C");
-        t.insertar("P10E");
-        t.insertar("P10F");
-        t.insertar("P10G");
-        t.insertar("P10H");
-        
-        if(t.buscar("P10F")!= null)
-        {
-            System.out.println(t.buscar("P10F").keys[t.currentKey()]);
-        }
-        
-        System.out.println("Impresion del arbol construido");
-        t.imprimir();
+        this.setVisible(true);
+        tree = new ArbolB(5);
+        //agregar.setVisible(false);
+        //modificar.setVisible(false);
     }
 
     /** This method is called from within the constructor to
@@ -134,30 +123,25 @@ public class MenuVehiculo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Vehiculo v = new Vehiculo(2);
-        v.setVisible(true);
-        this.dispose();
+        modificar = new Vehiculo(2,tree);
+        modificar.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Vehiculo v = new Vehiculo(1);
-        v.setVisible(true);
-        this.dispose();
+        agregar = new Vehiculo(1, tree);
+        agregar.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Vehiculo v = new Vehiculo(3);
-        v.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        Vehiculo v = new Vehiculo(4);
-        v.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
