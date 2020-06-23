@@ -14,16 +14,25 @@ import java.awt.Color;
  
 public class Vehiculo extends javax.swing.JFrame {
 
-    static ArbolB t; // declarando arbol de grado 5
+    ArbolB tree; // declarando arbol de grado 5
     MenuVehiculo menu;
+    int opt;
+    
     /**
      * Creates new form Vehiculo
      */
-    public Vehiculo(int opt, ArbolB t) {
+    public Vehiculo() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.t = t;
-        menu = new MenuVehiculo();
+        
+    }
+
+    public void setDatos(int opt, ArbolB tree, MenuVehiculo menu)
+    {
+        this.opt = opt;
+        this.tree = tree;
+        this.menu = menu;
+        
         switch(opt)
         {
             case 1: 
@@ -83,9 +92,7 @@ public class Vehiculo extends javax.swing.JFrame {
             case 5:
                 break;
         }
-            
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -274,9 +281,10 @@ public class Vehiculo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        //ArbolB tree = new ArbolB(5);
         
         String dato = jTextField2.getText().toUpperCase().trim().replace(" ", "");
-        t.insertar(dato);
+        tree.insertar(dato);
         
         /*
         t.insertar("P10A");
@@ -290,13 +298,14 @@ public class Vehiculo extends javax.swing.JFrame {
         
         
         System.out.println("Impresion del arbol construido");
-        t.imprimir();
+        tree.imprimir();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
         menu.setVisible(true);
+        menu.setArbol(tree);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -304,9 +313,9 @@ public class Vehiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
         String dato = jTextField1.getText().toUpperCase().trim().replace(" ", "");
         System.out.println(dato);
-        if(t.buscar(dato)!= null)
+        if(tree.buscar(dato)!= null)
         {
-            System.out.println(t.buscar(dato).keys[t.currentKey()]);
+            System.out.println(tree.buscar(dato).keys[tree.currentKey()]);
         }
         else
         {
@@ -344,7 +353,7 @@ public class Vehiculo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vehiculo(1,t).setVisible(true);
+                new Vehiculo().setVisible(true);
             }
         });
     }

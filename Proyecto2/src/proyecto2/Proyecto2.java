@@ -39,7 +39,12 @@ public class Proyecto2 {
           MenuCliente m= new MenuCliente();
           m.setHash(t); 
           m.setVisible(true);
-         
+          
+          ArbolB arbol = new ArbolB(5);
+          MenuVehiculo mV = new MenuVehiculo();
+          mV.setArbol(arbol);
+          mV.setVisible(true);
+          
 //        MenuCliente m=new MenuCliente();
 //        m.setHash(t);
 //        m.setVisible(true);

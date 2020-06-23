@@ -13,17 +13,23 @@ package proyecto2;
 public class MenuVehiculo extends javax.swing.JFrame {
 
     ArbolB tree; 
-    Vehiculo agregar;
-    Vehiculo modificar;
+    Vehiculo vehiculo;
     
     /** Creates new form MenuVehiculo */
     public MenuVehiculo() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        tree = new ArbolB(5);
+        
+        vehiculo = new Vehiculo();
+        
         //agregar.setVisible(false);
         //modificar.setVisible(false);
+    }
+    
+    public void setArbol(ArbolB tree)
+    {
+        this.tree = tree;
     }
 
     /** This method is called from within the constructor to
@@ -123,15 +129,15 @@ public class MenuVehiculo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        modificar = new Vehiculo(2,tree);
-        modificar.setVisible(true);
+        vehiculo.setVisible(true);
+        vehiculo.setDatos(2, tree,this);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        agregar = new Vehiculo(1, tree);
-        agregar.setVisible(true);
+        vehiculo.setVisible(true);
+        vehiculo.setDatos(1, tree,this);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
