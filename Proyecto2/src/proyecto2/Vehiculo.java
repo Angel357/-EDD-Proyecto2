@@ -11,14 +11,19 @@ import java.awt.Color;
  *
  * @author wilson
  */
+ 
 public class Vehiculo extends javax.swing.JFrame {
 
+    static ArbolB t; // declarando arbol de grado 5
+    MenuVehiculo menu;
     /**
      * Creates new form Vehiculo
      */
-    public Vehiculo(int opt) {
+    public Vehiculo(int opt, ArbolB t) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.t = t;
+        menu = new MenuVehiculo();
         switch(opt)
         {
             case 1: 
@@ -166,6 +171,11 @@ public class Vehiculo extends javax.swing.JFrame {
         });
 
         jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -264,14 +274,45 @@ public class Vehiculo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        String dato = jTextField2.getText().toUpperCase().trim().replace(" ", "");
+        t.insertar(dato);
+        
+        /*
+        t.insertar("P10A");
+        t.insertar("P10B");
+        t.insertar("P10C");
+        t.insertar("P10E");
+        t.insertar("P10F");
+        t.insertar("P10G");
+        t.insertar("P10H");
+        */
+        
+        
+        System.out.println("Impresion del arbol construido");
+        t.imprimir();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        MenuVehiculo m=new MenuVehiculo();
-        m.setVisible(true);
-        this.dispose();
+        
+        menu.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String dato = jTextField1.getText().toUpperCase().trim().replace(" ", "");
+        System.out.println(dato);
+        if(t.buscar(dato)!= null)
+        {
+            System.out.println(t.buscar(dato).keys[t.currentKey()]);
+        }
+        else
+        {
+            System.out.println("No existe placa");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,7 +344,7 @@ public class Vehiculo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vehiculo(1).setVisible(true);
+                new Vehiculo(1,t).setVisible(true);
             }
         });
     }
