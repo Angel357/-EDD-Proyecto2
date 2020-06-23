@@ -71,7 +71,7 @@ public class nodoArbolB {
         this.i = i;
     }
     
-    public void insertarNoLleno(String k)
+    public void insertarNoLleno(String k, ObjVehiculo kVehiculo)
     {
         int i = n - 1;
         
@@ -81,9 +81,11 @@ public class nodoArbolB {
             while(i >= 0 && keys[i].compareToIgnoreCase(k) > 0)
             {
                 keys[i+1] = keys[i];
+                objV[i+1] = objV[i]; 
                 i--;
             }
             keys[i+1] = k;
+            objV[i+1] = kVehiculo;
             n++;
         }
         else // si no es hoja
@@ -99,7 +101,7 @@ public class nodoArbolB {
                 if(keys[i+1].compareToIgnoreCase(k) < 0)
                     i++;
             }
-            C[i+1].insertarNoLleno(k);
+            C[i+1].insertarNoLleno(k,kVehiculo);
         }
         
     }

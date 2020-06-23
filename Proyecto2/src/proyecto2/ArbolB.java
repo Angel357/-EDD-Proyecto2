@@ -11,7 +11,7 @@ package proyecto2;
  */
 public class ArbolB {
     
-     public nodoArbolB root;
+    public nodoArbolB root;
     public int t;
     
     ArbolB(int t)
@@ -41,12 +41,13 @@ public class ArbolB {
     }
     
     
-    public void insertar(String k)
+    public void insertar(String k, ObjVehiculo objV)
     {
         if(root == null)
         {
             root = new nodoArbolB(t,true);
             root.keys[0] = k;
+            root.objV[0] = objV;
             root.n = 1;
         }
         else
@@ -60,12 +61,12 @@ public class ArbolB {
                 int i = 0;
                 if(s.keys[0].compareToIgnoreCase(k) < 0)
                     i++;
-                s.C[i].insertarNoLleno(k);
+                s.C[i].insertarNoLleno(k, objV);
                 
                 root = s;
             }
             else  // si la raiz no esta llena solo insertarlo.
-                root.insertarNoLleno(k);
+                root.insertarNoLleno(k, objV);
         }
         
     }

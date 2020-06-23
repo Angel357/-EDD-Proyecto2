@@ -283,8 +283,19 @@ public class Vehiculo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         // Insertar un dato.
-        String dato = jTextField2.getText().toUpperCase().trim().replace(" ", "");
-        tree.insertar(dato);
+        String placa   = jTextField2.getText().toUpperCase().trim().replace(" ", "");
+        String marca   = jTextField3.getText().toUpperCase().trim().replace(" ", "");
+        String modelo  = jTextField4.getText().toUpperCase().trim().replace(" ", "");
+        String year    = jTextField5.getText().toUpperCase().trim().replace(" ", "");
+        String color   = jTextField6.getText().toUpperCase().trim().replace(" ", "");
+        String precio  = jTextField7.getText().toUpperCase().trim().replace(" ", "");
+        String trans   = jTextField8.getText().toUpperCase().trim().replace(" ", "");
+        
+        
+        
+        ObjVehiculo insertarV = new ObjVehiculo(placa, marca, modelo, year, color, precio, trans);
+        
+        tree.insertar(placa, insertarV);
         
         /*
         t.insertar("P10A");
@@ -313,9 +324,12 @@ public class Vehiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
         String dato = jTextField1.getText().toUpperCase().trim().replace(" ", "");
         System.out.println(dato);
+        
         if(tree.buscar(dato)!= null)
         {
-            System.out.println(tree.buscar(dato).keys[tree.currentKey()]);
+            jTextField2.setText(tree.buscar(dato).objV[tree.currentKey()].getPlaca());
+            jTextField3.setText(tree.buscar(dato).objV[tree.currentKey()].getMarca());
+            
         }
         else
         {
