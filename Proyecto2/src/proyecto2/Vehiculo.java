@@ -74,6 +74,7 @@ public class Vehiculo extends javax.swing.JFrame {
                 jLabel2.setVisible(true);
                 jTextField1.setVisible(true);
                 jButton1.setText("Mostrar");
+                jButton1.setVisible(false);
                 jTextField2.setEditable(false);
                 jTextField2.setBackground(Color.GRAY);
                 jTextField3.setEditable(false);
@@ -281,8 +282,7 @@ public class Vehiculo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //ArbolB tree = new ArbolB(5);
-        
+        // Insertar un dato.
         String dato = jTextField2.getText().toUpperCase().trim().replace(" ", "");
         tree.insertar(dato);
         

@@ -34,12 +34,13 @@ public class Proyecto2 {
 //        t.Insertar("39665762515", "maciel", "castellanos", "fajardo", "45151851", "11 calle");
 //        t.imprimir();
         
-        
+        /*
           TablaHash t= new TablaHash(37);
           MenuCliente m= new MenuCliente();
           m.setHash(t); 
           m.setVisible(true);
-          
+          */
+        
           ArbolB arbol = new ArbolB(5);
           MenuVehiculo mV = new MenuVehiculo();
           mV.setArbol(arbol);

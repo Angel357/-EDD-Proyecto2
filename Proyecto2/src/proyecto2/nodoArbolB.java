@@ -11,6 +11,8 @@ package proyecto2;
  */
 public class nodoArbolB {
     String[] keys;
+    // Objetos tipo Vehiculo
+    ObjVehiculo[] objV;
     int t;
     nodoArbolB[] C;
     int n;
@@ -21,6 +23,7 @@ public class nodoArbolB {
         this.t = t;
         this.hoja = hoja;
         this.keys = new String[2*t - 1];
+        this.objV = new ObjVehiculo[2*t - 1];
         this.C = new nodoArbolB[2*t];
         this.n = 0;
     }
@@ -44,8 +47,6 @@ public class nodoArbolB {
     
     // Buscar algun nodo, regresa nulo si no existe
     int i;
-    
-    
     nodoArbolB buscar(String k)
     {
         i = 0;
@@ -64,6 +65,7 @@ public class nodoArbolB {
         return C[i].buscar(k);
     }
     
+    // Para accesar la llave actual.
     public void setCurrentKey(int i)
     {
         this.i = i;
@@ -130,4 +132,8 @@ public class nodoArbolB {
         
         n = n + 1;
     }
+    
+    
+    // Metodos de eliminar en arbol B
+    
 }
