@@ -5,6 +5,10 @@
  */
 package proyecto2;
 
+import java.awt.FileDialog;
+import java.io.File;
+import java.util.Scanner;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -137,6 +141,7 @@ public class Cliente extends javax.swing.JFrame {
         txtKey = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
+        btnCarga = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -192,6 +197,13 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
+        btnCarga.setText("CargaMasiva");
+        btnCarga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -227,9 +239,11 @@ public class Cliente extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(48, 48, 48)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnAccion)
+                                        .addGap(62, 62, 62)
+                                        .addComponent(btnCarga)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnRegresar))
                                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -240,7 +254,7 @@ public class Cliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnBuscar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(340, 340, 340)
+                        .addGap(339, 339, 339)
                         .addComponent(btnImprimir)))
                 .addGap(52, 244, Short.MAX_VALUE))
         );
@@ -281,10 +295,11 @@ public class Cliente extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAccion)
-                    .addComponent(btnRegresar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnRegresar)
+                    .addComponent(btnCarga))
+                .addGap(41, 41, 41)
                 .addComponent(btnImprimir)
-                .addGap(107, 107, 107))
+                .addGap(73, 73, 73))
         );
 
         lblTitulo.getAccessibleContext().setAccessibleName("lblTitulo");
@@ -311,7 +326,6 @@ public class Cliente extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         
         auxBusqueda=t.Buscar(txtKey.getText());
-        System.out.println("  paso por aca" );
         
         if(auxBusqueda!=null){
             txtDPI.setText(auxBusqueda.DPI);
@@ -370,7 +384,52 @@ public class Cliente extends javax.swing.JFrame {
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
        t.imprimir();
+       System.out.println("\n\n\n");
+       t.Grafico();
     }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void btnCargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargaActionPerformed
+     //este string sirve para almacenar la ruta del archivo que selecciones
+     String rutatotal="";
+     //en este string se guardara todo el archivo de texto
+     String registro="";
+     //aca te habre un cuadro de dialogo para que busques tu archivo de texto
+        FileDialog dialogoArchivo;
+        dialogoArchivo = new FileDialog(this, "Lista de Archivos desde Frame",FileDialog.LOAD);
+        dialogoArchivo.setVisible(true);
+        if(dialogoArchivo.getFile()!=null){ /* Validar que se haya Seleccionado un Archivo*/
+           String directorio = dialogoArchivo.getDirectory();
+           String nombreArchivo =dialogoArchivo.getFile(); 
+            rutatotal= directorio + nombreArchivo;
+        }
+        //luego que lo seleccionas obtiene la ruta y se la manda 
+        //a new file para que lo habra y lo recorra
+        try {
+            Scanner input = new Scanner(new File("/"+rutatotal));
+            while (input.hasNextLine()) {
+                String line = input.nextLine();
+                //cuando lo va recorriendo lo almacena en el string registro
+                registro+=line;
+            }
+            input.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        //despues se crea un arreglo con split del string del archivo completo
+        //le pones el delimitador que tiene que tener tu carga masiva al split
+        String[] arregloRegistro=registro.split(";");
+        for(int x=0;x<arregloRegistro.length;x++){
+            //recorres el arreglo ya donde esta separado linea por linea 
+            //lo descompones por cada parte sera un atributo para tu insert
+            String[] nuevo=arregloRegistro[x].split(",");
+            //luego lo inserto en mi estructura
+            //va de 0 a 5 porque tengo 6 atributos que guardar
+            t.Insertar(nuevo[0], nuevo[1], nuevo[2], nuevo[3], nuevo[4], nuevo[5], 1);
+        }
+        JOptionPane.showMessageDialog(null, "Carga masiva completada!");
+        
+        
+    }//GEN-LAST:event_btnCargaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -427,6 +486,7 @@ public class Cliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccion;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCarga;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel2;

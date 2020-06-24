@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package proyecto2;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigInteger;
 import javax.swing.JOptionPane;
 /**
@@ -51,7 +54,9 @@ public class TablaHash {
           {
              ListaSimple L=arregloHash[coordenada].getListaClientes();
              L.Insertar(DPI, Nombre, Apellido, Genero, Telefono, Direccion);
+             if(masiva==0){  
              JOptionPane.showMessageDialog(null, "se registro el cliente: "+Nombre);
+             }
           }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "esta intentando agregar letras al DPI, ingrese solo numeros");
@@ -220,6 +225,100 @@ public class TablaHash {
         }
         System.out.print(contadorHash);
           System.out.print("\n");  System.out.print("\n");  System.out.print("\n");
+    }
+    
+    public void Grafico(){
+        String Coordenadas="";
+        String ListasCoordenadas="";
+        String CoordenadaAinicio="";
+        
+        //string contendor de todas las coordenadas 
+        for(int x=0;x<size;x++)
+        {
+            if(x<size-1){
+                Coordenadas+=x+"; \n ";
+            }
+            else{
+                Coordenadas+=x+"; \n";
+            }
+                
+        }
+        //string contenedor de todas las listas en coordenadas
+        for(int x=0;x<size;x++)
+        {
+            if(arregloHash[x]!=null)
+            {
+                NodoLS aux=arregloHash[x].ListaClientes.Inicio;
+                while(aux!=null)
+                {
+                    if(aux.siguiente!=null){
+                        ListasCoordenadas+="\""+aux.DPI+" "+"\\n"+aux.Nombre+"\" -> ";
+                    }else{
+                        ListasCoordenadas+="\""+aux.DPI+" "+"\\n"+aux.Nombre+"\"; \n";
+                    }
+                    aux=aux.siguiente;
+                }
+            }
+        }
+        
+        //string contenedor de coordenada a inicio
+         for(int x=0;x<size;x++)
+        {
+            if(arregloHash[x]!=null)
+            {
+                NodoLS aux=arregloHash[x].ListaClientes.Inicio;
+               
+                CoordenadaAinicio+=x+" -> "+"\""+aux.DPI+" "+"\\n"+aux.Nombre+"\"; \n";
+               
+            }
+        }
+        
+       System.out.println("Coordenadas: \n\n"+Coordenadas+"\n\n");
+       System.out.println("listas en coordenadas: \n\n"+ListasCoordenadas+"\n\n");
+       System.out.println("Coordenadas a Inicio de listas: \n\n"+CoordenadaAinicio+"\n\n");
+       
+       
+       try{
+              File fold=new File("tablaHash.txt");
+                fold.delete();
+          }catch(Exception e1){
+              
+          }
+          
+        try {
+            //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
+            File archivo = new File("TablaHash.txt");
+
+            //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
+            FileWriter escribir = new FileWriter(archivo, true);
+            //Escribimos en el archivo con el metodo write 
+            escribir.write("digraph { \r\n"
+                         + "node[shape=box];\r\n"
+                         + "rankdir=LR;\r\n \r\n \r\n"
+                         + "subgraph cluster_1{ \r\n"
+                         + Coordenadas+"\r\n }"
+                         + "\r\n \r\n"
+                         + ListasCoordenadas+" \r\n \r\n"
+                         + CoordenadaAinicio+"\r\n \r\n }");
+            //Cerramos la conexion
+            escribir.close();
+        } //Si existe un problema al escribir cae aqui
+        catch (Exception e) {
+            System.out.println("Error al escribir");
+        }
+         
+        Runtime cmd=Runtime.getRuntime();
+    String comando="dot -Tpng TablaHash.txt -o TablaHash.png";
+    try{
+        cmd.exec(comando);
+        //cmd.exec("start TablaHash.txt");
+    }catch(Exception ex){
+        System.out.println("ex: "+ex.getMessage());
+    }
+        
+        ReporteHash r=new ReporteHash();
+        r.setImagen("TablaHash.png");
+        r.setVisible(true);
     }
     
     
