@@ -18,6 +18,10 @@ public class ObjVehiculo {
     String precio;
     String transmision;
     
+    ObjVehiculo()
+    {
+    }
+    
     ObjVehiculo(String placa, String marca, String modelo, String year, String color, String precio, String transmision)
     {
         this.placa = placa;
@@ -28,6 +32,15 @@ public class ObjVehiculo {
         this.precio = precio;
         this.transmision = transmision;
     }
+    
+    public void setPlaca(String placa)  {this.placa = placa;}
+    public void setMarca(String marca)  {this.marca = marca;}
+    public void setModelo(String modelo){this.modelo = modelo;}
+    public void setYear(String year)    {this.year = year;}
+    public void setColor(String color)  {this.color = color;}
+    public void setPrecio(String precio){this.precio = precio;}
+    public void setTrans(String trans)  {this.transmision = trans;}    
+    
     
     public String getPlaca() { return this.placa; }
     public String getMarca() { return this.marca; }

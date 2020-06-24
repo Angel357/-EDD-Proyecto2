@@ -71,4 +71,13 @@ public class ArbolB {
         
     }
 
+    public void update(nodoArbolB nodo, ObjVehiculo objV)
+    {
+        nodo.objV[currentKey()].setMarca(objV.getMarca());
+        nodo.objV[currentKey()].setModelo(objV.getModelo());
+        nodo.objV[currentKey()].setYear(objV.getYear());
+        nodo.objV[currentKey()].setColor(objV.getColor());
+        nodo.objV[currentKey()].setPrecio(objV.getPrecio());
+        nodo.objV[currentKey()].setTrans(objV.getTrans());
+    }
 }
