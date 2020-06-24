@@ -272,7 +272,7 @@ public class TablaHash {
                
             }
         }
-        
+        //prueba
        System.out.println("Coordenadas: \n\n"+Coordenadas+"\n\n");
        System.out.println("listas en coordenadas: \n\n"+ListasCoordenadas+"\n\n");
        System.out.println("Coordenadas a Inicio de listas: \n\n"+CoordenadaAinicio+"\n\n");
