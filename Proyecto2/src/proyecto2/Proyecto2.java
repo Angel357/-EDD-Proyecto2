@@ -18,9 +18,8 @@ public class Proyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-<<<<<<< HEAD
           
-        TablaHash t= new TablaHash(37);
+          TablaHash t= new TablaHash(37);
           MenuCliente m= new MenuCliente();
           m.setHash(t); 
           m.setVisible(true);
@@ -50,7 +49,6 @@ public class Proyecto2 {
 //        
 //        this.lblReporte.repaint();
 //    }
-=======
       
 //        int h=5;
 //        TablaHash t=new TablaHash(h);
@@ -80,7 +78,6 @@ public class Proyecto2 {
           MenuVehiculo mV = new MenuVehiculo();
           mV.setArbol(arbol);
           mV.setVisible(true);
->>>>>>> menuG
           
         //primer commit
         
