@@ -18,6 +18,7 @@ public class Proyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+<<<<<<< HEAD
           
         TablaHash t= new TablaHash(37);
           MenuCliente m= new MenuCliente();
@@ -49,6 +50,37 @@ public class Proyecto2 {
 //        
 //        this.lblReporte.repaint();
 //    }
+=======
+      
+//        int h=5;
+//        TablaHash t=new TablaHash(h);
+//        t.Insertar("3", "angel", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("1", "juan", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("39", "pedro", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("40", "mario", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("41", "mario", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("32652515", "mario", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("56", "mario", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("85", "mario", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("25", "mario", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("69", "marioelpopeye", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("3966515", "juan", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("3966962515", "pedro", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.Insertar("39665762515", "maciel", "castellanos", "fajardo", "45151851", "11 calle");
+//        t.imprimir();
+        
+        /*
+          TablaHash t= new TablaHash(37);
+          MenuCliente m= new MenuCliente();
+          m.setHash(t); 
+          m.setVisible(true);
+          */
+        
+          ArbolB arbol = new ArbolB(5);
+          MenuVehiculo mV = new MenuVehiculo();
+          mV.setArbol(arbol);
+          mV.setVisible(true);
+>>>>>>> menuG
           
         //primer commit
         
