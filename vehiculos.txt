@@ -1,0 +1,8 @@
+P111AAA,Honda,R10,2015,Negro,1500, mecanico;
+P111AAB,Honda,R10,2015,Negro,1500, mecanico;
+P111AAC,Honda,R10,2015,Negro,1500, mecanico;
+P111AAD,Honda,R10,2015,Negro,1500, mecanico;
+P111AAF,Italika,R10,2015,Negro,1500, mecanico;
+P111AAG,Honda,R10,2015,Negro,1500, mecanico;
+P111AAH,Honda,R10,2015,Negro,1500, mecanico;
+P111AAE,Italika,R10,2015,Amarillo,1500, mecanico;

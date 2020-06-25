@@ -19,11 +19,12 @@ public class Proyecto2 {
      */
     public static void main(String[] args) {
           
+        /*
           TablaHash t= new TablaHash(37);
           MenuCliente m= new MenuCliente();
           m.setHash(t); 
           m.setVisible(true);
-          
+          **/
 //          ArbolB arbol = new ArbolB(5);
 //          MenuVehiculo mV = new MenuVehiculo();
 //          mV.setArbol(arbol);
@@ -74,17 +75,58 @@ public class Proyecto2 {
           m.setVisible(true);
           */
         
+        /*
           ArbolB arbol = new ArbolB(5);
           MenuVehiculo mV = new MenuVehiculo();
           mV.setArbol(arbol);
           mV.setVisible(true);
-          
+         */
+         
+        ListaConductor lista = new ListaConductor();
+        MenuConductor mC = new MenuConductor();
+        mC.setLista(lista);
+        mC.setVisible(true);
+        
         //primer commit
         
-        
         //dot -Tpng graf.txt -o graf.png
+        /*
+        ListaConductor lista = new ListaConductor();
+        Conductor one = new Conductor();
+        Conductor two = new Conductor();
+        Conductor three = new Conductor();
+        Conductor four = new Conductor();
+        Conductor five = new Conductor();
+        
+        one.setDpi(BigInteger.valueOf(50));
+        two.setDpi(BigInteger.valueOf(10));
+        three.setDpi(BigInteger.valueOf(30));
+        four.setDpi(BigInteger.valueOf(80));
+        five.setDpi(BigInteger.valueOf(50));
           
-          
+        //ListaConductor lista = new ListaConductor();
+        
+        lista.insertarFinal(two);
+        lista.insertarFinal(one);
+        lista.insertarFinal(three);
+        lista.insertarFinal(four);
+        lista.insertarFinal(five);
+        
+        lista.imprimir();
+        */
+        //lista.imprimir();
+        /*
+        System.out.println("Se econtro: " + lista.buscar(BigInteger.valueOf(20)).data.getDpi());
+        //System.out.println("Se econtro: " + lista.buscar(BigInteger.valueOf(50)).data.getDpi());
+        
+        try
+        {
+            if(lista.buscar(BigInteger.valueOf(200)).data==null){
+            System.out.println("No existe");
+        }else{
+            System.out.println("Se econtro: " + lista.buscar(BigInteger.valueOf(100)).data.getDpi());
+        }
+        }catch(Exception e){}*/
     }
     
 }

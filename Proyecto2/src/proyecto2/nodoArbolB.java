@@ -52,12 +52,14 @@ public class nodoArbolB {
         i = 0;
         while(i < n && k.compareToIgnoreCase(keys[i]) > 0)
             i++;
-        
-        if(keys[i].compareToIgnoreCase(k) == 0)
+        try
         {
-            setCurrentKey(i);
-            return this;
-        }
+            if (keys[i].compareToIgnoreCase(k) == 0) {
+                setCurrentKey(i);
+                return this;
+            }
+        }catch(Exception ex) { ex.printStackTrace();}
+        
             
         if(hoja==true)
             return null;
