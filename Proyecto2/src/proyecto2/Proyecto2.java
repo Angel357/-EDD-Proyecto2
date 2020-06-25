@@ -8,6 +8,7 @@ package proyecto2;
 import java.io.File;
 import java.io.FileWriter;
 import java.math.BigInteger;
+import java.util.Date;
 /**
  *
  * @author luisa
@@ -18,18 +19,22 @@ public class Proyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-          
+
+        Block test = new Block("puta", new Date());
+        
+        
         /*
+        ArbolB arbol = new ArbolB(5);
+        MenuVehiculo mV = new MenuVehiculo();
+        mV.setArbol(arbol);
+        mV.setVisible(true);
+        */
+         /*
+//          
           TablaHash t= new TablaHash(37);
           MenuCliente m= new MenuCliente();
           m.setHash(t); 
           m.setVisible(true);
-          **/
-//          ArbolB arbol = new ArbolB(5);
-//          MenuVehiculo mV = new MenuVehiculo();
-//          mV.setArbol(arbol);
-//          mV.setVisible(true);
-          
 //       
                     
 //          try {

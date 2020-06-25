@@ -5,6 +5,7 @@
  */
 package proyecto2;
 
+import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -16,105 +17,42 @@ import java.util.Date;
  * @author wilson
  */
 public class Block {
-    private String version;
+    private String placa;
     private Date fechaHora;
-    private String hash;
-    private String hashAnterior;
-    private String data;
     
-    public Block(String version, Date fechaHora, String data)
+    private String hashMD5;
+    
+    
+    public Block(String placa, Date fechaHora)
     {
-        this.version = version;
+        this.placa = placa;
         this.fechaHora = fechaHora;
-        this.data = data;
-        this.hash = obtenerHash();
+        
+        System.out.println("Fecha hora: " + fechaHora);
+        String password = "123456";
+        System.out.print("Md5: " + obtenerHash(password));
     }
     
-    public String obtenerHash()
+    public String obtenerHash(String input)
     {
-        String dataToHash = ""  + this.getVersion() + this.getFechaHora() + this.getHashAnterior() + this.getData();
+        String dataToHash = input;
+        //String dataToHash = "" + this.getPlaca()  + this.getFechaHora();
         MessageDigest digest;
         String encoded = null;
         
         try{
-            digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(dataToHash.getBytes(StandardCharsets.UTF_8));
-            encoded = Base64.getEncoder().encodeToString(hash);
+            digest = MessageDigest.getInstance("MD5");
+            byte[] hash = digest.digest(dataToHash.getBytes());
+            BigInteger number = new BigInteger(1,hash);
+            String hashtext = number.toString(16);
+            while(hashtext.length() < 32 )
+                hashtext = "0" + hashtext;
+            encoded = hashtext;
         }catch(NoSuchAlgorithmException e){
             e.printStackTrace(); 
         }
         
-        this.setHash(encoded);
+        //this.setHash(encoded);
         return encoded;
-    }
-
-    /**
-     * @return the version
-     */
-    public String getVersion() {
-        return version;
-    }
-
-    /**
-     * @param version the version to set
-     */
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    /**
-     * @return the fechaHora
-     */
-    public Date getFechaHora() {
-        return fechaHora;
-    }
-
-    /**
-     * @param fechaHora the fechaHora to set
-     */
-    public void setFechaHora(Date fechaHora) {
-        this.fechaHora = fechaHora;
-    }
-
-    /**
-     * @return the hash
-     */
-    public String getHash() {
-        return hash;
-    }
-
-    /**
-     * @param hash the hash to set
-     */
-    public void setHash(String hash) {
-        this.hash = hash;
-    }
-
-    /**
-     * @return the hashAnterior
-     */
-    public String getHashAnterior() {
-        return hashAnterior;
-    }
-
-    /**
-     * @param hashAnterior the hashAnterior to set
-     */
-    public void setHashAnterior(String hashAnterior) {
-        this.hashAnterior = hashAnterior;
-    }
-
-    /**
-     * @return the data
-     */
-    public String getData() {
-        return data;
-    }
-
-    /**
-     * @param data the data to set
-     */
-    public void setData(String data) {
-        this.data = data;
     }
 }

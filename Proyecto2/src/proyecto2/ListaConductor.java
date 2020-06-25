@@ -5,6 +5,9 @@
  */
 package proyecto2;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigInteger;
 
 /**
@@ -131,6 +134,84 @@ public class ListaConductor {
         System.out.print(temp.data.getDpi() + "\n");
     }
     
+    
+    public void graph()
+    {
+        getDot(start);
+    }
+    
+    public void getDot(NodoLD n)
+    {
+        NodoLD aux = n;
+
+        /*
+        try {
+            File fold = new File("tablaHash.txt");
+            fold.delete();
+        } catch (Exception e1) {
+
+        }*/
+        String label;
+        try {
+            //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
+            File archivo = new File("graphListaC.dot");
+            
+            if(archivo.exists())
+            {
+                archivo.delete();
+                try{
+                    archivo.createNewFile();
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
+            //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
+            
+            FileWriter escribir = new FileWriter(archivo, true);
+            
+            //Escribimos en el archivo con el metodo write 
+            // setting the una lista doble;
+            escribir.write("digraph {\r\n");
+            escribir.write("node[shape=box];\r\n");
+            escribir.write("rankdir=LR;\r\n");
+            // Dibujar nodos y links
+            
+            
+            do {
+                // Cuando no hay datos cargados borra todo, porque es null
+                label = aux.data.getDpi().toString() + "[shape=box, label=\"" + aux.data.getDpi().toString() + "\"]; \r\n";
+                escribir.write(label);
+                String link = aux.data.getDpi() + "->" + aux.next.data.getDpi() + "\r\n";
+                link = link + aux.data.getDpi() + "->" + aux.prev.data.getDpi() + "\r\n";
+                escribir.write(link);
+                aux = aux.next;
+            }while(aux != start);
+            
+            escribir.write(" }\r\n");
+            
+            //Cerramos la conexion
+            escribir.close();
+        } //Si existe un problema al escribir cae aqui
+        catch (Exception e) {
+            System.out.println("Error al escribir");
+        }
+
+        Runtime cmd = Runtime.getRuntime();
+        String comando = "dot -Tpng graphListaC.dot -o graphListaC.png";
+        try {
+            cmd.exec(comando);
+            //cmd.exec("start .\\graphListaC.txt");
+        } catch (Exception ex) {
+            System.out.println("ex: " + ex.getMessage());
+        }
+
+        ReporteLista r = new ReporteLista();
+        r.setImage("graphListaC.png");
+        r.setVisible(true);
+    }
+    
+    
+    /// Metodo de prueba
     public void ordenar()
     {
         NodoLD aux = start;

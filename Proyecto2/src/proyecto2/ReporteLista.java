@@ -6,29 +6,46 @@
 package proyecto2;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
  * @author wilson
  */
-public class ReporteArbolB extends javax.swing.JFrame {
+public class ReporteLista extends javax.swing.JFrame {
 
+    JPanel jp = new JPanel();
+    JLabel jl = new JLabel();
     /**
-     * Creates new form ReporteArbolB
+     * Creates new form ReporteLista
      */
-    public ReporteArbolB() {
+    public ReporteLista() {
         initComponents();
+        
+        this.setSize(600,800);
+        //this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setResizable(false);
     }
     
     public void setImage(String image)
     {
+        /*
         ImageIcon im = new ImageIcon(image);
         ImageIcon structure = new ImageIcon(im.getImage());
-        this.setSize(this.getHeight(), im.getImage().getWidth(rootPane));
+        this.setSize(im.getImage().getHeight(rootPane), im.getImage().getWidth(rootPane));
+        jl.setIcon(structure);
+        jp.add(jl);
+        
+        this.add(jp);
+        this.validate();*/
+        
+        ImageIcon im = new ImageIcon(image);
+        ImageIcon structure = new ImageIcon(im.getImage());
+        this.setSize(im.getImage().getWidth(rootPane),this.getHeight()/2);
         jLabel1.setIcon(structure);
         this.jLabel1.repaint();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,19 +59,21 @@ public class ReporteArbolB extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(200, 200));
 
-        jLabel1.setText("jLabel1");
         jScrollPane1.setViewportView(jLabel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         pack();
@@ -77,20 +96,20 @@ public class ReporteArbolB extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReporteArbolB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReporteLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReporteArbolB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReporteLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReporteArbolB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReporteLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReporteArbolB.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReporteLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReporteArbolB().setVisible(true);
+                new ReporteLista().setVisible(true);
             }
         });
     }
