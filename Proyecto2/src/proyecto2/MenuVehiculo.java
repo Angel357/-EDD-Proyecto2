@@ -12,25 +12,41 @@ package proyecto2;
  */
 public class MenuVehiculo extends javax.swing.JFrame {
 
-    ArbolB tree; 
+    //estructuras
+    TablaHash estructuraClientes;
+    ListaConductor estructuraConductores;
+    ArbolB tree;
+    ColaAdyacentes estructuraRuta;
+     
     Vehiculo vehiculo;
+    MenuGeneral menu;
     
     /** Creates new form MenuVehiculo */
     public MenuVehiculo() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setVisible(true);
-        
-        vehiculo = new Vehiculo();
         
         //agregar.setVisible(false);
         //modificar.setVisible(false);
     }
     
-    public void setArbol(ArbolB tree)
-    {
-        this.tree = tree;
+    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta){
+        this.estructuraClientes=estructuraClientes;
+        this.estructuraConductores=estructuraConductores;
+        this.tree=estructuraVehiculos;
+        this.estructuraRuta=estructuraRuta;
     }
+    
+    public void setArbol(ArbolB tree){
+        this.tree=tree;
+    }
+    
+    public void setVentanas(Vehiculo vehiculo, MenuGeneral menu){
+        this.vehiculo=vehiculo;
+        this.menu=menu;
+    }
+    
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -47,8 +63,9 @@ public class MenuVehiculo extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel1.setText("MENU VEHICULO");
@@ -88,6 +105,13 @@ public class MenuVehiculo extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,7 +132,10 @@ public class MenuVehiculo extends javax.swing.JFrame {
                                 .addGap(59, 59, 59)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addComponent(btnRegresar)))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,7 +153,9 @@ public class MenuVehiculo extends javax.swing.JFrame {
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jButton5)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(btnRegresar)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -165,6 +194,12 @@ public class MenuVehiculo extends javax.swing.JFrame {
         tree.graph();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+       menu.setEstructuras(estructuraClientes, estructuraConductores, tree, estructuraRuta);
+       menu.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -201,6 +236,7 @@ public class MenuVehiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

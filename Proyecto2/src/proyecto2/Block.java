@@ -25,6 +25,11 @@ public class Block {
     Block next;
     Block prev;
     
+    ListaConductor conductores;
+    TablaHash clientes;
+    Ruta recorrido;
+    ArbolB  vehiculos;
+    
     public Block(String placa)
     {
         this.key = obtenerHash(formatKey(placa));

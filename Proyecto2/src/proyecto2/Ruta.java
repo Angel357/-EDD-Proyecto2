@@ -103,7 +103,4 @@ public class Ruta {
         System.out.println("\n\n"+rutaImpresa);
     }
     
-    public Ruta GetRuta(){
-        return this;
-    }
 }

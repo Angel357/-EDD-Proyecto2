@@ -28,11 +28,9 @@ public class Vehiculo extends javax.swing.JFrame {
     public Vehiculo() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
     }
 
-    public void setDatos(int opt, ArbolB tree, MenuVehiculo menu)
-    {
+    public void setDatos(int opt, ArbolB tree, MenuVehiculo menu){
         this.opt = opt;
         this.tree = tree;
         this.menu = menu;
@@ -438,7 +436,7 @@ public class Vehiculo extends javax.swing.JFrame {
         String registro = "";
         
         FileDialog dialogArchivo;
-        dialogArchivo = new FileDialog(this, "Lista de Archivos desde Frame", FileDialog.LOAD);
+        dialogArchivo = new FileDialog(this, "Carga masiva de Vehiculos", FileDialog.LOAD);
         dialogArchivo.setVisible(true);
         // obtener informacion de archivo
         if (dialogArchivo.getFile() != null) {

@@ -16,8 +16,7 @@ public class Chain {
         this.start = null;
     }
     
-    public void insertarFinal(String placa)
-    {
+    public void insertarFinal(String placa, TablaHash clientes, Ruta recorrido, ListaConductor conductores, ArbolB vehiculos){
         Block newBlock = new Block(placa);
         //newBlock.next = null;
         
@@ -35,8 +34,6 @@ public class Chain {
             newBlock.prev = auxFin;
         }
     }
-    
-    
     
     public void printList()
     {
@@ -144,31 +141,6 @@ public class Chain {
         }
     }
     
-    /*
-    /// Metodo de prueba
-    public void ordenar()
-    {
-        NodoLD aux = start;
-        NodoLD aux2 = start.getNext();
-        
-        NodoLD test = null;
-        
-        while(aux.next.next != start)
-        {
-            while(aux2.next != start)
-            {
-                if(aux.data.getDpi().compareTo(aux2.data.getDpi()) == 1)
-                {
-                    test.data = aux2.data;
-                    aux2.data = aux.data;
-                    aux.data = test.data;
-                    start.data = aux.data;
-                }
-                aux2 = aux2.next;
-            }
-            
-            aux = aux.next;
-        }
-    }*/
+    
     
 }

@@ -33,8 +33,7 @@ public class Cliente extends javax.swing.JFrame {
         txtKey.setVisible(true); 
         
     }
-    public void setDatos(TablaHash t, MenuCliente m)
-    {
+    public void setDatos(TablaHash t, MenuCliente m){
         this.m=m;
         this.t=t;
     }
@@ -50,6 +49,7 @@ public class Cliente extends javax.swing.JFrame {
                 txtKey.setVisible(false);
                 btnBuscar.setVisible(false);
                 btnAccion.setVisible(true);
+                btnCarga.setVisible(true);
                 
                 txtDPI.enable(true);
                 txtNombre.enable(true);
@@ -67,6 +67,7 @@ public class Cliente extends javax.swing.JFrame {
                 lblKey.setVisible(true);
                 btnBuscar.setVisible(true);
                 btnAccion.setVisible(true);
+                btnCarga.setVisible(false);
                 //para que no puedan mostrarse los textos
                 txtDPI.enable(false);
                 txtNombre.enable(false);
@@ -83,6 +84,7 @@ public class Cliente extends javax.swing.JFrame {
                 lblKey.setVisible(true);
                 btnBuscar.setVisible(true);
                 btnAccion.setVisible(true);
+                btnCarga.setVisible(false);
                 //para que no puedan modificarse los textos 
                 txtDPI.enable(false);
                 txtNombre.enable(false);
@@ -98,6 +100,7 @@ public class Cliente extends javax.swing.JFrame {
                 btnBuscar.setVisible(true);
                 txtKey.setVisible(true);
                 lblKey.setVisible(true);
+                btnCarga.setVisible(false);
                 btnAccion.setVisible(false);
                 //para que no puedan modificarse los textos 
                 txtDPI.enable(false);
@@ -140,7 +143,6 @@ public class Cliente extends javax.swing.JFrame {
         lblKey = new javax.swing.JLabel();
         txtKey = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        btnImprimir = new javax.swing.JButton();
         btnCarga = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -187,13 +189,6 @@ public class Cliente extends javax.swing.JFrame {
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
-            }
-        });
-
-        btnImprimir.setText("Imprimir");
-        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirActionPerformed(evt);
             }
         });
 
@@ -252,10 +247,7 @@ public class Cliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtKey)))
                         .addGap(18, 18, 18)
-                        .addComponent(btnBuscar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(339, 339, 339)
-                        .addComponent(btnImprimir)))
+                        .addComponent(btnBuscar)))
                 .addGap(52, 244, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -297,9 +289,7 @@ public class Cliente extends javax.swing.JFrame {
                     .addComponent(btnAccion)
                     .addComponent(btnRegresar)
                     .addComponent(btnCarga))
-                .addGap(41, 41, 41)
-                .addComponent(btnImprimir)
-                .addGap(73, 73, 73))
+                .addGap(139, 139, 139))
         );
 
         lblTitulo.getAccessibleContext().setAccessibleName("lblTitulo");
@@ -378,7 +368,8 @@ public class Cliente extends javax.swing.JFrame {
                 }
                 break;
             case "eliminar":
-                t.Eliminar(txtKey.getText());
+                t.Eliminar(txtDPI.getText());
+                Limpiar();
                 break;
             case "mostrar":
                 
@@ -386,12 +377,6 @@ public class Cliente extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnAccionActionPerformed
-
-    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-       t.imprimir();
-       System.out.println("\n\n\n");
-       t.Grafico();
-    }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnCargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargaActionPerformed
      //este string sirve para almacenar la ruta del archivo que selecciones
@@ -492,7 +477,6 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JButton btnAccion;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCarga;
-    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

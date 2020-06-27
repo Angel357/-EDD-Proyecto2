@@ -16,6 +16,7 @@ public class ColaAdyacentes {
     public ColaAdyacentes pops;
     public ColaAdyacentes Ruta;
     public int pesoAcumulado=0;
+    public Ruta ruta;
     public Grafo g;
     
     public ColaAdyacentes(){
@@ -89,10 +90,11 @@ public class ColaAdyacentes {
         while(!Pad.nombre.equals(Destino)){
             Pop();
             if(Pad.nombre.equals(Destino)){
-                
-                
-                
-                
+                ruta = new Ruta();
+                while(Pad.Padre!=null){
+                    ruta.insertar(Pad.peso, Pad.acumulado, Pad.nombre);
+                    Pad=Pad.Padre;
+                }
             }else{
                 InsertarAdyacentes();
             }
@@ -102,7 +104,9 @@ public class ColaAdyacentes {
     public void GenerarGrafo(){
         Grafo grafo= new Grafo();
         grafo.GenerarGrafo();
-        this.g=grafo.getGrafo();
+        this.g=grafo;
     }
+    
+    
     
 }

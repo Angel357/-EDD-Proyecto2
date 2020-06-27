@@ -219,8 +219,8 @@ public class ListaConductor {
             
         }
 
-        ReporteLista r = new ReporteLista();
-        r.setImage("graphListaC.png");
+        ReporteHash r = new ReporteHash();
+        r.setImagen("graphListaC.png");
         r.setVisible(true);
     }
     

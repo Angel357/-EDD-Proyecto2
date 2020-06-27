@@ -48,7 +48,7 @@ public class Grafo extends javax.swing.JFrame {
             String registro="";
             //aca te habre un cuadro de dialogo para que busques tu archivo de texto
             FileDialog dialogoArchivo;
-            dialogoArchivo = new FileDialog(this, "Lista de Archivos desde Frame",FileDialog.LOAD);
+            dialogoArchivo = new FileDialog(this, "Carga masiva de rutas",FileDialog.LOAD);
             dialogoArchivo.setVisible(true);
             if(dialogoArchivo.getFile()!=null){ /* Validar que se haya Seleccionado un Archivo*/
                String directorio = dialogoArchivo.getDirectory();
@@ -95,14 +95,14 @@ public class Grafo extends javax.swing.JFrame {
     }catch(InterruptedException e){
         
     }
-        ReporteHash r=new ReporteHash();
+       
+    }// fin de metodo que genera el grafo
+    
+    public void MostrarGrafo(){
+         ReporteHash r=new ReporteHash();
         r.setImagen("Grafo.png");
         r.setVisible(true);
-    }// fin de metodo que genera el grafo
-    public Grafo getGrafo(){
-        return this;
-        
-    }//fin metodo que retornar el grafo
+    }
     
     
     

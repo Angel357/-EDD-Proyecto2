@@ -14,17 +14,32 @@ public class MenuCliente extends javax.swing.JFrame {
     /**
      * Creates new form MenuCliente
      */
+    //estructuras
     TablaHash h;
+    ListaConductor estructuraConductores;
+    ArbolB estructuraVehiculos;
+    ColaAdyacentes estructuraRuta;
+    
+    
     Cliente c;
+    MenuGeneral menu;
     
     public MenuCliente() {
         initComponents();
         this.setLocationRelativeTo(null);
-        c=new Cliente();
        // this.h = t;
     }
+    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta){
+            this.h=estructuraClientes;
+            this.estructuraConductores=estructuraConductores;
+            this.estructuraVehiculos=estructuraVehiculos;
+            this.estructuraRuta=estructuraRuta;
+        }
+    public void setVentanas(Cliente ventanaCliente, MenuGeneral menu){
+        this.c=ventanaCliente;
+        this.menu=menu;
+    }
 
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +56,7 @@ public class MenuCliente extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnMostrar = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,6 +99,13 @@ public class MenuCliente extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,8 +127,10 @@ public class MenuCliente extends javax.swing.JFrame {
                             .addGap(74, 74, 74)
                             .addComponent(btnEliminar)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(btnReporte)))
+                        .addGap(75, 75, 75)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnRegresar)
+                            .addComponent(btnReporte))))
                 .addGap(80, 80, 80))
         );
         layout.setVerticalGroup(
@@ -123,7 +148,9 @@ public class MenuCliente extends javax.swing.JFrame {
                     .addComponent(btnMostrar))
                 .addGap(18, 18, 18)
                 .addComponent(btnReporte)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(btnRegresar)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         btnAgregar.getAccessibleContext().setAccessibleName("btnAgregar");
@@ -169,8 +196,14 @@ public class MenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
-        
+        h.Grafico();
     }//GEN-LAST:event_btnReporteActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        menu.setEstructuras(h, estructuraConductores, estructuraVehiculos, estructuraRuta);
+        menu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,6 +253,7 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnMostrar;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnReporte;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

@@ -14,9 +14,41 @@ public class MenuGeneral extends javax.swing.JFrame {
     /**
      * Creates new form MenuGeneral
      */
+    //estructuras
+    TablaHash estructuraClientes;
+    ListaConductor estructuraConductores;
+    ArbolB estructuraVehiculos;
+    ColaAdyacentes estructuraRuta;
+    
+    //ventanas 
+    Cliente ventanaClientes;
+    MenuCliente ventanaMenuCliente;
+    Vehiculo ventanaVehiculo;
+    MenuVehiculo ventanaMenuVehiculo;
+    ConductorVen ventanaConductor;
+    MenuConductor ventanaMenuConductores;
+    Viajes ventanaViajes;
+    
+    
     public MenuGeneral() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        ventanaClientes=new Cliente();
+        ventanaMenuCliente=new MenuCliente();
+        ventanaVehiculo =new Vehiculo();
+        ventanaMenuVehiculo=new MenuVehiculo();
+        ventanaConductor=new ConductorVen();
+        ventanaMenuConductores=new MenuConductor();
+        ventanaViajes = new Viajes();
     }
+    
+    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta){
+        this.estructuraClientes=estructuraClientes;
+        this.estructuraConductores=estructuraConductores;
+        this.estructuraVehiculos=estructuraVehiculos;
+        this.estructuraRuta=estructuraRuta;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,26 +60,51 @@ public class MenuGeneral extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
+        btnVehiculos = new javax.swing.JButton();
+        btnConductores = new javax.swing.JButton();
+        btnViajes = new javax.swing.JButton();
+        btnRutas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel1.setText("Llega Rapidito");
 
-        jButton1.setText("Clientes");
+        btnClientes.setText("Clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Vehiculos");
+        btnVehiculos.setText("Vehiculos");
+        btnVehiculos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVehiculosActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Conductores");
+        btnConductores.setText("Conductores");
+        btnConductores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConductoresActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Viajes");
+        btnViajes.setText("Viajes");
+        btnViajes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViajesActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Rutas");
+        btnRutas.setText("Rutas");
+        btnRutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRutasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,15 +115,15 @@ public class MenuGeneral extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRutas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnConductores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(84, 84, 84)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
@@ -76,19 +133,48 @@ public class MenuGeneral extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnConductores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRutas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVehiculosActionPerformed
+       ventanaMenuVehiculo.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta);
+       ventanaMenuVehiculo.setVentanas(ventanaVehiculo, this);
+       ventanaMenuVehiculo.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_btnVehiculosActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+      ventanaMenuCliente.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta);
+      ventanaMenuCliente.setVentanas(ventanaClientes, this);
+      ventanaMenuCliente.setVisible(true);
+      this.setVisible(false);
+    }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void btnConductoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConductoresActionPerformed
+       ventanaMenuConductores.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta);
+       ventanaMenuConductores.setVentanas(ventanaConductor, this);
+       ventanaMenuConductores.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_btnConductoresActionPerformed
+
+    private void btnViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViajesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViajesActionPerformed
+
+    private void btnRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutasActionPerformed
+       estructuraRuta.g.MostrarGrafo();
+    }//GEN-LAST:event_btnRutasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,11 +212,11 @@ public class MenuGeneral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnConductores;
+    private javax.swing.JButton btnRutas;
+    private javax.swing.JButton btnVehiculos;
+    private javax.swing.JButton btnViajes;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
