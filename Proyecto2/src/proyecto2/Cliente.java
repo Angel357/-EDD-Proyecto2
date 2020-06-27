@@ -328,23 +328,28 @@ public class Cliente extends javax.swing.JFrame {
         auxBusqueda=t.Buscar(txtKey.getText());
         
         if(auxBusqueda!=null){
+            txtKey.setText("");
             txtDPI.setText(auxBusqueda.DPI);
             txtNombre.setText(auxBusqueda.Nombre);
             txtApellido.setText(auxBusqueda.Apellido);
             txtGenero.setText(auxBusqueda.Genero);
             txtTelefono.setText(auxBusqueda.Telefono);
             txtDireccion.setText(auxBusqueda.Direccion);
+            if(opcion.equals("modificar")){
+                t.Eliminar(auxBusqueda.DPI);
+                txtDPI.enable(true);
+                txtNombre.enable(true);
+                txtApellido.enable(true);
+                txtGenero.enable(true);
+                txtTelefono.enable(true);
+                txtDireccion.enable(true);
+            }
+            
         }else{
+            txtKey.setText("");
             JOptionPane.showMessageDialog(null, "No se encontro al Cliente con numero de DPI: "+txtKey.getText());
         }
-        if(opcion.equals("modificar")){
-           
-            txtNombre.enable(true);
-            txtApellido.enable(true);
-            txtGenero.enable(true);
-            txtTelefono.enable(true);
-            txtDireccion.enable(true);
-        }
+        
             
         
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -426,7 +431,7 @@ public class Cliente extends javax.swing.JFrame {
             //va de 0 a 5 porque tengo 6 atributos que guardar
             t.Insertar(nuevo[0], nuevo[1], nuevo[2], nuevo[3], nuevo[4], nuevo[5], 1);
         }
-        JOptionPane.showMessageDialog(null, "Carga masiva completada!");
+        JOptionPane.showMessageDialog(null, "Carga masiva de clientes completada!");
         
         
     }//GEN-LAST:event_btnCargaActionPerformed

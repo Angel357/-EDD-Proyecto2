@@ -17,55 +17,31 @@ subgraph cluster_1{
  10; 
  11; 
  12; 
- 13; 
- 14; 
- 15; 
- 16; 
- 17; 
- 18; 
- 19; 
- 20; 
- 21; 
- 22; 
- 23; 
- 24; 
- 25; 
- 26; 
- 27; 
- 28; 
- 29; 
- 30; 
- 31; 
- 32; 
- 33; 
- 34; 
- 35; 
- 36; 
 
  }
  
-"4 \njoel" -> "41 \njazmin" -> "78 \ndiego" -> "6855655584235 \njacki"; 
-"8965478123654 \npedro"; 
-"4655566666488 \nasusena"; 
-"5648973254612 \nmiguel"; 
-"4855258666636 \npaola" -> "14 \nchepe"; 
-"6655585556656 \nalison"; 
-"2365489784561 \njuan"; 
-"3002875340101 \nAngel" -> "26 \nalexa" -> "63 \ngabriel" -> "100 \njunior"; 
-"34 \nalejandra"; 
-"8565526523633 \nmarivel"; 
+"40 \nasusena"; 
+"15 \njazmin"; 
+"30 \njuan"; 
+"5 \nAngel"; 
+"45 \nalison"; 
+"20 \ndiego"; 
+"35 \nmiguel"; 
+"10 \njoel"; 
+"50 \njacki"; 
+"25 \npedro"; 
  
  
-4 -> "4 \njoel"; 
-8 -> "8965478123654 \npedro"; 
-11 -> "4655566666488 \nasusena"; 
-13 -> "5648973254612 \nmiguel"; 
-14 -> "4855258666636 \npaola"; 
-16 -> "6655585556656 \nalison"; 
-18 -> "2365489784561 \njuan"; 
-26 -> "3002875340101 \nAngel"; 
-34 -> "34 \nalejandra"; 
-35 -> "8565526523633 \nmarivel"; 
+1 -> "40 \nasusena"; 
+2 -> "15 \njazmin"; 
+4 -> "30 \njuan"; 
+5 -> "5 \nAngel"; 
+6 -> "45 \nalison"; 
+7 -> "20 \ndiego"; 
+9 -> "35 \nmiguel"; 
+10 -> "10 \njoel"; 
+11 -> "50 \njacki"; 
+12 -> "25 \npedro"; 
 
  
  }
