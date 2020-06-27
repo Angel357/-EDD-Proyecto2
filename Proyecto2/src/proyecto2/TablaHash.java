@@ -19,8 +19,7 @@ public class TablaHash {
     public int contadorHash;
     NodoHash[] arregloHash;
     
-    public TablaHash(int size)
-    {
+    public TablaHash(int size){
       contadorHash=0;
       //3002875340101
       setDatos(size);
@@ -63,8 +62,7 @@ public class TablaHash {
         }
     }
     
-    public void VerificarDispersion()
-    {
+    public void VerificarDispersion(){
         if(contadorHash>porcentajeDispersion)
         {
          TablaHash nueva=new TablaHash(size*2);
@@ -81,7 +79,7 @@ public class TablaHash {
                     }
                 }
             }
-         setDatos(size*2);
+         setDatos(size+10);
          arregloHash=nueva.arregloHash;
          
         }
@@ -90,7 +88,7 @@ public class TablaHash {
     public void setDatos(int size)
     {
         this.size=size;
-        arregloHash=new NodoHash[size];
+        arregloHash=new NodoHash[size+37];
         porcentajeDispersion=(int)(size*0.75);
         
     }
@@ -122,36 +120,37 @@ public class TablaHash {
         }
         return null;
     }
-    
     public void Modificar(String DPI, String Nombre, String Apellido, String Genero, String Telefono, String Direccion) {
-         try
-        {
-        BigInteger  dpi= new BigInteger(DPI);
-        int coordenada = dpi.mod(BigInteger.valueOf(size)).intValue();
-            if(arregloHash[coordenada]!=null)
-            {
-                NodoLS aux=arregloHash[coordenada].ListaClientes.Inicio;
-                while(aux!=null)
-                {
-                   if(DPI.equals(aux.DPI)){
-                        aux.Nombre=Nombre;
-                        aux.Apellido=Apellido;
-                        aux.Genero=Genero;
-                        aux.Telefono=Telefono;
-                        aux.Direccion=Direccion;
-                        break;
-                   }
-                    aux=aux.siguiente;
-                }
-            }
-            
-            
-        }catch(Exception e2)
-        {
-           JOptionPane.showMessageDialog(null, "esta intentando agregar letras al DPI, ingrese solo numeros"); 
-        }
+//         try
+//        {
+//        BigInteger  dpi= new BigInteger(DPI);
+//        int coordenada = dpi.mod(BigInteger.valueOf(size)).intValue();
+//            if(arregloHash[coordenada]!=null)
+//            {
+//                NodoLS aux=arregloHash[coordenada].ListaClientes.Inicio;
+//                while(aux!=null)
+//                {
+//                   if(DPI.equals(aux.DPI)){
+//                        aux.Nombre=Nombre;
+//                        aux.Apellido=Apellido;
+//                        aux.Genero=Genero;
+//                        aux.Telefono=Telefono;
+//                        aux.Direccion=Direccion;
+//                        break;
+//                   }
+//                    aux=aux.siguiente;
+//                }
+//            }
+//            
+//            
+//        }catch(Exception e2)
+//        {
+//           JOptionPane.showMessageDialog(null, "esta intentando agregar letras al DPI, ingrese solo numeros"); 
+//        }
+       
+        Insertar(DPI, Nombre, Apellido, Genero, Telefono, Direccion,0);
+        
     }
-    
     public void Eliminar(String DPI){
         try
         {
@@ -228,6 +227,13 @@ public class TablaHash {
     }
     
     public void Grafico(){
+//        try{
+//              File fold=new File("TablaHash.png");
+//                fold.delete();
+//          }catch(Exception e1){
+//              
+//          }
+        
         String Coordenadas="";
         String ListasCoordenadas="";
         String CoordenadaAinicio="";
@@ -272,14 +278,14 @@ public class TablaHash {
                
             }
         }
-        
+        //prueba
        System.out.println("Coordenadas: \n\n"+Coordenadas+"\n\n");
        System.out.println("listas en coordenadas: \n\n"+ListasCoordenadas+"\n\n");
        System.out.println("Coordenadas a Inicio de listas: \n\n"+CoordenadaAinicio+"\n\n");
        
        
        try{
-              File fold=new File("tablaHash.txt");
+              File fold=new File("TablaHash.txt");
                 fold.delete();
           }catch(Exception e1){
               
@@ -315,10 +321,23 @@ public class TablaHash {
     }catch(Exception ex){
         System.out.println("ex: "+ex.getMessage());
     }
+    
+    try{
+        Thread.sleep(2000);
+    }catch(InterruptedException e){
+        
+    }
         
         ReporteHash r=new ReporteHash();
         r.setImagen("TablaHash.png");
         r.setVisible(true);
+    
+//    ReporteClientes r=new ReporteClientes();
+//    r.setVisible(true);
+    }
+    
+    public void Ruta(){
+        
     }
     
     

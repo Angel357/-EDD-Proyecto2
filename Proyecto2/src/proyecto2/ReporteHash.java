@@ -5,10 +5,18 @@
  */
 package proyecto2;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 /**
@@ -20,16 +28,21 @@ public class ReporteHash extends javax.swing.JFrame {
     /**
      * Creates new form ReporteHash
      */
+   
+    
     public ReporteHash() {
         initComponents();
-        //this.setLocationRelativeTo(null);
+//        String url="/proyecto2/TablaHash.png";
+//        Imagen im = new Imagen(pnlReporte, url);
+//        pnlReporte.add(im).repaint();
+//        //this.setLocationRelativeTo(null);
 
     }
- public void setImagen(String imagen)
-    {
+ public void setImagen(String imagen){
+        this.lblReporte.repaint();
         ImageIcon im = new ImageIcon(imagen);
+        im.getImage().flush();
         ImageIcon estructura = new ImageIcon(im.getImage());
-        this.setSize(this.getHeight(), im.getImage().getWidth(rootPane));
         lblReporte.setIcon(estructura);
         this.lblReporte.repaint();
     }
@@ -45,24 +58,22 @@ public class ReporteHash extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        pnlReporte = new javax.swing.JScrollPane();
         lblReporte = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jScrollPane1.setViewportView(lblReporte);
+        pnlReporte.setViewportView(lblReporte);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+            .addComponent(pnlReporte, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlReporte, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
         );
 
         pack();
@@ -104,7 +115,7 @@ public class ReporteHash extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblReporte;
+    private javax.swing.JScrollPane pnlReporte;
     // End of variables declaration//GEN-END:variables
 }
