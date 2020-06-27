@@ -8,6 +8,7 @@ package proyecto2;
 import java.awt.Color;
 import java.awt.FileDialog;
 import java.io.File;
+import java.math.BigInteger;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -15,26 +16,33 @@ import javax.swing.JOptionPane;
  *
  * @author wilson
  */
- 
-public class Vehiculo extends javax.swing.JFrame {
+public class ConductorVen extends javax.swing.JFrame {
 
-    ArbolB tree; // declarando arbol de grado 5
-    MenuVehiculo menu;
+    ListaConductor lista;
+    MenuConductor menu;
     int opt;
     
-    /**
-     * Creates new form Vehiculo
-     */
-    public Vehiculo() {
+    public ConductorVen() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
     }
+    
+    public void clean() {
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
 
-    public void setDatos(int opt, ArbolB tree, MenuVehiculo menu)
+    }
+    
+    public void setDatos(int opt, ListaConductor lista, MenuConductor menu)
     {
         this.opt = opt;
-        this.tree = tree;
+        this.lista = lista;
         this.menu = menu;
         
         switch(opt)
@@ -65,7 +73,7 @@ public class Vehiculo extends javax.swing.JFrame {
                 break;
             case 2:
                 jButton3.setVisible(true);
-                jLabel1.setText("Modificar Vehiculo");
+                jLabel1.setText("Modificar Conductor");
                 jLabel2.setVisible(true);
                 jTextField1.setVisible(true);
                 jButton1.setText("Modificar");
@@ -76,7 +84,7 @@ public class Vehiculo extends javax.swing.JFrame {
                 break;
             case 3:
                 jButton3.setVisible(true);
-                jLabel1.setText("Eliminar Vehiculo");
+                jLabel1.setText("Eliminar Conductor");
                 jLabel2.setVisible(true);
                 jTextField1.setVisible(true);
                 jButton1.setText("Eliminar");
@@ -99,7 +107,7 @@ public class Vehiculo extends javax.swing.JFrame {
                 break;
             case 4:
                 jButton3.setVisible(true);
-                jLabel1.setText("Mostrar Vehiculo");
+                jLabel1.setText("Mostrar Conductor");
                 jLabel2.setVisible(true);
                 jTextField1.setVisible(true);
                 jButton1.setText("Mostrar");
@@ -124,17 +132,6 @@ public class Vehiculo extends javax.swing.JFrame {
             case 5:
                 break;
         }
-    }
-    
-    public void clean() {
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jTextField5.setText("");
-        jTextField6.setText("");
-        jTextField7.setText("");
-        jTextField8.setText("");
     }
 
     /**
@@ -169,44 +166,49 @@ public class Vehiculo extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(60, 20));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Registro de Vehiculos");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel1.setText("Registro de Conductores");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("Placa del vehiculo a gestionar: ");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("DPI del conductor a gestionar: ");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setText("Placa: ");
-        jLabel3.setPreferredSize(new java.awt.Dimension(60, 20));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("DPI: ");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("Marca: ");
-        jLabel4.setPreferredSize(new java.awt.Dimension(60, 20));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Nombres: ");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setText("Modelo: ");
-        jLabel5.setPreferredSize(new java.awt.Dimension(60, 20));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Apellidos: ");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel6.setText("Año: ");
-        jLabel6.setPreferredSize(new java.awt.Dimension(60, 20));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setText("Tipo Licencia: ");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setText("Color: ");
-        jLabel7.setPreferredSize(new java.awt.Dimension(60, 20));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("Genero: ");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel8.setText("Precio: ");
-        jLabel8.setPreferredSize(new java.awt.Dimension(60, 20));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("Telefono: ");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel9.setText("Transmision: ");
-        jLabel9.setPreferredSize(new java.awt.Dimension(60, 20));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("Direccion: ");
 
-        jTextField1.setName("txtKey"); // NOI18N
+        jTextField1.setText("jTextField1");
+
+        jTextField2.setText("jTextField2");
+
+        jTextField3.setText("jTextField3");
+
+        jTextField4.setText("jTextField4");
+
+        jTextField5.setText("jTextField5");
+
+        jTextField6.setText("jTextField6");
+
+        jTextField7.setText("jTextField7");
+
+        jTextField8.setText("jTextField8");
 
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -223,13 +225,8 @@ public class Vehiculo extends javax.swing.JFrame {
         });
 
         jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
-        jButton4.setText("carga");
+        jButton4.setText("Carga");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -241,136 +238,153 @@ public class Vehiculo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(67, 67, 67)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField5)
-                                    .addComponent(jTextField6)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
+                                .addGap(1, 1, 1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(209, 209, 209)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addGap(18, 18, 18)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(103, Short.MAX_VALUE))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // Agregar/modificar y eliminar
+    // boton de acciones, agregar, modificar, motrar eliminar
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        // Insertar un dato.
+
         switch (opt) {
 
             // Si esta en la opcion agregar
             case 1:
+                
                 if (jTextField2.getText().compareTo("") == 0) {
-                    JOptionPane.showMessageDialog(null, jTextField2.getText() + " Ingree una placa valida!");
+                    JOptionPane.showMessageDialog(null, jTextField2.getText() + " Ingree un DPI valido!");
                 } else {
-                    String verificarPlaca = jTextField2.getText().toUpperCase().trim().replace(" ", "");
-                    if (tree.buscar(verificarPlaca) != null) {
+                    
+                    BigInteger verificarDPI = new BigInteger(jTextField2.getText().toUpperCase().trim().replace(" ", ""));
+                    // maybe a try cuz of buscar error
+                    if (lista.buscar(verificarDPI) != null) {
                         JOptionPane.showMessageDialog(null, jTextField2.getText() + " Ya exite");
                         clean();
                     } else {
                         //Obtener datos de un Objeto Vehiculo y crear nuevo objeto
-                        String placa = jTextField2.getText().toUpperCase().trim().replace(" ", "");
-                        String marca = jTextField3.getText().toUpperCase().trim().replace(" ", "");
-                        String modelo = jTextField4.getText().toUpperCase().trim().replace(" ", "");
-                        String year = jTextField5.getText().toUpperCase().trim().replace(" ", "");
-                        String color = jTextField6.getText().toUpperCase().trim().replace(" ", "");
-                        String precio = jTextField7.getText().toUpperCase().trim().replace(" ", "");
-                        String trans = jTextField8.getText().toUpperCase().trim().replace(" ", "");
-                        ObjVehiculo insertarV = new ObjVehiculo(placa, marca, modelo, year, color, precio, trans);
-                        tree.insertar(placa, insertarV);
+                        BigInteger dpi = new BigInteger(jTextField2.getText().toUpperCase().trim().replace(" ", ""));
+                        String nombres = jTextField3.getText().toUpperCase().trim();
+                        String apellidos = jTextField4.getText().toUpperCase().trim();
+                        String licencia = jTextField5.getText().toUpperCase().trim().replace(" ", "");
+                        String genero = jTextField6.getText().toUpperCase().trim().replace(" ", "");
+                        String telefono = jTextField7.getText().toUpperCase().trim().replace(" ", "");
+                        String direccion = jTextField8.getText().toUpperCase().trim().replace(" ", "");
+                        Conductor insertarC = new Conductor(dpi, nombres, apellidos, licencia, genero, telefono, direccion);
+                        lista.insertarFinal(insertarC);
                         JOptionPane.showMessageDialog(null, jTextField2.getText() + " Se agrego con EXITO!");
                         clean();
                     }
                 }
-                
-                    
+                lista.imprimir();
                 break;
-                // Si esta en la opcion modificar
+            // Si esta en la opcion modificar
             case 2:
+                /*
                 String dato = jTextField1.getText();
                 ObjVehiculo aux = new ObjVehiculo();
-                
-                if(tree.buscar(dato)!= null)
-                {
+
+                if (lista.buscar(dato) != null) {
                     // Aux  placa no modificable
                     aux.setMarca(jTextField3.getText().toUpperCase().trim().replace(" ", ""));
                     aux.setModelo(jTextField4.getText().toUpperCase().trim().replace(" ", ""));
@@ -378,59 +392,36 @@ public class Vehiculo extends javax.swing.JFrame {
                     aux.setColor(jTextField6.getText().toUpperCase().trim().replace(" ", ""));
                     aux.setPrecio(jTextField7.getText().toUpperCase().trim().replace(" ", ""));
                     aux.setTrans(jTextField8.getText().toUpperCase().trim().replace(" ", ""));
-                    tree.update(tree.buscar(dato), aux);
+                    lista.update(tree.buscar(dato), aux);
                     JOptionPane.showMessageDialog(null, jTextField1.getText() + " Modificado ");
-                }else
+                } else {
                     JOptionPane.showMessageDialog(null, jTextField1.getText() + " no existe1 ");
+                }*/
                 break;
-                // Si esta en opcion eliminar
+            // Si esta en opcion eliminar
             case 3:
                 break;
-                // si esta en 
+            // si esta en 
             case 4:
                 break;
             default:
                 break;
-                
+
         }
-        
-        System.out.println("Impresion del arbol construido");
-        tree.imprimir();
+
+        System.out.println("Impresion de lista");
+        lista.imprimir();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    // Regresar a menu
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         menu.setVisible(true);
-        menu.setArbol(tree);
+        menu.setLista(lista);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     
-    // Buscar
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        String dato = jTextField1.getText().toUpperCase().trim().replace(" ", "");
-        System.out.println(dato);
-        
-        if(tree.buscar(dato)!= null)
-        {
-            jTextField2.setText(tree.buscar(dato).objV[tree.currentKey()].getPlaca());
-            jTextField3.setText(tree.buscar(dato).objV[tree.currentKey()].getMarca());
-            jTextField4.setText(tree.buscar(dato).objV[tree.currentKey()].getModelo());
-            jTextField5.setText(tree.buscar(dato).objV[tree.currentKey()].getYear());
-            jTextField6.setText(tree.buscar(dato).objV[tree.currentKey()].getColor());
-            jTextField7.setText(tree.buscar(dato).objV[tree.currentKey()].getPrecio());
-            jTextField8.setText(tree.buscar(dato).objV[tree.currentKey()].getTrans());           
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, jTextField1.getText() + " no existe1 ");
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    
-    // Carga Masiva
+    //Carga masiva de conductores
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         
@@ -459,17 +450,17 @@ public class Vehiculo extends javax.swing.JFrame {
         } catch (Exception ex) { ex.printStackTrace();}
         
         String[] arregloRegistro=registro.split(";");
-        ObjVehiculo insertarV;
+        Conductor insertarC;
         for(int x=0;x<arregloRegistro.length;x++){
             
-            String[] nuevo=arregloRegistro[x].split(",");
-            
-            // Impresion de datos que estoy inertando
+            String[] nuevo=arregloRegistro[x].split("%");
             System.out.print(nuevo[0]+  " " + nuevo[1] + " " + nuevo[2] + " " + nuevo[3] + " " + nuevo[4] + " " + nuevo[5] + " " + nuevo[6]+ "\n");
-            insertarV= new ObjVehiculo(nuevo[0], nuevo[1], nuevo[2], nuevo[3], nuevo[4], nuevo[5], nuevo[6]);
-            tree.insertar(nuevo[0], insertarV);
+            insertarC= new Conductor(new BigInteger(nuevo[0]), nuevo[1], nuevo[2], nuevo[3], nuevo[4], nuevo[5], nuevo[6]);
+            lista.insertarFinal(insertarC);
         }
         JOptionPane.showMessageDialog(null, "Carga masiva completada!");
+        
+        lista.imprimir();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -489,20 +480,20 @@ public class Vehiculo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConductorVen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConductorVen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConductorVen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConductorVen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vehiculo().setVisible(true);
+                new ConductorVen().setVisible(true);
             }
         });
     }
