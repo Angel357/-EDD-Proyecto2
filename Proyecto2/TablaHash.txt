@@ -44,10 +44,8 @@ subgraph cluster_1{
 
  }
  
-"2 \nkljb"; 
  
  
-2 -> "2 \nkljb"; 
 
  
  }

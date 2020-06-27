@@ -77,8 +77,6 @@ public class ConductorVen extends javax.swing.JFrame {
                 jLabel2.setVisible(true);
                 jTextField1.setVisible(true);
                 jButton1.setText("Modificar");
-                jTextField2.setEditable(false);
-                jTextField2.setBackground(Color.GRAY);
                 jButton4.setVisible(false);
                 clean();
                 break;
@@ -209,6 +207,11 @@ public class ConductorVen extends javax.swing.JFrame {
         });
 
         jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Carga");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -335,7 +338,6 @@ public class ConductorVen extends javax.swing.JFrame {
 
             // Si esta en la opcion agregar
             case 1:
-                
                 if (jTextField2.getText().compareTo("") == 0) {
                     JOptionPane.showMessageDialog(null, jTextField2.getText() + " Ingree un DPI valido!");
                 } else {
@@ -364,26 +366,49 @@ public class ConductorVen extends javax.swing.JFrame {
                 break;
             // Si esta en la opcion modificar
             case 2:
-                /*
-                String dato = jTextField1.getText();
-                ObjVehiculo aux = new ObjVehiculo();
-
-                if (lista.buscar(dato) != null) {
-                    // Aux  placa no modificable
-                    aux.setMarca(jTextField3.getText().toUpperCase().trim().replace(" ", ""));
-                    aux.setModelo(jTextField4.getText().toUpperCase().trim().replace(" ", ""));
-                    aux.setYear(jTextField5.getText().toUpperCase().trim().replace(" ", ""));
-                    aux.setColor(jTextField6.getText().toUpperCase().trim().replace(" ", ""));
-                    aux.setPrecio(jTextField7.getText().toUpperCase().trim().replace(" ", ""));
-                    aux.setTrans(jTextField8.getText().toUpperCase().trim().replace(" ", ""));
-                    lista.update(tree.buscar(dato), aux);
-                    JOptionPane.showMessageDialog(null, jTextField1.getText() + " Modificado ");
+                if (jTextField1.getText().compareTo("") == 0) {
+                    JOptionPane.showMessageDialog(null, jTextField2.getText() + " Ingree un DPI valido!");
                 } else {
-                    JOptionPane.showMessageDialog(null, jTextField1.getText() + " no existe1 ");
-                }*/
+                    BigInteger dato = new BigInteger(jTextField1.getText());
+
+                    Conductor auxC = new Conductor();
+
+                    if (lista.buscar(dato) != null) {
+
+                        lista.eliminar(dato);
+
+                        auxC.setDpi(new BigInteger(jTextField2.getText().trim().toUpperCase()));
+                        auxC.setNombres(jTextField3.getText().trim().toUpperCase());
+                        auxC.setApellidos(jTextField4.getText().trim().toUpperCase());
+                        auxC.setTipoLicencia(jTextField5.getText().trim().toUpperCase());
+                        auxC.setGenero(jTextField6.getText().trim().toUpperCase());
+                        auxC.setTelefono(jTextField7.getText().trim().toUpperCase());
+                        auxC.setDireccion(jTextField8.getText().trim().toUpperCase());
+                        lista.insertarFinal(auxC);
+
+                        // Aux  placa no modificable
+                        JOptionPane.showMessageDialog(null, jTextField1.getText() + " Modificado a " + auxC.getDpi().toString());
+                        clean();
+                    } else {
+                        JOptionPane.showMessageDialog(null, jTextField1.getText() + " no existe1 ");
+                    }
+                }
                 break;
             // Si esta en opcion eliminar
             case 3:
+                 if (jTextField1.getText().compareTo("") == 0) {
+                    JOptionPane.showMessageDialog(null, jTextField2.getText() + " Ingree un DPI valido!");
+                } else {
+                    BigInteger dato = new BigInteger(jTextField1.getText());
+                    if (lista.buscar(dato) != null) {
+
+                        lista.eliminar(dato);
+                        JOptionPane.showMessageDialog(null, jTextField1.getText() + " Eliminado! " );
+                        clean();
+                    } else {
+                        JOptionPane.showMessageDialog(null, jTextField1.getText() + " no existe1 ");
+                    }
+                }
                 break;
             // si esta en 
             case 4:
@@ -446,6 +471,30 @@ public class ConductorVen extends javax.swing.JFrame {
         
         lista.imprimir();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    // Buscar
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        BigInteger dato = new BigInteger(jTextField1.getText().toUpperCase().trim());
+        System.out.println(dato);
+        
+        if(lista.buscar(dato)!= null)
+        {
+            Conductor conO = lista.buscar(dato);
+            jTextField2.setText(conO.getDpi().toString());
+            jTextField3.setText(conO.getNombres());
+            jTextField4.setText(conO.getApellidos());
+            jTextField5.setText(conO.getTipoLicencia());
+            jTextField6.setText(conO.getGenero());
+            jTextField7.setText(conO.getTelefono());
+            jTextField8.setText(conO.getDireccion());           
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, jTextField1.getText() + " no existe1 ");
+            clean();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

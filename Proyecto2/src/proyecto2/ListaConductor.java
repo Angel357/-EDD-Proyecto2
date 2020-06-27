@@ -25,6 +25,7 @@ public class ListaConductor {
     // insersion al final
     public void insertarFinal(Conductor value)
     {
+        // test insertr ordenado        
         if(start == null)
         {
             NodoLD newNode = new NodoLD();
@@ -32,24 +33,56 @@ public class ListaConductor {
             newNode.next = newNode.prev = newNode;
             start = newNode;
             return;
+            // insert inicio
+        }else if(start.data.getDpi().compareTo(value.getDpi()) >= 0)
+        {
+            NodoLD ultimo = start.prev;
+            NodoLD newNodeI = new NodoLD();
+            newNodeI.data = value;
+            // enlaces nuevo nodo
+            newNodeI.next = start;
+            newNodeI.prev = ultimo;
+            // actulizacion de nodo ultimom y primero
+            ultimo.next = start.prev = newNodeI;
+            start = newNodeI;
+            // insert final
+        } else if (start.prev.data.getDpi().compareTo(value.getDpi()) < 0) {
+            NodoLD ultimo = (start).prev;
+            NodoLD newNode = new NodoLD();
+            newNode.data = value;
+
+            // ciruclar
+            newNode.next = start;
+            (start).prev = newNode;
+
+            // conexion doble
+            newNode.prev = ultimo;
+            ultimo.next = newNode;
+        }else // insert medio
+        {
+            
+            //System.out.println("Se inserta en medio");
+            NodoLD newNodeM = new NodoLD();
+            newNodeM.data = value;
+            
+            // Recorrido para encontrar valor anterior
+            NodoLD temp = start;
+            while(temp.data.getDpi().compareTo(value.getDpi()) < 0)
+                temp = temp.next;
+            
+            
+            // Enlaze doble en medio
+            newNodeM.next = temp;
+            newNodeM.prev = temp.prev;
+            temp.prev.next = newNodeM;
+            temp.prev = newNodeM;
+            
         }
-        
-        NodoLD ultimo = (start).prev;
-        NodoLD newNode = new NodoLD();
-        newNode.data = value;
-        
-        // ciruclar
-        newNode.next = start;
-        (start).prev = newNode;
-        
-        // conexion doble
-        newNode.prev = ultimo;
-        ultimo.next = newNode;
-                
-    }
+
+    } 
     
     // buscar funcionando
-    public NodoLD buscar(BigInteger key)
+    public Conductor buscar(BigInteger key)
     {
         if(start == null)
             return null;
@@ -66,7 +99,7 @@ public class ListaConductor {
             actual = actual.next;
         }
         
-        return actual;
+        return actual.data;
     }
     
     // Eliminar funcionando
@@ -79,7 +112,7 @@ public class ListaConductor {
         NodoLD ant = null;
         
         // buscar si exite
-        while(actual.data.getDpi() != key){
+        while(actual.data.getDpi().compareTo(key) != 0){
             if(actual.next == start)
             {
                 System.out.println("No existe");
@@ -172,17 +205,26 @@ public class ListaConductor {
             //Escribimos en el archivo con el metodo write 
             // setting the una lista doble;
             escribir.write("digraph {\r\n");
-            escribir.write("node[shape=box];\r\n");
+            escribir.write("node[shape=box width=2 height=0.8];\r\n");
             escribir.write("rankdir=LR;\r\n");
             // Dibujar nodos y links
             
             
             do {
                 // Cuando no hay datos cargados borra todo, porque es null
-                label = aux.data.getDpi().toString() + "[shape=box, label=\"" + aux.data.getDpi().toString() + "\"]; \r\n";
+                label = "\"" + aux.data.getDpi().toString()+ "\r"  + aux.data.getNombres() + "\"" + "\r\n";
+                
                 escribir.write(label);
-                String link = aux.data.getDpi() + "->" + aux.next.data.getDpi() + "\r\n";
-                link = link + aux.data.getDpi() + "->" + aux.prev.data.getDpi() + "\r\n";
+                
+                String link = "\"" + aux.data.getDpi().toString()+ "\r" + aux.data.getNombres() + "\""
+                        + "->" + 
+                        "\"" + aux.next.data.getDpi().toString()+ "\r" + aux.next.data.getNombres() + "\""
+                        + "\r\n";
+                
+                link = link + "\"" + aux.data.getDpi() + "\r" + aux.data.getNombres()+ "\"" 
+                        + "->" + 
+                         "\"" + aux.prev.data.getDpi()+ "\r" + aux.prev.data.getNombres() + "\"" 
+                        + "\r\n";
                 escribir.write(link);
                 aux = aux.next;
             }while(aux != start);
@@ -222,33 +264,6 @@ public class ListaConductor {
         ReporteHash r = new ReporteHash();
         r.setImagen("graphListaC.png");
         r.setVisible(true);
-    }
-    
-    
-    /// Metodo de prueba
-    public void ordenar()
-    {
-        NodoLD aux = start;
-        NodoLD aux2 = start.next;
-        
-        NodoLD test = null;
-        
-        while(aux.next.next != start)
-        {
-            while(aux2.next != start)
-            {
-                if(aux.data.getDpi().compareTo(aux2.data.getDpi()) == 1)
-                {
-                    test.data = aux2.data;
-                    aux2.data = aux.data;
-                    aux.data = test.data;
-                    start.data = aux.data;
-                }
-                aux2 = aux2.next;
-            }
-            
-            aux = aux.next;
-        }
     }
     
 }

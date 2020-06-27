@@ -20,6 +20,7 @@ public class Proyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         //SE CREAN TODAS LAS ESTRUCTURAS QUE SERVIRAN EN EL FLUJO DE LA APLICACION
         TablaHash tablaClientes= new TablaHash(37);
         ListaConductor listaConductores = new ListaConductor();
@@ -31,11 +32,6 @@ public class Proyecto2 {
         MenuGeneral menu = new MenuGeneral();
         menu.setEstructuras(tablaClientes, listaConductores,arbolVehiculos,grafoRutas);
         menu.setVisible(true);
-        
-        
-        
-        
-        
     }
     
 }

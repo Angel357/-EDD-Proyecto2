@@ -6,6 +6,7 @@ package proyecto2;
  */
 public class MenuConductor extends javax.swing.JFrame {
 
+    
     TablaHash estructuraClientes;
     ListaConductor lista;
     ArbolB estructuraVehiculos;
@@ -23,8 +24,10 @@ public class MenuConductor extends javax.swing.JFrame {
     
     public void setLista(ListaConductor lista)
     {
+        this.driver = new ConductorVen();
         this.lista = lista;
     }
+    
     
     public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta){
         this.estructuraClientes=estructuraClientes;
@@ -32,6 +35,7 @@ public class MenuConductor extends javax.swing.JFrame {
         this.estructuraVehiculos=estructuraVehiculos;
         this.estructuraRuta=estructuraRuta;
     }
+    
     public void setVentanas(ConductorVen ventanaConductor, MenuGeneral menu){
         this.driver=ventanaConductor;
         this.menu=menu;
