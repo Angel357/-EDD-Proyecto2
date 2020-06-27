@@ -8,6 +8,7 @@ package proyecto2;
 import java.io.File;
 import java.io.FileWriter;
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 import java.util.Date;
 /**
  *
@@ -19,10 +20,19 @@ public class Proyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        /*
+        Chain test = new Chain();
+        test.insertarFinal("P111AAA");
+        test.insertarFinal("P111AAB");
+        test.insertarFinal("P111AAC");
+        test.insertarFinal("P111AAD");
+        test.insertarFinal("P111AAE");
+        test.insertarFinal("P111AAF");
+        
+        //test.printList();
+        test.graph();*/
 
-        Block test = new Block("puta", new Date());
-        
-        
         /*
         ArbolB arbol = new ArbolB(5);
         MenuVehiculo mV = new MenuVehiculo();
@@ -80,17 +90,55 @@ public class Proyecto2 {
           m.setVisible(true);
           */
         
-        /*
+        
           ArbolB arbol = new ArbolB(5);
+          /*
           MenuVehiculo mV = new MenuVehiculo();
           mV.setArbol(arbol);
-          mV.setVisible(true);
-         */
+          mV.setVisible(true);*/
+          
+          ObjVehiculo insertar5 = new ObjVehiculo("f", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar5.getPlaca(), insertar5);
+          ObjVehiculo insertar4 = new ObjVehiculo("e", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar4.getPlaca(), insertar4);
+          ObjVehiculo insertar6 = new ObjVehiculo("g", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar6.getPlaca(), insertar6);
+          ObjVehiculo insertar1 = new ObjVehiculo("b", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar1.getPlaca(), insertar1);
+          ObjVehiculo insertarV = new ObjVehiculo("a", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertarV.getPlaca(), insertarV);
+          /*
+          ObjVehiculo insertar2 = new ObjVehiculo("c", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar2.getPlaca(), insertar2);
+          ObjVehiculo insertar3 = new ObjVehiculo("d", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar3.getPlaca(), insertar3);
+          ObjVehiculo insertar7 = new ObjVehiculo("h", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar7.getPlaca(), insertar3);
+         ObjVehiculo insertar8 = new ObjVehiculo("i", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar8.getPlaca(), insertar3);
+         ObjVehiculo insertar9 = new ObjVehiculo("j", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar9.getPlaca(), insertar3);
+          ObjVehiculo insertar10 = new ObjVehiculo("k", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar10.getPlaca(), insertar3);
+          ObjVehiculo insertar11 = new ObjVehiculo("l", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar11.getPlaca(), insertar3);
+          ObjVehiculo insertar12 = new ObjVehiculo("m", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar12.getPlaca(), insertar3);
+          ObjVehiculo insertar13 = new ObjVehiculo("n", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar13.getPlaca(), insertar3);
+          ObjVehiculo insertar14 = new ObjVehiculo("o", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar14.getPlaca(), insertar3);
+          ObjVehiculo insertar15 = new ObjVehiculo("p", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar15.getPlaca(), insertar3);
+          arbol.imprimir();
+          ObjVehiculo insertar16 = new ObjVehiculo("q", "Honda", "nose", "94", "rojo", "1500", "aut");
+          arbol.insertar(insertar16.getPlaca(), insertar3);*/
          
+         /*
         ListaConductor lista = new ListaConductor();
         MenuConductor mC = new MenuConductor();
         mC.setLista(lista);
-        mC.setVisible(true);
+        mC.setVisible(true);*/
         
         //primer commit
         

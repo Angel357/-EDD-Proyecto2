@@ -198,11 +198,25 @@ public class ListaConductor {
 
         Runtime cmd = Runtime.getRuntime();
         String comando = "dot -Tpng graphListaC.dot -o graphListaC.png";
+        //No es necesario remplazar imagen. 
+        /*
+        File auxImage = new File("graphListaC.png");
+        // Eliminar imagen que ya existe
+        if(auxImage.exists())
+            auxImage.delete();
+        */
         try {
             cmd.exec(comando);
             //cmd.exec("start .\\graphListaC.txt");
         } catch (Exception ex) {
             System.out.println("ex: " + ex.getMessage());
+        }
+        
+        //Pausar antes de mostrar
+        try{
+            Thread.sleep(2000);
+        }catch(InterruptedException e){
+            
         }
 
         ReporteLista r = new ReporteLista();
@@ -236,4 +250,5 @@ public class ListaConductor {
             aux = aux.next;
         }
     }
+    
 }

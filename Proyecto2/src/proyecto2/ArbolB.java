@@ -7,6 +7,7 @@ package proyecto2;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -85,54 +86,9 @@ public class ArbolB {
     }
     
     
+   public void graph(){root.getDot(root);} 
     
     //Graph outlined,
-    public void graph() {
-        String Coordenadas = "";
-        String ListasCoordenadas = "";
-        String CoordenadaAinicio = "";
 
-        try {
-            File fold = new File("tablaHash.txt");
-            fold.delete();
-        } catch (Exception e1) {
-
-        }
-
-        try {
-            //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
-            File archivo = new File("TablaHash.txt");
-
-            //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
-            FileWriter escribir = new FileWriter(archivo, true);
-            //Escribimos en el archivo con el metodo write 
-            escribir.write("digraph { \r\n"
-                    + "node[shape=box];\r\n"
-                    + "rankdir=LR;\r\n \r\n \r\n"
-                    + "subgraph cluster_1{ \r\n"
-                    + Coordenadas + "\r\n }"
-                    + "\r\n \r\n"
-                    + ListasCoordenadas + " \r\n \r\n"
-                    + CoordenadaAinicio + "\r\n \r\n }");
-            //Cerramos la conexion
-            escribir.close();
-        } //Si existe un problema al escribir cae aqui
-        catch (Exception e) {
-            System.out.println("Error al escribir");
-        }
-
-        Runtime cmd = Runtime.getRuntime();
-        String comando = "dot -Tpng TablaHash.txt -o TablaHash.png";
-        try {
-            cmd.exec(comando);
-            //cmd.exec("start TablaHash.txt");
-        } catch (Exception ex) {
-            System.out.println("ex: " + ex.getMessage());
-        }
-
-        ReporteArbolB r = new ReporteArbolB();
-        r.setImage("ArbolB.png");
-        r.setVisible(true);
-    }
 }
 

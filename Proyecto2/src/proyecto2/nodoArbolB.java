@@ -5,24 +5,29 @@
  */
 package proyecto2;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author wilson
  */
 public class nodoArbolB {
-    String[] keys;
+    String[] keys;  // llaves
     // Objetos tipo Vehiculo
-    ObjVehiculo[] objV;
-    int t;
-    nodoArbolB[] C;
-    int n;
-    boolean hoja;
+    ObjVehiculo[] objV; // objetos
+    int t;  // grado
+    nodoArbolB[] C; // arreglo de punteros hijos
+    int n; // total de nodos
+    boolean hoja;  // verificar si es hoja
     
     nodoArbolB(int t, boolean hoja)
     {
         this.t = t;
         this.hoja = hoja;
         this.keys = new String[2*t - 1];
+        //this.keys = new String[t-1];
         this.objV = new ObjVehiculo[2*t - 1];
         this.C = new nodoArbolB[2*t];
         this.n = 0;
@@ -31,6 +36,7 @@ public class nodoArbolB {
     // Mostrar arbol traverse
     public void imprimir()
     {
+        
         int i = 0;
         for (i = 0; i < this.n ; i++)
         {
@@ -43,6 +49,80 @@ public class nodoArbolB {
         
         if(hoja == false)
             C[i].imprimir();
+    }
+    
+    /// graph outline
+            public void getDot(nodoArbolB n)
+    {
+        nodoArbolB aux = n;
+
+        String label;
+        try {
+            //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
+            File archivo = new File("graphBlock.dot");
+            
+            if(archivo.exists())
+            {
+                archivo.delete();
+                try{
+                    archivo.createNewFile();
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
+            //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
+            
+            FileWriter escribir = new FileWriter(archivo, true);
+            
+            //Escribimos en el archivo con el metodo write 
+            // setting the una lista doble;
+            escribir.write("digraph {\r\n");
+            escribir.write("node[shape=box];\r\n");
+            escribir.write("rankdir=LR;\r\n");
+            // Dibujar nodos y links
+            
+         /*
+            System.out.println(current.getKey() + "->");
+            current = current.getNext();
+          */
+                String link="";
+
+            while(aux != null)
+            {
+                // Cuando no hay datos cargados borra todo, porque es null
+                //link = link + aux.getKey() + "->" + aux.prev.data.getDpi() + "\r\n";
+                escribir.write(link);
+            }
+
+            
+            escribir.write(" }\r\n");
+            
+            //Cerramos la conexion
+            escribir.close();
+        } //Si existe un problema al escribir cae aqui
+        catch (Exception e) {
+            System.out.println("Error al escribir");
+        }
+
+        Runtime cmd = Runtime.getRuntime();
+        String comando = "dot -Tpng graphBlock.dot -o graphBlock.png";
+        try {
+            cmd.exec(comando);
+            //cmd.exec("start .\\graphListaC.txt");
+        } catch (Exception ex) {
+            System.out.println("ex: " + ex.getMessage());
+        }
+        
+        //Pausar antes de mostrar
+        try{
+            Thread.sleep(2000);
+        }catch(InterruptedException e){
+            
+        }
+
+        ReporteArbolB r = new ReporteArbolB();
+        r.setImage("ArbolB.png");
+        r.setVisible(true);
     }
     
     // Buscar algun nodo, regresa nulo si no existe

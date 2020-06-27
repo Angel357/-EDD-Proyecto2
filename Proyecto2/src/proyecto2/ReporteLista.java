@@ -5,9 +5,17 @@
  */
 package proyecto2;
 
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.io.IOException;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 
 /**
  *
@@ -15,37 +23,29 @@ import javax.swing.JPanel;
  */
 public class ReporteLista extends javax.swing.JFrame {
 
-    JPanel jp = new JPanel();
-    JLabel jl = new JLabel();
     /**
      * Creates new form ReporteLista
      */
     public ReporteLista() {
         initComponents();
         
-        this.setSize(600,800);
-        //this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //this.setSize(600,800);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
     }
     
     public void setImage(String image)
     {
-        /*
+        this.jLabel1.repaint();
         ImageIcon im = new ImageIcon(image);
-        ImageIcon structure = new ImageIcon(im.getImage());
-        this.setSize(im.getImage().getHeight(rootPane), im.getImage().getWidth(rootPane));
-        jl.setIcon(structure);
-        jp.add(jl);
-        
-        this.add(jp);
-        this.validate();*/
-        
-        ImageIcon im = new ImageIcon(image);
-        ImageIcon structure = new ImageIcon(im.getImage());
-        this.setSize(im.getImage().getWidth(rootPane),this.getHeight()/2);
-        jLabel1.setIcon(structure);
+        im.getImage().flush();
+        ImageIcon estructura = new ImageIcon(im.getImage());
+        jLabel1.setIcon(estructura);
         this.jLabel1.repaint();
     }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
