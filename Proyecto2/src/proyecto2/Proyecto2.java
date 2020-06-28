@@ -27,10 +27,11 @@ public class Proyecto2 {
         ArbolB arbolVehiculos = new ArbolB(5);
         ColaAdyacentes grafoRutas= new ColaAdyacentes();
         grafoRutas.GenerarGrafo();
+        Chain registroViajes = new Chain();
         
         //SE INICIALIZA EL MENU ENVIANDOLE LAS ESTRUCTURAS
         MenuGeneral menu = new MenuGeneral();
-        menu.setEstructuras(tablaClientes, listaConductores,arbolVehiculos,grafoRutas);
+        menu.setEstructuras(tablaClientes, listaConductores,arbolVehiculos,grafoRutas,registroViajes);
         menu.setVisible(true);
     }
     

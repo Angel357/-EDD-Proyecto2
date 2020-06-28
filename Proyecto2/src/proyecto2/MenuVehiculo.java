@@ -17,6 +17,7 @@ public class MenuVehiculo extends javax.swing.JFrame {
     ListaConductor estructuraConductores;
     ArbolB tree;
     ColaAdyacentes estructuraRuta;
+    Chain estructuraRegistroViajes;
      
     Vehiculo vehiculo;
     MenuGeneral menu;
@@ -30,7 +31,7 @@ public class MenuVehiculo extends javax.swing.JFrame {
         //modificar.setVisible(false);
     }
     
-    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta){
+    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes){
         this.estructuraClientes=estructuraClientes;
         this.estructuraConductores=estructuraConductores;
         this.tree=estructuraVehiculos;
@@ -195,7 +196,7 @@ public class MenuVehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-       menu.setEstructuras(estructuraClientes, estructuraConductores, tree, estructuraRuta);
+       menu.setEstructuras(estructuraClientes, estructuraConductores, tree, estructuraRuta,estructuraRegistroViajes);
        menu.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed

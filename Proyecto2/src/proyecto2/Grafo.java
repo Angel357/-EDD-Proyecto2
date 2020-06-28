@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
  */
 public class Grafo extends javax.swing.JFrame {
     ListaVertice listaVertices;
+    public String GraficoGeneral="";
+    
     /**
      * Creates new form Grafo
      */
@@ -42,7 +44,9 @@ public class Grafo extends javax.swing.JFrame {
             FileWriter escribir = new FileWriter(archivo, true);
             //Escribimos en el archivo con el metodo write 
             escribir.write("digraph { \r\n");
+            
             escribir.write("rankdir=LR;\r\n");
+            GraficoGeneral+="rankdir=LR;\\r\\n  \n";
             String rutatotal="";
             //en este string se guardara todo el archivo de texto
             String registro="";
@@ -67,6 +71,7 @@ public class Grafo extends javax.swing.JFrame {
                         
                         listaVertices.Insertar(Reg[0], Reg[1], Integer.parseInt(Reg[2]));
                         escribir.write(Reg[0]+" -> "+Reg[1]+" [label=\""+Reg[2]+"\", weight=50];\r\n");
+                        GraficoGeneral+=Reg[0]+" -> "+Reg[1]+" [label=\\\""+Reg[2]+"\\\", weight=50];\\r\\n \n";
                     }
                 }
                 input.close();

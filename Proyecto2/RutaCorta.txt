@@ -1,0 +1,10 @@
+digraph { 
+node[shape=box];
+rankdir=LR;
+"Tiempo: 0
+Granada" -> "Tiempo: 99
+Jaen" -> "Tiempo: 434
+Madrid" -> "Tiempo: 627
+Valladolid" -> "Tiempo: 1082
+Coruna"
+}

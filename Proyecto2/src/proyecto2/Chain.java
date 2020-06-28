@@ -8,7 +8,18 @@ import java.io.IOException;
  *
  * @author wilson
  */
+//estructuras
+
+
+
 public class Chain {
+    //estructuras
+    TablaHash estructuraClientes;
+    ListaConductor estructuraConductores;
+    ArbolB estructuraVehiculos;
+    ColaAdyacentes estructuraRuta;
+    
+    
     Block start;
     
     public Chain()
@@ -16,8 +27,15 @@ public class Chain {
         this.start = null;
     }
     
-    public void insertarFinal(String placa, TablaHash clientes, Ruta recorrido, ListaConductor conductores, ArbolB vehiculos){
-        Block newBlock = new Block(placa);
+    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta){
+        this.estructuraClientes=estructuraClientes;
+        this.estructuraConductores=estructuraConductores;
+        this.estructuraVehiculos=estructuraVehiculos;
+        this.estructuraRuta=estructuraRuta;
+    }
+    
+    public void insertarFinal(String placa){
+        Block newBlock = new Block(placa,estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta);
         //newBlock.next = null;
         
         // verificar si esta vacia

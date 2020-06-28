@@ -24,9 +24,10 @@ public class Viajes extends javax.swing.JFrame {
     ListaConductor estructuraConductores;
     ArbolB estructuraVehiculos;
     ColaAdyacentes estructuraRuta;
+    Chain estructuraRegistroViajes;
     //ventanas
     MenuGeneral menu;
-    
+    boolean bandera=false;
     
     
     public Viajes() {
@@ -35,7 +36,7 @@ public class Viajes extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-   public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta){
+   public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes){
         this.estructuraClientes=estructuraClientes;
         this.estructuraConductores=estructuraConductores;
         this.estructuraVehiculos=estructuraVehiculos;
@@ -52,6 +53,7 @@ public class Viajes extends javax.swing.JFrame {
         cbCliente.removeAllItems();
         cbConductor.removeAllItems();
         cbVehiculo.removeAllItems();
+        Chain estructuraRegistroViajes;
         
         cbCliente.addItem("Seleccionar...");
         cbOrigen.addItem("Seleccionar...");
@@ -180,6 +182,11 @@ public class Viajes extends javax.swing.JFrame {
         cbVehiculo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnGenerarViaje.setText("Generar Viaje");
+        btnGenerarViaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarViajeActionPerformed(evt);
+            }
+        });
 
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -286,9 +293,12 @@ public class Viajes extends javax.swing.JFrame {
            //estructuraRuta.imprimir();
            txtRuta.setText(estructuraRuta.RecorridoImpreso);
            estructuraRuta.RecorridoImpreso="";
+           estructuraRuta.Graficar();
+           estructuraRuta.MostrarGrafico();
        }else{
             JOptionPane.showMessageDialog(null, "Seleccione primero un origen y un destino!");
        }
+       bandera=true; 
        
        
     }//GEN-LAST:event_btnRutaActionPerformed
@@ -299,10 +309,18 @@ public class Viajes extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
       
-       menu.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta);
+       menu.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta,estructuraRegistroViajes);
        menu.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnGenerarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarViajeActionPerformed
+       if(bandera){
+           bandera=false;
+       }else{
+           JOptionPane.showMessageDialog(null, "genere primero la ruta a tomar");
+       }
+    }//GEN-LAST:event_btnGenerarViajeActionPerformed
 
     /**
      * @param args the command line arguments

@@ -20,7 +20,13 @@ import java.util.Locale;
  * @author wilson
  */
 public class Block {
-    // key stuff
+//estructuras    
+    TablaHash estructuraClientes;
+    ListaConductor estructuraConductores;
+    ArbolB estructuraVehiculos;
+    ColaAdyacentes estructuraRuta;
+
+// key stuff
     String key;
     Block next;
     Block prev;
@@ -30,11 +36,16 @@ public class Block {
     Ruta recorrido;
     ArbolB  vehiculos;
     
-    public Block(String placa)
+    public Block(String placa,TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta)
     {
         this.key = obtenerHash(formatKey(placa));
         next = null;
         prev = null;
+        this.estructuraClientes=estructuraClientes;
+        this.estructuraConductores=estructuraConductores;
+        this.estructuraVehiculos=estructuraVehiculos;
+        this.estructuraRuta=estructuraRuta;
+        
     }
     
     //Formatear la llave PLACADDMMYYHH:MM

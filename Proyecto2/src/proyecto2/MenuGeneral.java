@@ -19,6 +19,7 @@ public class MenuGeneral extends javax.swing.JFrame {
     ListaConductor estructuraConductores;
     ArbolB estructuraVehiculos;
     ColaAdyacentes estructuraRuta;
+    Chain estructuraRegistroViajes;
     
     //ventanas 
     Cliente ventanaClientes;
@@ -28,6 +29,7 @@ public class MenuGeneral extends javax.swing.JFrame {
     ConductorVen ventanaConductor;
     MenuConductor ventanaMenuConductores;
     Viajes ventanaViajes;
+    ReportesTexto ventanaReportes;
     
     
     public MenuGeneral() {
@@ -41,13 +43,15 @@ public class MenuGeneral extends javax.swing.JFrame {
         ventanaConductor=new ConductorVen();
         ventanaMenuConductores=new MenuConductor();
         ventanaViajes = new Viajes();
+        ventanaReportes=new ReportesTexto();
     }
     
-    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta){
+    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes){
         this.estructuraClientes=estructuraClientes;
         this.estructuraConductores=estructuraConductores;
         this.estructuraVehiculos=estructuraVehiculos;
         this.estructuraRuta=estructuraRuta;
+        this.estructuraRegistroViajes=estructuraRegistroViajes;
     }
     
 
@@ -66,9 +70,9 @@ public class MenuGeneral extends javax.swing.JFrame {
         btnConductores = new javax.swing.JButton();
         btnViajes = new javax.swing.JButton();
         btnRutas = new javax.swing.JButton();
+        btnreportes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-	
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel1.setText("Llega Rapidito");
@@ -108,6 +112,13 @@ public class MenuGeneral extends javax.swing.JFrame {
             }
         });
 
+        btnreportes.setText("Reportes");
+        btnreportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreportesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,9 +127,10 @@ public class MenuGeneral extends javax.swing.JFrame {
                 .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnRutas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnreportes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRutas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(btnConductores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -143,35 +155,37 @@ public class MenuGeneral extends javax.swing.JFrame {
                     .addComponent(btnViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnRutas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(btnreportes)
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVehiculosActionPerformed
-       ventanaMenuVehiculo.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta);
+       ventanaMenuVehiculo.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
        ventanaMenuVehiculo.setVentanas(ventanaVehiculo, this);
        ventanaMenuVehiculo.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btnVehiculosActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-      ventanaMenuCliente.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta);
+      ventanaMenuCliente.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
       ventanaMenuCliente.setVentanas(ventanaClientes, this);
       ventanaMenuCliente.setVisible(true);
       this.setVisible(false);
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnConductoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConductoresActionPerformed
-       ventanaMenuConductores.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta);
+       ventanaMenuConductores.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
        ventanaMenuConductores.setVentanas(ventanaConductor, this);
        ventanaMenuConductores.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btnConductoresActionPerformed
 
     private void btnViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViajesActionPerformed
-       ventanaViajes.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta);
+       ventanaViajes.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
        ventanaViajes.setVentanas(this);
        ventanaViajes.cargarDatos();
        ventanaViajes.setVisible(true);
@@ -181,6 +195,14 @@ public class MenuGeneral extends javax.swing.JFrame {
     private void btnRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutasActionPerformed
        estructuraRuta.g.MostrarGrafo();
     }//GEN-LAST:event_btnRutasActionPerformed
+
+    private void btnreportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportesActionPerformed
+        ventanaReportes.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
+        ventanaReportes.setVentanas(this);
+        ventanaReportes.setViajes();
+        ventanaReportes.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnreportesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,6 +245,7 @@ public class MenuGeneral extends javax.swing.JFrame {
     private javax.swing.JButton btnRutas;
     private javax.swing.JButton btnVehiculos;
     private javax.swing.JButton btnViajes;
+    private javax.swing.JButton btnreportes;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

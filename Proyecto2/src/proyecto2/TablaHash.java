@@ -17,6 +17,7 @@ public class TablaHash {
     int size;
     public int porcentajeDispersion;
     public int contadorHash;
+    public String GraficoGeneral;
     NodoHash[] arregloHash;
     
     public TablaHash(int size){
@@ -312,7 +313,17 @@ public class TablaHash {
         catch (Exception e) {
             System.out.println("Error al escribir");
         }
-         
+        
+        
+        GraficoGeneral= "node[shape=box];\\r\\n \n"
+                         + "rankdir=LR;\\r\\n \n \\r\\n \n \\r\\n \n"
+                         + "subgraph cluster_1{ \\r\\n"
+                         + Coordenadas+"\\r\\n \n}"
+                         + "\\r\\n \n \\r\\n \n"
+                         + ListasCoordenadas+" \\r\\n \n \\r\\n \n"
+                         + CoordenadaAinicio+"\\r\\n \n \\r\\n \n";
+        
+        
         Runtime cmd=Runtime.getRuntime();
     String comando="dot -Tpng TablaHash.txt -o TablaHash.png";
     try{
@@ -336,9 +347,7 @@ public class TablaHash {
 //    r.setVisible(true);
     }
     
-    public void Ruta(){
-        
-    }
+    
     
     
     

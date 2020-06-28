@@ -17,6 +17,8 @@ import java.math.BigInteger;
 public class ListaConductor {
     NodoLD start;
     
+    public String GraficoGeneral="";
+    
     ListaConductor()
     {
         this.start = null;
@@ -205,8 +207,11 @@ public class ListaConductor {
             //Escribimos en el archivo con el metodo write 
             // setting the una lista doble;
             escribir.write("digraph {\r\n");
+            
             escribir.write("node[shape=box width=2 height=0.8];\r\n");
+            GraficoGeneral+="node[shape=box width=2 height=0.8];\\r\\n \n";
             escribir.write("rankdir=LR;\r\n");
+            GraficoGeneral+="rankdir=LR;\\r\\n \n";
             // Dibujar nodos y links
             
             
@@ -215,16 +220,29 @@ public class ListaConductor {
                 label = "\"" + aux.data.getDpi().toString()+ "\r"  + aux.data.getNombres() + "\"" + "\r\n";
                 
                 escribir.write(label);
+                GraficoGeneral+="\\\"" + aux.data.getDpi().toString()+ "\\r"  + aux.data.getNombres() + "\\\"" + "\\r\\n \n";
                 
                 String link = "\"" + aux.data.getDpi().toString()+ "\r" + aux.data.getNombres() + "\""
                         + "->" + 
                         "\"" + aux.next.data.getDpi().toString()+ "\r" + aux.next.data.getNombres() + "\""
                         + "\r\n";
                 
+                GraficoGeneral+="\\\"" + aux.data.getDpi().toString()+ "\\r" + aux.data.getNombres() + "\\\""
+                        + "->" + 
+                        "\\\"" + aux.next.data.getDpi().toString()+ "\\r" + aux.next.data.getNombres() + "\\\""
+                        + "\\r\\n \n";
+                
                 link = link + "\"" + aux.data.getDpi() + "\r" + aux.data.getNombres()+ "\"" 
                         + "->" + 
                          "\"" + aux.prev.data.getDpi()+ "\r" + aux.prev.data.getNombres() + "\"" 
                         + "\r\n";
+                
+                GraficoGeneral+= "\\\"" + aux.data.getDpi() + "\\r" + aux.data.getNombres()+ "\\\"" 
+                        + "->" + 
+                         "\\\"" + aux.prev.data.getDpi()+ "\\r" + aux.prev.data.getNombres() + "\\\"" 
+                        + "\\r\\n \n";
+                
+                
                 escribir.write(link);
                 aux = aux.next;
             }while(aux != start);
