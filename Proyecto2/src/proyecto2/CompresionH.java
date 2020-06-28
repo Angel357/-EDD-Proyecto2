@@ -24,6 +24,7 @@ public class CompresionH {
         Map<Character, String> tablaB = buscarTabla(root);
         return new ResultadoH(generarCodigo(data,tablaB), root);
     }
+
     public String generarCodigo(String data, Map<Character, String> tablaB)
     {
         StringBuilder generar = new StringBuilder();

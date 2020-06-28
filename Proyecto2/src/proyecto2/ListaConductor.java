@@ -179,13 +179,6 @@ public class ListaConductor {
     {
         NodoLD aux = n;
 
-        /*
-        try {
-            File fold = new File("tablaHash.txt");
-            fold.delete();
-        } catch (Exception e1) {
-
-        }*/
         String label;
         try {
             //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
@@ -258,13 +251,7 @@ public class ListaConductor {
 
         Runtime cmd = Runtime.getRuntime();
         String comando = "dot -Tpng graphListaC.dot -o graphListaC.png";
-        //No es necesario remplazar imagen. 
-        /*
-        File auxImage = new File("graphListaC.png");
-        // Eliminar imagen que ya existe
-        if(auxImage.exists())
-            auxImage.delete();
-        */
+
         try {
             cmd.exec(comando);
             //cmd.exec("start .\\graphListaC.txt");

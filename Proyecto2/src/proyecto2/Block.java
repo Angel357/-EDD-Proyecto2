@@ -28,6 +28,7 @@ public class Block {
 
 // key stuff
     String key;
+    private String horaFechaGenerado;
     Block next;
     Block prev;
     
@@ -35,6 +36,15 @@ public class Block {
     TablaHash clientes;
     Ruta recorrido;
     ArbolB  vehiculos;
+    
+    public Block(String placa)
+    {
+        this.key = obtenerHash(formatKey(placa));
+        next = null;
+        prev = null;
+       // System.out.println("Tiempo: " + this.horaFechaGenerado);
+        
+    }
     
     public Block(String placa,TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta)
     {
@@ -48,15 +58,31 @@ public class Block {
         
     }
     
+    public String getHoraFechaGenerado(){
+        return this.horaFechaGenerado;
+    }
+    
+    public String obtenerHash(String placa, String fechaViaje)
+    {
+        String decrypt = obtenerHash(placa+fechaViaje);
+        return decrypt;
+    }
+    
     //Formatear la llave PLACADDMMYYHH:MM
     public String formatKey(String placa)
+    {
+        String formatedDate = formatDTime();
+        this.horaFechaGenerado = formatedDate;
+        System.out.println("Fecha hora: " + placa + formatedDate);
+        return placa + formatedDate;
+    }
+    
+    public String formatDTime()
     {
         LocalDateTime fechaHora = LocalDateTime.now();
         DateTimeFormatter fechaFormat = DateTimeFormatter.ofPattern("ddMMyy HH:mm");
         String formatedDate = fechaHora.format(fechaFormat).trim().replace(" ", "").toUpperCase();
-    
-        System.out.println("Fecha hora: " + placa + formatedDate);
-        return placa + formatedDate;
+        return formatedDate;
     }
     
     // MD5 llave
