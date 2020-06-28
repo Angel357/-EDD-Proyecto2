@@ -18,27 +18,21 @@ public class TestStuff {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        String data = "hello world!";
-        CompresionH codificador = new CompresionH();
-        ResultadoH resultado = codificador.comprimir(data);
         
-        System.out.println("codificado: " + resultado.encryptedData);
-        System.out.println("decodificado: " + codificador.decompress(resultado));
+        ArbolB test = new ArbolB(3);
+        test.insertar("A");
+        test.insertar("B");
+        test.insertar("C");
+        test.insertar("D");
+        test.insertar("E");
+        test.insertar("F");
+        test.insertar("G");
+        test.insertar("H");
+        test.insertar("I");
+        test.insertar("J");
+        test.insertar("K");
         
-        /*
-        int[] ft = hola.construirTablaFrequencia(test);
-        NodeHuffman n  = hola.constuirArbolHuffman(ft);
-        Map<Character, String> buscar = hola.buscarTabla(n);
-         */
-        /*
-        for(int i = 0; i < ft.length; i++)
-        {
-            System.out.print( i + " ");
-            System.out.println(ft[i]);
-        }*/
-            
-        
-        
+        test.imprimir();
     }
     
 }

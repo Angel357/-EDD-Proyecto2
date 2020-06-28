@@ -5,7 +5,11 @@
  */
 package proyecto2;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,16 +45,16 @@ public class ReportesTexto extends javax.swing.JFrame {
         jComboBox1.addItem("Top 10 vehiculos con viajes");
         cbViajes.removeAllItems();
         cbViajes.addItem("Seleccionar...");
+        
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setWrapStyleWord(true);
     }
     
-    public void encrypt(){
-       String data =  jTextArea1.getText().trim();
-        
+    public void encrypt() {
+        String data = jTextArea1.getText().trim();
         comp = new CompresionH();
         resultado = comp.comprimir(data);
-        
-        jTextArea2.append("\n"+resultado.encryptedData+"\n");
-        
+        jTextArea2.append(resultado.encryptedData + "\n");
     }
     
     public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes){
@@ -89,7 +93,7 @@ public class ReportesTexto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
@@ -120,7 +124,7 @@ public class ReportesTexto extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -141,8 +145,18 @@ public class ReportesTexto extends javax.swing.JFrame {
         jButton4.setText("Decomprimir");
 
         jButton5.setText("Limpear");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         cbViajes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbViajes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbViajesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,7 +183,6 @@ public class ReportesTexto extends javax.swing.JFrame {
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
-                        .addGap(18, 18, 18)
                         .addGap(41, 41, 41)
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -213,12 +226,47 @@ public class ReportesTexto extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        encrypt();
+        if(jComboBox1.getSelectedIndex()!=0){
+             encrypt();
+        }else{
+            JOptionPane.showMessageDialog(null, "Opcion no valida!");
+        }
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        jTextArea2.append(comp.decompress(resultado)+"\n");
+        if (jComboBox1.getSelectedIndex() != 0) {
+            encrypt();
+
+            jTextArea2.append(comp.decompress(resultado) + "\n");
+            System.out.println(jComboBox1.getSelectedItem().toString());
+            String archivoGenName = jComboBox1.getSelectedItem().toString().trim().replace(" ", "").toLowerCase() + ".edd";
+            try {
+                File archivo = new File(archivoGenName);
+
+                // Verifcar si escribe y rescribir
+                if (archivo.exists()) {
+                    archivo.delete();
+                    try {
+                        archivo.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                FileWriter escribir = new FileWriter(archivo, true);
+                escribir.write(resultado.encryptedData);
+                //Cerramos la conexion
+                escribir.close();
+            } //Si existe un problema al escribir cae aqui
+            catch (Exception e) {
+                System.out.println("Error al escribir");
+            }
+            JOptionPane.showMessageDialog(null, archivoGenName + " generado correctamente! ");
+        }else{
+            JOptionPane.showMessageDialog(null, "Opcion no valida!");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -226,6 +274,16 @@ public class ReportesTexto extends javax.swing.JFrame {
        menu.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        jTextArea1.setText("");
+        jTextArea2.setText("");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void cbViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbViajesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbViajesActionPerformed
 
     /**
      * @param args the command line arguments
