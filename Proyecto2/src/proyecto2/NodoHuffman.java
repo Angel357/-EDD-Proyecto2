@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test.stuff;
+package proyecto2;
 
 /**
  *
  * @author wilson
  */
-public class NodeHuffman implements Comparable<NodeHuffman> {
+public class NodoHuffman implements Comparable<NodoHuffman>{
     char character;
     int frequency;
-    NodeHuffman leftChild;
-    NodeHuffman rightChild;
+    NodoHuffman leftChild;
+    NodoHuffman rightChild;
     
-    NodeHuffman(char character, int frequency, 
-            NodeHuffman leftChild, NodeHuffman rightChild)
+    NodoHuffman(char character, int frequency, 
+            NodoHuffman leftChild, NodoHuffman rightChild)
     {
         this.character = character;
         this.frequency = frequency;
@@ -30,7 +30,7 @@ public class NodeHuffman implements Comparable<NodeHuffman> {
     }
 
     @Override
-    public int compareTo(NodeHuffman t) {
+    public int compareTo(NodoHuffman t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         // Comparar Nodos
         int frequencyComp = Integer.compare(this.frequency, t.frequency);

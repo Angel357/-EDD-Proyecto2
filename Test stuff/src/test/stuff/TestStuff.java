@@ -5,6 +5,8 @@
  */
 package test.stuff;
 
+import java.util.Map;
+
 /**
  *
  * @author wilson
@@ -16,12 +18,18 @@ public class TestStuff {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        CompresionHuffman hola = new CompresionHuffman();
-        String test = "abcdeffg";
+        String data = "hello world!";
+        CompresionH codificador = new CompresionH();
+        ResultadoH resultado = codificador.comprimir(data);
+        
+        System.out.println("codificado: " + resultado.encryptedData);
+        System.out.println("decodificado: " + codificador.decompress(resultado));
+        
+        /*
         int[] ft = hola.construirTablaFrequencia(test);
         NodeHuffman n  = hola.constuirArbolHuffman(ft);
-         
-        System.out.println(n);
+        Map<Character, String> buscar = hola.buscarTabla(n);
+         */
         /*
         for(int i = 0; i < ft.length; i++)
         {
