@@ -160,5 +160,54 @@ public class Chain {
     }
     
     
+    public void GraficaGeneral(){
+        Block aux=start;
+        
+        try{
+              File fold=new File("GraficaGeneral.txt");
+                fold.delete();
+          }catch(Exception e1){
+              
+          }
+          
+        try {
+            //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
+            File archivo = new File("GraficaGeneral.txt");
+
+            //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
+            FileWriter escribir = new FileWriter(archivo, true);
+            //Escribimos en el archivo con el metodo write 
+            escribir.write("digraph {\r\n");
+            escribir.write("subgraph cluster_Grafo{\r\n");
+            escribir.write(estructuraRuta.g.GraficoGeneral);
+            escribir.write("\r\n}");
+            
+            escribir.write("\r\n }");
+            //Cerramos la conexion
+            escribir.close();
+            } //Si existe un problema al escribir cae aqui
+            catch (Exception e) {
+                System.out.println("Error al escribir");
+            }
+        
+            Runtime cmd=Runtime.getRuntime();
+            String comando="dot -Tpng GraficaGeneral.txt -o GraficaGeneral.png";
+            try{
+                cmd.exec(comando);
+                //cmd.exec("start TablaHash.txt");
+            }catch(Exception ex){
+                System.out.println("ex: "+ex.getMessage());
+            }
+
+            try{
+                Thread.sleep(2000);
+            }catch(InterruptedException e){
+
+            }
+
+                ReporteHash r=new ReporteHash();
+                r.setImagen("GraficaGeneral.png");
+                r.setVisible(true);
+            }    
     
-}
+}// fin clase chain

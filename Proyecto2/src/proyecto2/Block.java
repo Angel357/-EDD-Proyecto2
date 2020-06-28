@@ -31,10 +31,7 @@ public class Block {
     Block next;
     Block prev;
     
-    ListaConductor conductores;
-    TablaHash clientes;
-    Ruta recorrido;
-    ArbolB  vehiculos;
+  
     
     public Block(String placa,TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta)
     {

@@ -15,13 +15,14 @@ import java.io.FileWriter;
 public class Ruta {
     public NodoRuta Inicio;
     public String rutaImpresa;
+    public int Tamaño=0;
     
     public Ruta(){
         this.Inicio=null;
     }
     
     public void insertar(int peso, int acumulado, String nombre){
-        
+        Tamaño++;
         NodoRuta nuevo=new NodoRuta(peso, acumulado, nombre);
         if(Inicio==null){
             Inicio=nuevo;
