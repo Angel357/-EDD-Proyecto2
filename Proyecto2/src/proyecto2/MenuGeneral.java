@@ -32,6 +32,7 @@ public class MenuGeneral extends javax.swing.JFrame {
     
     public MenuGeneral() {
         initComponents();
+        //this.setDefaultCloseOperation(0);
         this.setLocationRelativeTo(null);
         ventanaClientes=new Cliente();
         ventanaMenuCliente=new MenuCliente();
@@ -67,6 +68,7 @@ public class MenuGeneral extends javax.swing.JFrame {
         btnRutas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+	
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel1.setText("Llega Rapidito");
@@ -169,7 +171,11 @@ public class MenuGeneral extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConductoresActionPerformed
 
     private void btnViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViajesActionPerformed
-        // TODO add your handling code here:
+       ventanaViajes.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta);
+       ventanaViajes.setVentanas(this);
+       ventanaViajes.cargarDatos();
+       ventanaViajes.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_btnViajesActionPerformed
 
     private void btnRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutasActionPerformed

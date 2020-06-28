@@ -20,6 +20,7 @@ public class MenuConductor extends javax.swing.JFrame {
     public MenuConductor() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(0);
     }
     
     public void setLista(ListaConductor lista)

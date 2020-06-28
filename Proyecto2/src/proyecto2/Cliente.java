@@ -30,6 +30,7 @@ public class Cliente extends javax.swing.JFrame {
         
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(0);
         txtKey.setVisible(true); 
         
     }
