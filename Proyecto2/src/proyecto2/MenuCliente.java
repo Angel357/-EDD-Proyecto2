@@ -27,6 +27,7 @@ public class MenuCliente extends javax.swing.JFrame {
     public MenuCliente() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(0);
        // this.h = t;
     }
     public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta){

@@ -5,19 +5,26 @@
  */
 package proyecto2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author luisa
  */
 public class ColaAdyacentes {
     public NodoCola Inicio;
+    
     public NodoCola Pad;
+    
     public String Destino;
+    public String RecorridoImpreso="";
     public ColaAdyacentes pops;
     public ColaAdyacentes Ruta;
     public int pesoAcumulado=0;
     public Ruta ruta;
     public Grafo g;
+    public String origen;
+    public String destino;
     
     public ColaAdyacentes(){
         this.Inicio=null;
@@ -27,7 +34,11 @@ public class ColaAdyacentes {
     public void insertar(int peso,int acumulado, String nombre){
         NodoCola nuevo=new NodoCola(peso,acumulado,nombre);
         nuevo.Padre=Pad;
-        nuevo.acumulado=nuevo.acumulado+Pad.acumulado;
+        if(Pad!=null){
+         nuevo.acumulado=nuevo.acumulado+Pad.acumulado;   
+        }else{
+            nuevo.acumulado=nuevo.acumulado;
+        }
         NodoCola aux;
         if(Inicio==null){
             Inicio=nuevo;
@@ -53,17 +64,26 @@ public class ColaAdyacentes {
     
     public void Pop(){
         Pad=Inicio;
-        if(Inicio.siguiente!=null){
-           Inicio.anterior=null; 
-           Inicio=Inicio.siguiente;
-        }else{
-            Inicio=null;
+        try{
+            if(Inicio.siguiente!=null){
+               Inicio=Inicio.siguiente;
+               Inicio.anterior=null; 
+            }else{
+                Inicio=null;
+            }
+        }catch(Exception e5){
+            JOptionPane.showMessageDialog(null, "No hay ninguna ruta disponible de: "+origen+" hacia: "+destino);
         }
     }
     
     public void imprimir(){
-        NodoCola aux=Inicio;
+        NodoRuta aux=ruta.Inicio;
         while(aux!=null){
+            if(aux.siguiente!=null){
+                RecorridoImpreso +="Tiempo: "+aux.peso+"+"+aux.acumulado+"; "+aux.nombre+" -> ";
+            }else{
+                RecorridoImpreso +="Tiempo: "+aux.peso+"+"+aux.acumulado+"; "+aux.nombre;
+            }
             System.out.println("peso: "+aux.acumulado+", nombre: "+aux.nombre);
             aux=aux.siguiente;
         }
@@ -86,19 +106,26 @@ public class ColaAdyacentes {
     }
     
     public void ObtenerRuta(String Origen, String Destino){
+        this.origen=Origen;
+        this.destino=Destino;
         insertar(0,0,Origen);
+        Pop();
+        InsertarAdyacentes();
         while(!Pad.nombre.equals(Destino)){
-            Pop();
+          Pop();
             if(Pad.nombre.equals(Destino)){
-                ruta = new Ruta();
-                while(Pad.Padre!=null){
-                    ruta.insertar(Pad.peso, Pad.acumulado, Pad.nombre);
-                    Pad=Pad.Padre;
-                }
+                break;
             }else{
                 InsertarAdyacentes();
             }
         }
+        ruta = new Ruta();
+        while(Pad!=null){
+            ruta.insertar(Pad.peso, Pad.acumulado, Pad.nombre);
+            Pad=Pad.Padre;
+        }
+        
+        imprimir();
     }
     
     public void GenerarGrafo(){

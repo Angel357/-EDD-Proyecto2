@@ -25,7 +25,7 @@ public class MenuVehiculo extends javax.swing.JFrame {
     public MenuVehiculo() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+        this.setDefaultCloseOperation(0);
         //agregar.setVisible(false);
         //modificar.setVisible(false);
     }

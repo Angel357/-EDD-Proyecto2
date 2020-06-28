@@ -25,6 +25,7 @@ public class ConductorVen extends javax.swing.JFrame {
     public ConductorVen() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(0);
     }
     
     public void clean() {

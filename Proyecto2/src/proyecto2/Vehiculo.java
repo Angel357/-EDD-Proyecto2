@@ -28,6 +28,7 @@ public class Vehiculo extends javax.swing.JFrame {
     public Vehiculo() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(0);
     }
 
     public void setDatos(int opt, ArbolB tree, MenuVehiculo menu){
