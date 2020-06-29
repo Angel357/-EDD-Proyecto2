@@ -44,6 +44,7 @@ public class nodoArbolB {
             {
                 C[i].imprimir();
             }
+            
             System.out.print(keys[i] + " ");
         }
         

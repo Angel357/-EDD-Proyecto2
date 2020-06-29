@@ -1,0 +1,213 @@
+digraph {
+subgraph cluster_Grafo{
+rankdir=LR;  
+Cadiz -> Sevilla [label="125", weight=50]; 
+Sevilla -> Cadiz [label="125", weight=50]; 
+Sevilla -> Granada [label="256", weight=50]; 
+Granada -> Sevilla [label="256", weight=50]; 
+Sevilla -> Jaen [label="242", weight=50]; 
+Jaen -> Sevilla [label="242", weight=50]; 
+Granada -> Jaen [label="99", weight=50]; 
+Jaen -> Granada [label="99", weight=50]; 
+Granada -> Murcia [label="278", weight=50]; 
+Murcia -> Granada [label="278", weight=50]; 
+Jaen -> Madrid [label="335", weight=50]; 
+Madrid -> Jaen [label="335", weight=50]; 
+Murcia -> Valencia [label="241", weight=50]; 
+Valencia -> Murcia [label="241", weight=50]; 
+Murcia -> Albacete [label="150", weight=50]; 
+Albacete -> Murcia [label="150", weight=50]; 
+Albacete -> Valencia [label="191", weight=50]; 
+Valencia -> Albacete [label="191", weight=50]; 
+Albacete -> Madrid [label="251", weight=50]; 
+Madrid -> Albacete [label="251", weight=50]; 
+Valencia -> Barcelona [label="349", weight=50]; 
+Barcelona -> Valencia [label="349", weight=50]; 
+Barcelona -> Gerona [label="100", weight=50]; 
+Gerona -> Barcelona [label="100", weight=50]; 
+Barcelona -> Zaragoza [label="296", weight=50]; 
+Zaragoza -> Barcelona [label="296", weight=50]; 
+Zaragoza -> Madrid [label="325", weight=50]; 
+Madrid -> Zaragoza [label="325", weight=50]; 
+Madrid -> Badajoz [label="403", weight=50]; 
+Badajoz -> Madrid [label="403", weight=50]; 
+Madrid -> Valladolid [label="193", weight=50]; 
+Valladolid -> Madrid [label="193", weight=50]; 
+Valladolid -> Vigo [label="356", weight=50]; 
+Vigo -> Valladolid [label="356", weight=50]; 
+Valladolid -> Coruna [label="455", weight=50]; 
+Coruna -> Valladolid [label="455", weight=50]; 
+Vigo -> Coruna [label="171", weight=50]; 
+Coruna -> Vigo [label="171", weight=50]; 
+Valladolid -> Bilbao [label="280", weight=50]; 
+Bilbao -> Valladolid [label="280", weight=50]; 
+Bilbao -> Madrid [label="395", weight=50]; 
+Madrid -> Bilbao [label="395", weight=50]; 
+Zaragoza -> Bilbao [label="324", weight=50]; 
+Bilbao -> Zaragoza [label="324", weight=50]; 
+Bilbao -> Oviedo [label="304", weight=50]; 
+Oviedo -> Bilbao [label="304", weight=50]; 
+
+
+}
+subgraph cluster_Clientes{
+node[shape=box]; 
+rankdir=LR; 
+  
+  
+subgraph cluster_Clientes1{ 
+0; 
+ 1; 
+ 2; 
+ 3; 
+ 4; 
+ 5; 
+ 6; 
+ 7; 
+ 8; 
+ 9; 
+ 10; 
+ 11; 
+ 12; 
+ 13; 
+ 14; 
+ 15; 
+ 16; 
+ 17; 
+ 18; 
+ 19; 
+ 20; 
+ 21; 
+ 22; 
+ 23; 
+ 24; 
+ 25; 
+ 26; 
+ 27; 
+ 28; 
+ 29; 
+ 30; 
+ 31; 
+ 32; 
+ 33; 
+ 34; 
+ 35; 
+ 36; 
+ 
+} 
+  
+"4 \njoel" -> "41 \njazmin" -> "78 \ndiego" -> "6855655584235 \njacki"; 
+"8965478123654 \npedro"; 
+"4655566666488 \nasusena"; 
+"5648973254612 \nmiguel"; 
+"4855258666636 \npaola" -> "14 \nchepe"; 
+"6655585556656 \nalison"; 
+"2365489784561 \njuan"; 
+"3002875340101 \nAngel" -> "26 \nalexa" -> "63 \ngabriel" -> "100 \njunior"; 
+"34 \nalejandra"; 
+"8565526523633 \nmarivel"; 
+  
+  
+4 -> "4 \njoel"; 
+8 -> "8965478123654 \npedro"; 
+11 -> "4655566666488 \nasusena"; 
+13 -> "5648973254612 \nmiguel"; 
+14 -> "4855258666636 \npaola"; 
+16 -> "6655585556656 \nalison"; 
+18 -> "2365489784561 \njuan"; 
+26 -> "3002875340101 \nAngel"; 
+34 -> "34 \nalejandra"; 
+35 -> "8565526523633 \nmarivel"; 
+ 
+  
+
+
+}
+subgraph cluster_Conductores{
+node[shape=box width=2 height=0.8]; 
+rankdir=LR; 
+"201602750\nWilson Gaspar" 
+"201602750\nWilson Gaspar"->"201602751\nWilson Gaspar" 
+"201602750\nWilson Gaspar"->"201602759\nWilson Gaspar" 
+"201602751\nWilson Gaspar" 
+"201602751\nWilson Gaspar"->"201602752\nWilson Gaspar" 
+"201602751\nWilson Gaspar"->"201602750\nWilson Gaspar" 
+"201602752\nWilson Gaspar" 
+"201602752\nWilson Gaspar"->"201602753\nWilson Gaspar" 
+"201602752\nWilson Gaspar"->"201602751\nWilson Gaspar" 
+"201602753\nWilson Gaspar" 
+"201602753\nWilson Gaspar"->"201602754\nernesto gonzales" 
+"201602753\nWilson Gaspar"->"201602752\nWilson Gaspar" 
+"201602754\nernesto gonzales" 
+"201602754\nernesto gonzales"->"201602755\nWilson Gaspar" 
+"201602754\nernesto gonzales"->"201602753\nWilson Gaspar" 
+"201602755\nWilson Gaspar" 
+"201602755\nWilson Gaspar"->"201602758\nWilson Gaspar" 
+"201602755\nWilson Gaspar"->"201602754\nernesto gonzales" 
+"201602758\nWilson Gaspar" 
+"201602758\nWilson Gaspar"->"201602759\nWilson Gaspar" 
+"201602758\nWilson Gaspar"->"201602755\nWilson Gaspar" 
+"201602759\nWilson Gaspar" 
+"201602759\nWilson Gaspar"->"201602750\nWilson Gaspar" 
+"201602759\nWilson Gaspar"->"201602758\nWilson Gaspar" 
+
+
+}
+subgraph cluster_Registros{
+node[shape=box]; 
+rankdir=LR; 
+"2995439f27ba211dcc89c9048688edae" -> "NULL"; 
+"2995439f27ba211dcc89c9048688edae"  
+"2995439f27ba211dcc89c9048688edae" -> "81e64ef93ba8e5f72cb8aff0cb738c87"; 
+"81e64ef93ba8e5f72cb8aff0cb738c87" -> "2995439f27ba211dcc89c9048688edae";  
+"81e64ef93ba8e5f72cb8aff0cb738c87"  
+"81e64ef93ba8e5f72cb8aff0cb738c87" -> "00af05ba72fce74a173255edfa75c546"; 
+"00af05ba72fce74a173255edfa75c546" -> "81e64ef93ba8e5f72cb8aff0cb738c87";  
+"00af05ba72fce74a173255edfa75c546"  
+"00af05ba72fce74a173255edfa75c546" -> "9eec4a35f026317ce14794a3c95eb7ef"; 
+"9eec4a35f026317ce14794a3c95eb7ef" -> "00af05ba72fce74a173255edfa75c546";  
+"9eec4a35f026317ce14794a3c95eb7ef"  
+"9eec4a35f026317ce14794a3c95eb7ef" -> "NULL.";  
+
+
+}
+subgraph cluster_101{
+node[shape=box]; 
+"Tiempo: 0\nMurcia" -> "Tiempo: 150\nAlbacete" -> "Tiempo: 401\nMadrid" -> "Tiempo: 796\nBilbao"
+
+
+}
+subgraph cluster_102{
+node[shape=box]; 
+"Tiempo: 0\nSevilla" -> "Tiempo: 242\nJaen" -> "Tiempo: 577\nMadrid" -> "Tiempo: 770\nValladolid"
+
+
+}
+subgraph cluster_103{
+node[shape=box]; 
+"Tiempo: 0\nBilbao" -> "Tiempo: 324\nZaragoza" -> "Tiempo: 620\nBarcelona" -> "Tiempo: 720\nGerona"
+
+
+}
+subgraph cluster_104{
+node[shape=box]; 
+"Tiempo: 0\nOviedo" -> "Tiempo: 304\nBilbao" -> "Tiempo: 699\nMadrid" -> "Tiempo: 1102\nBadajoz"
+
+
+}
+
+ 
+"2995439f27ba211dcc89c9048688edae" -> "100 \njunior"; 
+"2995439f27ba211dcc89c9048688edae" -> "201602753\nWilson Gaspar" ;
+"2995439f27ba211dcc89c9048688edae" -> "Tiempo: 0\nMurcia"; 
+"81e64ef93ba8e5f72cb8aff0cb738c87" -> "2365489784561 \njuan"; 
+"81e64ef93ba8e5f72cb8aff0cb738c87" -> "201602758\nWilson Gaspar" ;
+"81e64ef93ba8e5f72cb8aff0cb738c87" -> "Tiempo: 0\nSevilla"; 
+"00af05ba72fce74a173255edfa75c546" -> "100 \njunior"; 
+"00af05ba72fce74a173255edfa75c546" -> "201602754\nernesto gonzales" ;
+"00af05ba72fce74a173255edfa75c546" -> "Tiempo: 0\nBilbao"; 
+"9eec4a35f026317ce14794a3c95eb7ef" -> "63 \ngabriel"; 
+"9eec4a35f026317ce14794a3c95eb7ef" -> "201602752\nWilson Gaspar" ;
+"9eec4a35f026317ce14794a3c95eb7ef" -> "Tiempo: 0\nOviedo"; 
+
+ }

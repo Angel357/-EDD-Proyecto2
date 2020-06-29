@@ -20,22 +20,30 @@ public class Proyecto2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*
+        
         //SE CREAN TODAS LAS ESTRUCTURAS QUE SERVIRAN EN EL FLUJO DE LA APLICACION
+        
         TablaHash tablaClientes= new TablaHash(37);
+        
         ListaConductor listaConductores = new ListaConductor();
+        
         ArbolB arbolVehiculos = new ArbolB(5);
+        
         ColaAdyacentes grafoRutas= new ColaAdyacentes();
+        
         grafoRutas.GenerarGrafo();
+        
         Chain registroViajes = new Chain();
         
         //SE INICIALIZA EL MENU ENVIANDOLE LAS ESTRUCTURAS
         MenuGeneral menu = new MenuGeneral();
-        menu.setEstructuras(tablaClientes, listaConductores,arbolVehiculos,grafoRutas,registroViajes);
-        menu.setVisible(true);*/
         
-        Block test = new Block("PAAA");
-        System.out.println("Hora:" + test.getHoraFechaGenerado());
+        menu.setEstructuras(tablaClientes, listaConductores,arbolVehiculos,grafoRutas,registroViajes);
+        
+        menu.setVisible(true);
+        
+//        Block test = new Block("PAAA");
+//        System.out.println("Hora:" + test.getHoraFechaGenerado());
         
         
         

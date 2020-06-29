@@ -70,11 +70,14 @@ public class ReportesTexto extends javax.swing.JFrame {
     }
     
     public void setViajes(){
-        Block aux=estructuraRegistroViajes.start;
-        while(aux!=null){
-            cbViajes.addItem(aux.key);
-            aux=aux.next;
-        }
+        
+            Block aux=estructuraRegistroViajes.start;
+            while(aux!=null){
+                cbViajes.addItem(aux.key);
+                aux=aux.next;
+            }
+        
+        
         
     }
     

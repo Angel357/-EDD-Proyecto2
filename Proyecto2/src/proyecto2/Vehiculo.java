@@ -461,7 +461,7 @@ public class Vehiculo extends javax.swing.JFrame {
         ObjVehiculo insertarV;
         for(int x=0;x<arregloRegistro.length;x++){
             
-            String[] nuevo=arregloRegistro[x].split(",");
+            String[] nuevo=arregloRegistro[x].split(":");
             
             // Impresion de datos que estoy inertando
             System.out.print(nuevo[0]+  " " + nuevo[1] + " " + nuevo[2] + " " + nuevo[3] + " " + nuevo[4] + " " + nuevo[5] + " " + nuevo[6]+ "\n");

@@ -16,6 +16,7 @@ public class Ruta {
     public NodoRuta Inicio;
     public String rutaImpresa;
     public int Tamaño=0;
+    public String GraficoGeneral;
     
     public Ruta(){
         this.Inicio=null;
@@ -32,10 +33,10 @@ public class Ruta {
         }        
     }
     
-    public void Graficar(){
-        NodoRuta aux=Inicio;
+   public void Graficar(){
+        GraficoGeneral="";
         try{
-              File fold=new File("Ruta.txt");
+              File fold=new File("RutaCorta.txt");
                 fold.delete();
           }catch(Exception e1){
               
@@ -43,25 +44,31 @@ public class Ruta {
           
         try {
             //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
-            File archivo = new File("Ruta.txt");
+            File archivo = new File("RutaCorta.txt");
 
             //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
             FileWriter escribir = new FileWriter(archivo, true);
             //Escribimos en el archivo con el metodo write 
             escribir.write("digraph { \r\n");
-            
+            escribir.write("node[shape=box];\r\n");
+            GraficoGeneral+="node[shape=box]; \n";
+            escribir.write("rankdir=LR;\r\n");
+            NodoRuta aux=Inicio;
             while(aux!=null){
-                if(aux.siguiente!=null){
-                    escribir.write("[Lugar: "+aux.nombre+"\n Tiempo: "+aux.peso+" + "+aux.acumulado+"] -> "
-                                  +"[Lugar: "+aux.siguiente.nombre+", Timepo: "+aux.siguiente.peso+" + "+aux.siguiente.acumulado+"] -> ");    
-                }else{
-                    escribir.write("[Lugar: "+aux.nombre+"\n Tiempo: "+aux.peso+" + "+aux.acumulado+"] -> "
-                                  +"[Lugar: "+aux.siguiente.nombre+", Timepo: "+aux.siguiente.peso+" + "+aux.siguiente.acumulado+"]");   
-                }
-                aux=aux.siguiente;
+            if(aux.siguiente!=null){
+                escribir.write("\"Tiempo: "+aux.acumulado+"\n"+aux.nombre+"\""+" -> ");
+                GraficoGeneral+="\"Tiempo: "+aux.acumulado+"\\n"+aux.nombre+"\""+" -> ";
+                //RecorridoImpreso +="Tiempo: "+aux.peso+"+"+aux.acumulado+"; "+aux.nombre+" -> ";
+            }else{
+                escribir.write("\"Tiempo: "+aux.acumulado+"\n"+aux.nombre+"\"");
+                GraficoGeneral+="\"Tiempo: "+aux.acumulado+"\\n"+aux.nombre+"\"";
+                //RecorridoImpreso +="Tiempo: "+aux.peso+"+"+aux.acumulado+"; "+aux.nombre;
             }
+            aux=aux.siguiente;
+        }
             
-            escribir.write("\r\n }");
+            
+            escribir.write("\r\n}");
             //Cerramos la conexion
             escribir.close();
         } //Si existe un problema al escribir cae aqui
@@ -70,7 +77,7 @@ public class Ruta {
         }
          
         Runtime cmd=Runtime.getRuntime();
-    String comando="dot -Tpng Ruta.txt -o Ruta.png";
+    String comando="dot -Tpng RutaCorta.txt -o RutaCorta.png";
     try{
         cmd.exec(comando);
         //cmd.exec("start TablaHash.txt");
@@ -84,9 +91,6 @@ public class Ruta {
         
     }
         
-        ReporteHash r=new ReporteHash();
-        r.setImagen("Ruta.png");
-        r.setVisible(true);
         
     }
     

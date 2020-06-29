@@ -202,9 +202,9 @@ public class ListaConductor {
             escribir.write("digraph {\r\n");
             
             escribir.write("node[shape=box width=2 height=0.8];\r\n");
-            GraficoGeneral+="node[shape=box width=2 height=0.8];\\r\\n \n";
+            GraficoGeneral+="node[shape=box width=2 height=0.8]; \n";
             escribir.write("rankdir=LR;\r\n");
-            GraficoGeneral+="rankdir=LR;\\r\\n \n";
+            GraficoGeneral+="rankdir=LR; \n";
             // Dibujar nodos y links
             
             
@@ -213,27 +213,27 @@ public class ListaConductor {
                 label = "\"" + aux.data.getDpi().toString()+ "\r"  + aux.data.getNombres() + "\"" + "\r\n";
                 
                 escribir.write(label);
-                GraficoGeneral+="\\\"" + aux.data.getDpi().toString()+ "\\r"  + aux.data.getNombres() + "\\\"" + "\\r\\n \n";
+                GraficoGeneral+="\"" + aux.data.getDpi().toString()+ "\\n"  + aux.data.getNombres() + "\"" + " \n";
                 
                 String link = "\"" + aux.data.getDpi().toString()+ "\r" + aux.data.getNombres() + "\""
                         + "->" + 
                         "\"" + aux.next.data.getDpi().toString()+ "\r" + aux.next.data.getNombres() + "\""
                         + "\r\n";
                 
-                GraficoGeneral+="\\\"" + aux.data.getDpi().toString()+ "\\r" + aux.data.getNombres() + "\\\""
+                GraficoGeneral+="\"" + aux.data.getDpi().toString()+ "\\n" + aux.data.getNombres() + "\""
                         + "->" + 
-                        "\\\"" + aux.next.data.getDpi().toString()+ "\\r" + aux.next.data.getNombres() + "\\\""
-                        + "\\r\\n \n";
+                        "\"" + aux.next.data.getDpi().toString()+ "\\n" + aux.next.data.getNombres() + "\""
+                        + " \n";
                 
                 link = link + "\"" + aux.data.getDpi() + "\r" + aux.data.getNombres()+ "\"" 
                         + "->" + 
                          "\"" + aux.prev.data.getDpi()+ "\r" + aux.prev.data.getNombres() + "\"" 
                         + "\r\n";
                 
-                GraficoGeneral+= "\\\"" + aux.data.getDpi() + "\\r" + aux.data.getNombres()+ "\\\"" 
+                GraficoGeneral+= "\"" + aux.data.getDpi() + "\\n" + aux.data.getNombres()+ "\"" 
                         + "->" + 
-                         "\\\"" + aux.prev.data.getDpi()+ "\\r" + aux.prev.data.getNombres() + "\\\"" 
-                        + "\\r\\n \n";
+                         "\"" + aux.prev.data.getDpi()+ "\\n" + aux.prev.data.getNombres() + "\"" 
+                        + " \n";
                 
                 
                 escribir.write(link);

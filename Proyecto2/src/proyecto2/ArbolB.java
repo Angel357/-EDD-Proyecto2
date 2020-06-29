@@ -83,6 +83,9 @@ public class ArbolB {
         nodo.objV[currentKey()].setColor(objV.getColor());
         nodo.objV[currentKey()].setPrecio(objV.getPrecio());
         nodo.objV[currentKey()].setTrans(objV.getTrans());
+        
+        
+       
     }
     
     

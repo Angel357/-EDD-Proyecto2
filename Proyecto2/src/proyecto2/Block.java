@@ -25,10 +25,19 @@ public class Block {
     ListaConductor estructuraConductores;
     ArbolB estructuraVehiculos;
     ColaAdyacentes estructuraRuta;
+    Ruta estructuraRutaCorta;
 
+    //variables
+    String OrigenSeleccionado;
+    String DestinoSeleccionado;
+    String ClienteSeleccionado;
+    String ConductorSeleccionado;
+    String VehiculoSeleccionado;
+    
 // key stuff
     String key;
     private String horaFechaGenerado;
+    public String placa;
     Block next;
     Block prev;
     
@@ -36,6 +45,7 @@ public class Block {
     
     public Block(String placa)
     {
+        this.placa=placa;
         this.key = obtenerHash(formatKey(placa));
         next = null;
         prev = null;
@@ -43,8 +53,10 @@ public class Block {
         
     }
     
-    public Block(String placa,TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta)
+    public Block(String placa,TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,String OrigenSeleccionado, String DestinoSeleccionado, String ClienteSeleccionado,
+                             String ConductorSeleccionado, String VehiculoSeleccionado, Ruta estructuraRutaCorta)
     {
+        this.placa=placa;
         this.key = obtenerHash(formatKey(placa));
         next = null;
         prev = null;
@@ -52,7 +64,12 @@ public class Block {
         this.estructuraConductores=estructuraConductores;
         this.estructuraVehiculos=estructuraVehiculos;
         this.estructuraRuta=estructuraRuta;
-        
+        this.OrigenSeleccionado=OrigenSeleccionado;
+        this.DestinoSeleccionado=DestinoSeleccionado;
+        this.ClienteSeleccionado=ClienteSeleccionado;
+        this.ConductorSeleccionado=ConductorSeleccionado;
+        this.VehiculoSeleccionado=VehiculoSeleccionado;
+        this.estructuraRutaCorta=estructuraRutaCorta;
     }
     
     public String getHoraFechaGenerado(){
@@ -77,7 +94,7 @@ public class Block {
     public String formatDTime()
     {
         LocalDateTime fechaHora = LocalDateTime.now();
-        DateTimeFormatter fechaFormat = DateTimeFormatter.ofPattern("ddMMyy HH:mm");
+        DateTimeFormatter fechaFormat = DateTimeFormatter.ofPattern("ddMMyy HH:mm:ss");
         String formatedDate = fechaHora.format(fechaFormat).trim().replace(" ", "").toUpperCase();
         return formatedDate;
     }
@@ -124,6 +141,10 @@ public class Block {
      */
     public Block getNext() {
         return next;
+    }
+    
+    public String getPlaca(){
+        return placa;
     }
 
     /**

@@ -36,6 +36,7 @@ public class MenuConductor extends javax.swing.JFrame {
         this.lista=estructuraConductores;
         this.estructuraVehiculos=estructuraVehiculos;
         this.estructuraRuta=estructuraRuta;
+        this.estructuraRegistroViajes=estructuraRegistroViajes;
     }
     
     public void setVentanas(ConductorVen ventanaConductor, MenuGeneral menu){
