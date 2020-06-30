@@ -80,7 +80,7 @@ public class Block {
     public String formatDTime()
     {
         LocalDateTime fechaHora = LocalDateTime.now();
-        DateTimeFormatter fechaFormat = DateTimeFormatter.ofPattern("ddMMyy HH:mm");
+        DateTimeFormatter fechaFormat = DateTimeFormatter.ofPattern("ddMMyy HH:mm:ss");
         String formatedDate = fechaHora.format(fechaFormat).trim().replace(" ", "").toUpperCase();
         return formatedDate;
     }

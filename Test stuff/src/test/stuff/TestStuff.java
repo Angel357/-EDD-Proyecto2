@@ -5,21 +5,19 @@
  */
 package test.stuff;
 
+import java.util.InputMismatchException;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  *
  * @author wilson
  */
 public class TestStuff {
-
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        ArbolB test = new ArbolB(5);
         
-        ArbolB test = new ArbolB(3);
         test.insertar("A");
         test.insertar("B");
         test.insertar("C");
@@ -28,11 +26,26 @@ public class TestStuff {
         test.insertar("F");
         test.insertar("G");
         test.insertar("H");
-        test.insertar("I");
+        test.insertar("I"); // Break
         test.insertar("J");
         test.insertar("K");
+        test.insertar("L");
+        test.insertar("M");
+        test.insertar("N");
+        test.insertar("O");
+        test.insertar("P");
+        test.insertar("Q");
+        test.insertar("R");// break
+        test.insertar("S");
+        test.insertar("T");
+        test.insertar("W");
+        test.insertar("X");
+        test.insertar("Y");
+        test.insertar("Z");
+        test.insertar("ZA");
         
         test.imprimir();
     }
+
     
 }

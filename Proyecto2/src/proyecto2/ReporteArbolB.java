@@ -22,9 +22,10 @@ public class ReporteArbolB extends javax.swing.JFrame {
     
     public void setImage(String image)
     {
+        this.jLabel1.repaint();
         ImageIcon im = new ImageIcon(image);
+        im.getImage().flush();
         ImageIcon structure = new ImageIcon(im.getImage());
-        this.setSize(this.getHeight(), im.getImage().getWidth(rootPane));
         jLabel1.setIcon(structure);
         this.jLabel1.repaint();
     }
@@ -43,7 +44,6 @@ public class ReporteArbolB extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
         jScrollPane1.setViewportView(jLabel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

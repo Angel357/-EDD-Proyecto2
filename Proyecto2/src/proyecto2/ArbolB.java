@@ -26,9 +26,9 @@ public class ArbolB {
       
     public void imprimir()
     {
-        if(this.root != null)
+        if (this.root != null) {
             this.root.imprimir();
-        System.out.println();
+        }
     }
    
     public nodoArbolB buscar(String k)
@@ -43,7 +43,6 @@ public class ArbolB {
     {
         return this.root.i;
     }
-    
     
     public void insertar(String k, ObjVehiculo objV)
     {
@@ -85,10 +84,15 @@ public class ArbolB {
         nodo.objV[currentKey()].setTrans(objV.getTrans());
     }
     
-    
-   public void graph(){root.getDot(root);} 
-    
-    //Graph outlined,
+    public void graph() {
+        if (this.root != null) {
+            this.root.getGraph();
+        }
+
+        ReporteArbolB r = new ReporteArbolB();
+        r.setImage("arbol.png");
+        r.setVisible(true);
+    }
 
 }
 

@@ -359,9 +359,7 @@ public class Vehiculo extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, jTextField2.getText() + " Se agrego con EXITO!");
                         clean();
                     }
-                }
-                
-                    
+                } 
                 break;
                 // Si esta en la opcion modificar
             case 2:

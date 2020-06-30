@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto2;
+package test.stuff;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -14,47 +14,55 @@ import java.io.IOException;
  * @author wilson
  */
 public class nodoArbolB {
+
     String[] keys;  // llaves
     // Objetos tipo Vehiculo
-    ObjVehiculo[] objV; // objetos
     int t;  // grado
     nodoArbolB[] C; // arreglo de punteros hijos
     int n; // total de nodos
     boolean hoja;  // verificar si es hoja
-    
-    // Graph stuff
+
+    /// Cosas de grafica
     FileWriter escribir;
     File archivo;
-    
-    nodoArbolB(int t, boolean hoja)
-    {
+
+    nodoArbolB(int t, boolean hoja) {
         this.t = t;
         this.hoja = hoja;
-        this.keys = new String[2*t - 1];
+        this.keys = new String[2 * t - 1];
         //this.keys = new String[t-1];
-        this.objV = new ObjVehiculo[2*t - 1];
-        this.C = new nodoArbolB[2*t];
+        this.C = new nodoArbolB[2 * t];
         this.n = 0;
     }
-    
+
     // Mostrar arbol traverse
-    public void imprimir()
-    {
-        
+    public void imprimir(int counter) {
+        String test = "";
         int i = 0;
-        for (i = 0; i < this.n ; i++)
-        {
-            if(this.hoja == false)
-            {
-                C[i].imprimir();
-            }
-            System.out.print(keys[i] + " ");
+        if (this.hoja == true) {
+            //hijos = hijos +  "<";
+            System.out.print("node" +counter++ + "[label=\"|");
         }
-        
-        if(hoja == false)
-            C[i].imprimir();
+        for (i = 0; i < this.n; i++) {
+            if (this.hoja == false) {
+                test += keys[i];
+                C[i].imprimir(counter++);
+            } else {
+                System.out.print(keys[i] + "|" + "f<" + i + ">|");
+            }
+
+        }
+
+        if (this.hoja == true) {
+            System.out.print("\"];" + "\r\n");
+            counter--;
+            System.out.println("node0->"  + "node"+ counter-- + "\r\n");
+        }
+        if (hoja == false) {
+            C[i].imprimir(counter++);
+            System.out.println("test" + test);
+        }
     }
-    //---------------------------------- GRAFICAS --------------------------------
     
     public void getGraph()
     {    
@@ -151,101 +159,93 @@ public class nodoArbolB {
             System.out.println("Error al escribir");
         }
     }
-    
-    //----------------------------------------------------------------------------
+
+    /// graph outline
     // Buscar algun nodo, regresa nulo si no existe
-    int i;
-    nodoArbolB buscar(String k)
-    {
+    int i=0; // para obtener nodo buscado
+    nodoArbolB buscar(String k) {
         i = 0;
-        while(i < n && k.compareToIgnoreCase(keys[i]) > 0)
+        while (i < n && k.compareToIgnoreCase(keys[i]) > 0) {
             i++;
-        try
-        {
+        }
+        try {
             if (keys[i].compareToIgnoreCase(k) == 0) {
                 setCurrentKey(i);
                 return this;
             }
-        }catch(Exception ex) { ex.printStackTrace();}
-        
-            
-        if(hoja==true)
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        if (hoja == true) {
             return null;
-        
+        }
+
         return C[i].buscar(k);
     }
-    
+
     // Para accesar la llave actual.
-    public void setCurrentKey(int i)
-    {
+    public void setCurrentKey(int i) {
         this.i = i;
     }
-    
-    public void insertarNoLleno(String k, ObjVehiculo kVehiculo)
-    {
+
+    public void insertarNoLleno(String k) {
         int i = n - 1;
-        
+
         // si es hoja
-        if(hoja == true)
-        {
-            while(i >= 0 && keys[i].compareToIgnoreCase(k) > 0)
-            {
-                keys[i+1] = keys[i];
-                objV[i+1] = objV[i]; 
+        if (hoja == true) {
+            while (i >= 0 && keys[i].compareToIgnoreCase(k) > 0) {
+                keys[i + 1] = keys[i];
                 i--;
             }
-            keys[i+1] = k;
-            objV[i+1] = kVehiculo;
+            keys[i + 1] = k;
             n++;
-        }
-        else // si no es hoja
+        } else // si no es hoja
         {
-            while(i >= 0 && keys[i].compareToIgnoreCase(k) > 0)
+            while (i >= 0 && keys[i].compareToIgnoreCase(k) > 0) {
                 i--;
-            
-            if(C[i+1].n == 2*t-1)
-            {
-                separarHijo(i+1,C[i+1]);
-                
-                
-                if(keys[i+1].compareToIgnoreCase(k) < 0)
-                    i++;
             }
-            C[i+1].insertarNoLleno(k,kVehiculo);
+
+            if (C[i + 1].n == 2 * t - 1) {
+                separarHijo(i + 1, C[i + 1]);
+
+                if (keys[i + 1].compareToIgnoreCase(k) < 0) {
+                    i++;
+                }
+            }
+            C[i + 1].insertarNoLleno(k);
         }
-        
+
     }
 
-    public void separarHijo(int i, nodoArbolB y)
-    {
-        nodoArbolB z = new nodoArbolB(y.t,y.hoja);
+    public void separarHijo(int i, nodoArbolB y) {
+        nodoArbolB z = new nodoArbolB(y.t, y.hoja);
         z.n = t - 1;
-        
-        for(int j = 0; j < t-1;j++)
-            z.keys[j] = y.keys[j+t];
-        
-        if(y.hoja == false)
-        {
-            for(int j = 0; j < t; j++)
-                z.C[j] = y.C[j+t];
+
+        // Copia datos z [0] z[4] ultimos datos
+        for (int j = 0; j < t - 1; j++) {
+            z.keys[j] = y.keys[j + t];
+        }
+
+        if (y.hoja == false) {
+            for (int j = 0; j < t; j++) {
+                z.C[j] = y.C[j + t];
+            }
         }
         y.n = t - 1;
-        
-        for(int j = n; j >= i+1;j--)
-            C[j+1] = C[j];
-        
-        C[i+1] = z;
-        
-        for(int j = n -1; j >= i; j--)
-            keys[j+1] = keys[j];
-        
-        
-        keys[i] = y.keys[t-1];
-        
+
+        for (int j = n; j >= i + 1; j--) {
+            C[j + 1] = C[j];
+        }
+
+        C[i + 1] = z;
+
+        for (int j = n - 1; j >= i; j--) {
+            keys[j + 1] = keys[j];
+        }
+
+        keys[i] = y.keys[t - 1];
+
         n = n + 1;
     }
-    
-    
-    // Metodos de eliminar en arbol B
-    
 }

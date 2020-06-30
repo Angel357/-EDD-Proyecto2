@@ -1,0 +1,9 @@
+digraph {
+node[shape=record, height = 0.3];
+node0[label="PAE"];
+node1[label="|PAA|f<0>|PAB|f<1>|PAC|f<2>|PAD|f<3>|"];
+node0->node1
+node2[label="|PAF|f<0>|PAG|f<1>|PAH|f<2>|PAI|f<3>|PAJ|f<4>|PAK|f<5>|"];
+node0->node2
+
+}

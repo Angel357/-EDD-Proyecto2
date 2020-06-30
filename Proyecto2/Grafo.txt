@@ -1,5 +1,51 @@
 digraph { 
 rankdir=LR;
+Cadiz -> Sevilla [label="125", weight=50];
+Sevilla -> Cadiz [label="125", weight=50];
+Sevilla -> Granada [label="256", weight=50];
+Granada -> Sevilla [label="256", weight=50];
+Sevilla -> Jaen [label="242", weight=50];
+Jaen -> Sevilla [label="242", weight=50];
+Granada -> Jaen [label="99", weight=50];
+Jaen -> Granada [label="99", weight=50];
+Granada -> Murcia [label="278", weight=50];
+Murcia -> Granada [label="278", weight=50];
+Jaen -> Madrid [label="335", weight=50];
+Madrid -> Jaen [label="335", weight=50];
+Murcia -> Valencia [label="241", weight=50];
+Valencia -> Murcia [label="241", weight=50];
+Murcia -> Albacete [label="150", weight=50];
+Albacete -> Murcia [label="150", weight=50];
+Albacete -> Valencia [label="191", weight=50];
+Valencia -> Albacete [label="191", weight=50];
+Albacete -> Madrid [label="251", weight=50];
+Madrid -> Albacete [label="251", weight=50];
+Valencia -> Barcelona [label="349", weight=50];
+Barcelona -> Valencia [label="349", weight=50];
+Barcelona -> Gerona [label="100", weight=50];
+Gerona -> Barcelona [label="100", weight=50];
+Barcelona -> Zaragoza [label="296", weight=50];
+Zaragoza -> Barcelona [label="296", weight=50];
+Zaragoza -> Madrid [label="325", weight=50];
+Madrid -> Zaragoza [label="325", weight=50];
+Madrid -> Badajoz [label="403", weight=50];
+Badajoz -> Madrid [label="403", weight=50];
+Madrid -> Valladolid [label="193", weight=50];
+Valladolid -> Madrid [label="193", weight=50];
+Valladolid -> Vigo [label="356", weight=50];
+Vigo -> Valladolid [label="356", weight=50];
+Valladolid -> Coruna [label="455", weight=50];
+Coruna -> Valladolid [label="455", weight=50];
+Vigo -> Coruna [label="171", weight=50];
+Coruna -> Vigo [label="171", weight=50];
+Valladolid -> Bilbao [label="280", weight=50];
+Bilbao -> Valladolid [label="280", weight=50];
+Bilbao -> Madrid [label="395", weight=50];
+Madrid -> Bilbao [label="395", weight=50];
+Zaragoza -> Bilbao [label="324", weight=50];
+Bilbao -> Zaragoza [label="324", weight=50];
+Bilbao -> Oviedo [label="304", weight=50];
+Oviedo -> Bilbao [label="304", weight=50];
 
 
  }
