@@ -156,46 +156,31 @@ rankdir=LR;
 subgraph cluster_Registros{
 node[shape=box]; 
 rankdir=LR; 
-"063af86953fecd2cb377dc6905d2eb0f" -> "NULL"; 
-"063af86953fecd2cb377dc6905d2eb0f"  
-"063af86953fecd2cb377dc6905d2eb0f" -> "4f6b3009e1117838fc27142bee2620a0"; 
-"4f6b3009e1117838fc27142bee2620a0" -> "063af86953fecd2cb377dc6905d2eb0f";  
-"4f6b3009e1117838fc27142bee2620a0"  
-"4f6b3009e1117838fc27142bee2620a0" -> "926490de96c64de72b52712d5412424a"; 
-"926490de96c64de72b52712d5412424a" -> "4f6b3009e1117838fc27142bee2620a0";  
-"926490de96c64de72b52712d5412424a"  
-"926490de96c64de72b52712d5412424a" -> "NULL.";  
+"b18b6357042e9f3fabad81bbfc28541d" -> "NULL"; 
+"b18b6357042e9f3fabad81bbfc28541d"  
+"b18b6357042e9f3fabad81bbfc28541d" -> "2b21242c33373eea91a5530e7ca4985f"; 
+"2b21242c33373eea91a5530e7ca4985f" -> "b18b6357042e9f3fabad81bbfc28541d";  
+"2b21242c33373eea91a5530e7ca4985f"  
+"2b21242c33373eea91a5530e7ca4985f" -> "a443afde5e17d1ab5fe69890b0a74636"; 
+"a443afde5e17d1ab5fe69890b0a74636" -> "2b21242c33373eea91a5530e7ca4985f";  
+"a443afde5e17d1ab5fe69890b0a74636"  
+"a443afde5e17d1ab5fe69890b0a74636" -> "4c72c4bb94057dc31bf0919a2869f50a"; 
+"4c72c4bb94057dc31bf0919a2869f50a" -> "a443afde5e17d1ab5fe69890b0a74636";  
+"4c72c4bb94057dc31bf0919a2869f50a"  
+"4c72c4bb94057dc31bf0919a2869f50a" -> "NULL.";  
 
 
 }
-subgraph cluster_101{
+subgraph cluster_104{
 node[shape=box]; 
-"Tiempo: 0\nGranada" -> "Tiempo: 256\nSevilla"
-
-
-}
-subgraph cluster_102{
-node[shape=box]; 
-"Tiempo: 0\nCadiz" -> "Tiempo: 125\nSevilla" -> "Tiempo: 367\nJaen" -> "Tiempo: 702\nMadrid" -> "Tiempo: 1097\nBilbao"
-
-
-}
-subgraph cluster_103{
-node[shape=box]; 
-"Tiempo: 0\nAlbacete" -> "Tiempo: 251\nMadrid" -> "Tiempo: 444\nValladolid" -> "Tiempo: 800\nVigo"
+"Tiempo: 0\nCoruna" -> "Tiempo: 455\nValladolid" -> "Tiempo: 648\nMadrid"
 
 
 }
 
  
-"063af86953fecd2cb377dc6905d2eb0f" -> "6855655584235 \njacki"; 
-"063af86953fecd2cb377dc6905d2eb0f" -> "201602753\nWilson Gaspar" ;
-"063af86953fecd2cb377dc6905d2eb0f" -> "Tiempo: 0\nGranada"; 
-"4f6b3009e1117838fc27142bee2620a0" -> "6855655584235 \njacki"; 
-"4f6b3009e1117838fc27142bee2620a0" -> "201602753\nWilson Gaspar" ;
-"4f6b3009e1117838fc27142bee2620a0" -> "Tiempo: 0\nCadiz"; 
-"926490de96c64de72b52712d5412424a" -> "8965478123654 \npedro"; 
-"926490de96c64de72b52712d5412424a" -> "201602750\nWilson Gaspar" ;
-"926490de96c64de72b52712d5412424a" -> "Tiempo: 0\nAlbacete"; 
+"4c72c4bb94057dc31bf0919a2869f50a" -> "4655566666488 \nasusena"; 
+"4c72c4bb94057dc31bf0919a2869f50a" -> "201602750\nWilson Gaspar" ;
+"4c72c4bb94057dc31bf0919a2869f50a" -> "Tiempo: 0\nCoruna"; 
 
  }

@@ -36,12 +36,12 @@ public class Block {
     
 // key stuff
     String key;
-    private String horaFechaGenerado;
+    public String horaFechaGenerado;
     public String placa;
     Block next;
     Block prev;
     
-  
+    public int index;
     
     public Block(String placa)
     {
@@ -54,7 +54,7 @@ public class Block {
     }
     
     public Block(String placa,TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,String OrigenSeleccionado, String DestinoSeleccionado, String ClienteSeleccionado,
-                             String ConductorSeleccionado, String VehiculoSeleccionado, Ruta estructuraRutaCorta)
+                             String ConductorSeleccionado, String VehiculoSeleccionado, Ruta estructuraRutaCorta, int index)
     {
         this.placa=placa;
         this.key = obtenerHash(formatKey(placa));
@@ -70,6 +70,7 @@ public class Block {
         this.ConductorSeleccionado=ConductorSeleccionado;
         this.VehiculoSeleccionado=VehiculoSeleccionado;
         this.estructuraRutaCorta=estructuraRutaCorta;
+        this.index=index;
     }
     
     public String getHoraFechaGenerado(){
@@ -153,4 +154,6 @@ public class Block {
     public void setNext(Block next) {
         this.next = next;
     }
+    
+    
 }
