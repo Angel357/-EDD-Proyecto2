@@ -20,25 +20,31 @@ import java.util.Locale;
  * @author wilson
  */
 public class Block {
-//estructuras    
+    //estructuras    
     TablaHash estructuraClientes;
     ListaConductor estructuraConductores;
     ArbolB estructuraVehiculos;
     ColaAdyacentes estructuraRuta;
+    Ruta estructuraRutaCorta;
 
-// key stuff
+    //variables
+    String OrigenSeleccionado;
+    String DestinoSeleccionado;
+    String ClienteSeleccionado;
+    String ConductorSeleccionado;
+    String VehiculoSeleccionado;
+    
+    // key stuff
     String key;
-    private String horaFechaGenerado;
+    public String horaFechaGenerado;
+    public String placa;
     Block next;
     Block prev;
-    
-    ListaConductor conductores;
-    TablaHash clientes;
-    Ruta recorrido;
-    ArbolB  vehiculos;
+    public int index;
     
     public Block(String placa)
     {
+        this.placa=placa;
         this.key = obtenerHash(formatKey(placa));
         next = null;
         prev = null;
@@ -46,8 +52,10 @@ public class Block {
         
     }
     
-    public Block(String placa,TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta)
+    public Block(String placa,TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,String OrigenSeleccionado, String DestinoSeleccionado, String ClienteSeleccionado,
+                             String ConductorSeleccionado, String VehiculoSeleccionado, Ruta estructuraRutaCorta, int index)
     {
+        this.placa=placa;
         this.key = obtenerHash(formatKey(placa));
         next = null;
         prev = null;
@@ -55,7 +63,13 @@ public class Block {
         this.estructuraConductores=estructuraConductores;
         this.estructuraVehiculos=estructuraVehiculos;
         this.estructuraRuta=estructuraRuta;
-        
+        this.OrigenSeleccionado=OrigenSeleccionado;
+        this.DestinoSeleccionado=DestinoSeleccionado;
+        this.ClienteSeleccionado=ClienteSeleccionado;
+        this.ConductorSeleccionado=ConductorSeleccionado;
+        this.VehiculoSeleccionado=VehiculoSeleccionado;
+        this.estructuraRutaCorta=estructuraRutaCorta;
+        this.index=index;
     }
     
     public String getHoraFechaGenerado(){
@@ -128,6 +142,10 @@ public class Block {
     public Block getNext() {
         return next;
     }
+    
+    public String getPlaca(){
+        return placa;
+    }
 
     /**
      * @param next the next to set
@@ -135,4 +153,6 @@ public class Block {
     public void setNext(Block next) {
         this.next = next;
     }
+    
+    
 }

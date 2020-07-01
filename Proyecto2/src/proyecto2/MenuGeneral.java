@@ -5,6 +5,8 @@
  */
 package proyecto2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author wilson
@@ -199,7 +201,11 @@ public class MenuGeneral extends javax.swing.JFrame {
     private void btnreportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportesActionPerformed
         ventanaReportes.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
         ventanaReportes.setVentanas(this);
+        try{
         ventanaReportes.setViajes();
+        }catch(Exception d){
+            JOptionPane.showMessageDialog(null, "aun no hay viajes registrados");
+        }
         ventanaReportes.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnreportesActionPerformed

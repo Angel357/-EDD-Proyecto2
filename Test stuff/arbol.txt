@@ -1,0 +1,15 @@
+digraph {
+node[shape=record, height = 0.3];
+node0[label="EJOT"];
+node1[label="<f0>|A|<f1>|B|<f2>|C|<f3>|D|"];
+node0->node1
+node2[label="<f0>|F|<f1>|G|<f2>|H|<f3>|I|"];
+node0->node2
+node3[label="<f0>|K|<f1>|L|<f2>|M|<f3>|N|"];
+node0->node3
+node4[label="<f0>|P|<f1>|Q|<f2>|R|<f3>|S|"];
+node0->node4
+node5[label="<f0>|W|<f1>|X|<f2>|Y|<f3>|Z|<f4>|ZA|"];
+node0->node5
+
+}

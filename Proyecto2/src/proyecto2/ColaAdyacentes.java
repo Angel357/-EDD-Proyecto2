@@ -21,11 +21,11 @@ public class ColaAdyacentes {
     public String Destino;
     public String GraficoGeneral="";
     public String RecorridoImpreso="";
-    public ColaAdyacentes pops;
-    public ColaAdyacentes Ruta;
     public int pesoAcumulado=0;
+    
     public Ruta ruta;
     public Grafo g;
+    
     public String origen;
     public String destino;
     
@@ -124,6 +124,7 @@ public class ColaAdyacentes {
         }
         ruta = new Ruta();
         while(Pad!=null){
+            ruta.Tamaño=0;
             ruta.insertar(Pad.peso, Pad.acumulado, Pad.nombre);
             Pad=Pad.Padre;
         }
@@ -138,63 +139,7 @@ public class ColaAdyacentes {
     }
     
     public void Graficar(){
-        try{
-              File fold=new File("RutaCorta.txt");
-                fold.delete();
-          }catch(Exception e1){
-              
-          }
-          
-        try {
-            //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
-            File archivo = new File("RutaCorta.txt");
-
-            //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
-            FileWriter escribir = new FileWriter(archivo, true);
-            //Escribimos en el archivo con el metodo write 
-            escribir.write("digraph { \r\n");
-            escribir.write("node[shape=box];\r\n");
-            GraficoGeneral="node[shape=box];\\r\\n \n";
-            escribir.write("rankdir=LR;\r\n");
-            NodoRuta aux=ruta.Inicio;
-            while(aux!=null){
-            if(aux.siguiente!=null){
-                escribir.write("\"Tiempo: "+aux.acumulado+"\n"+aux.nombre+"\""+" -> ");
-                GraficoGeneral="\\\"Tiempo: "+aux.acumulado+"\\n"+aux.nombre+"\\\""+" -> ";
-                //RecorridoImpreso +="Tiempo: "+aux.peso+"+"+aux.acumulado+"; "+aux.nombre+" -> ";
-            }else{
-                escribir.write("\"Tiempo: "+aux.acumulado+"\n"+aux.nombre+"\"");
-                GraficoGeneral="\\\"Tiempo: "+aux.acumulado+"\\n"+aux.nombre+"\\\""+" -> ";
-                //RecorridoImpreso +="Tiempo: "+aux.peso+"+"+aux.acumulado+"; "+aux.nombre;
-            }
-            aux=aux.siguiente;
-        }
-            
-            
-            escribir.write("\r\n}");
-            //Cerramos la conexion
-            escribir.close();
-        } //Si existe un problema al escribir cae aqui
-        catch (Exception e) {
-            System.out.println("Error al escribir");
-        }
-         
-        Runtime cmd=Runtime.getRuntime();
-    String comando="dot -Tpng RutaCorta.txt -o RutaCorta.png";
-    try{
-        cmd.exec(comando);
-        //cmd.exec("start TablaHash.txt");
-    }catch(Exception ex){
-        System.out.println("ex: "+ex.getMessage());
-    }
-    
-    try{
-        Thread.sleep(2000);
-    }catch(InterruptedException e){
-        
-    }
-        
-        
+        ruta.Graficar();
     }
     
     public void MostrarGrafico(){

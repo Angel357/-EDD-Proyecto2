@@ -36,6 +36,7 @@ public class MenuCliente extends javax.swing.JFrame {
             this.estructuraConductores=estructuraConductores;
             this.estructuraVehiculos=estructuraVehiculos;
             this.estructuraRuta=estructuraRuta;
+            this.estructuraRegistroViajes=estructuraRegistroViajes;
         }
     public void setVentanas(Cliente ventanaCliente, MenuGeneral menu){
         this.c=ventanaCliente;

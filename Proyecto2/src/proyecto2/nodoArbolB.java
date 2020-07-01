@@ -26,41 +26,38 @@ public class nodoArbolB {
     FileWriter escribir;
     File archivo;
     
-    nodoArbolB(int t, boolean hoja)
-    {
+    nodoArbolB(int t, boolean hoja) {
         this.t = t;
         this.hoja = hoja;
-        this.keys = new String[2*t - 1];
+        this.keys = new String[2 * t - 1];
         //this.keys = new String[t-1];
-        this.objV = new ObjVehiculo[2*t - 1];
-        this.C = new nodoArbolB[2*t];
+        this.objV = new ObjVehiculo[2 * t - 1];
+        this.C = new nodoArbolB[2 * t];
         this.n = 0;
     }
-    
+
     // Mostrar arbol traverse
-    public void imprimir()
-    {
-        
+    public void imprimir() {
+
         int i = 0;
-        for (i = 0; i < this.n ; i++)
-        {
-            if(this.hoja == false)
-            {
+        for (i = 0; i < this.n; i++) {
+            if (this.hoja == false) {
                 C[i].imprimir();
             }
+
             System.out.print(keys[i] + " ");
         }
-        
-        if(hoja == false)
+
+        if (hoja == false) {
             C[i].imprimir();
+        }
     }
     //---------------------------------- GRAFICAS --------------------------------
-    
-    public void getGraph()
-    {    
-        try{
-        archivo = new File("arbol.txt");
-        if (archivo.exists()) {
+
+    public void getGraph() {
+        try {
+            archivo = new File("arbol.txt");
+            if (archivo.exists()) {
                 archivo.delete();
                 try {
                     archivo.createNewFile();
@@ -68,33 +65,34 @@ public class nodoArbolB {
                     e.printStackTrace();
                 }
             }
-        //--------------------------------------- Cabecera
-        escribir = new FileWriter(archivo, true);
-        escribir.write("digraph {\r\n");
-        escribir.write("node[shape=record, height = 0.3];\r\n");
-        // Mostrar raiz
-        int i = 0;
-        escribir.write("node0[label=\"");
-        while(this.keys[i]!=null){
-            escribir.write(this.keys[i]);
-            i++;
-        }
-        escribir.write("\"];"+"\r\n");
-        escribir.close();
-        
-        
-        // Body
-        getDot(1);
-        
-        // Cerrar
-        archivo = new File("arbol.txt");
-        escribir = new FileWriter(archivo, true);
-        escribir.write("\r\n}");
-        escribir.close();
-        }catch(Exception e){
+            //--------------------------------------- Cabecera
+            escribir = new FileWriter(archivo, true);
+            escribir.write("digraph {\r\n");
+            escribir.write("node[shape=record, height = 0.3];\r\n");
+            // Mostrar raiz
+            int i = 0;
+            escribir.write("node0[label=\"");
+            while (this.keys[i] != null) {
+                escribir.write("<f" + i +">|");
+                escribir.write(this.keys[i]);
+                escribir.write("|");
+                i++;
+            }
+            escribir.write("\"];" + "\r\n");
+            escribir.close();
+
+            // Body
+            getDot(1);
+
+            // Cerrar
+            archivo = new File("arbol.txt");
+            escribir = new FileWriter(archivo, true);
+            escribir.write("\r\n}");
+            escribir.close();
+        } catch (Exception e) {
             System.out.println("error");
         }
-        
+
         Runtime cmd = Runtime.getRuntime();
         String comando = "dot -Tpng arbol.txt -o arbol.png";
         try {
@@ -102,8 +100,16 @@ public class nodoArbolB {
         } catch (Exception ex) {
             System.out.println("ex: " + ex.getMessage());
         }
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+
+        }  
     }
     
+    
+    // Graficar nodos hijos recursivamente
     public void getDot(int counter) {
         try {
 
@@ -114,8 +120,7 @@ public class nodoArbolB {
             String test = "";
             int i = 0;
             if (this.hoja == true) {
-                escribir.write("node" + counter++ + "[label=\"|");
-
+                escribir.write("node" + counter++ + "[label=\"");
             }
             for (i = 0; i < this.n; i++) {
                 if (this.hoja == false) {
@@ -123,16 +128,10 @@ public class nodoArbolB {
                     test += keys[i];
                     C[i].getDot(counter++);
                 } else {
-                    escribir.write(keys[i] + "|" + "f<" + i + ">|");
+                    escribir.write("<f" + i + ">|" + keys[i] + "|");
                 }
             }
 
-            /*
-              if (this.hoja == true) {
-            System.out.print("\"];" + "\r\n");
-            System.out.println("node0->"  + "node"+ counter + "\r\n");
-            }
-             */
             if (this.hoja == true) {
                 escribir.write("\"];" + "\r\n");
                 counter--;
@@ -160,14 +159,19 @@ public class nodoArbolB {
         i = 0;
         while(i < n && k.compareToIgnoreCase(keys[i]) > 0)
             i++;
-        try
-        {
+
+        // null pointer porque se accesa un valor de i mayor al numero n
+        // entonces i mayor a n es null y por eso probamos pasarlo
+        // y si tira nulo que regrese nulo lo cual quiere decir que no existe
+        try{
             if (keys[i].compareToIgnoreCase(k) == 0) {
                 setCurrentKey(i);
                 return this;
             }
-        }catch(Exception ex) { ex.printStackTrace();}
-        
+        }catch(Exception e){
+            return null;
+        }
+                    
             
         if(hoja==true)
             return null;

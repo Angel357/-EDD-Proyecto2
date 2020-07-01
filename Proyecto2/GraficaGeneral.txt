@@ -1,0 +1,213 @@
+digraph {
+subgraph cluster_Grafo{
+rankdir=LR;  
+Cadiz -> Sevilla [label="125", weight=50]; 
+Sevilla -> Cadiz [label="125", weight=50]; 
+Sevilla -> Granada [label="256", weight=50]; 
+Granada -> Sevilla [label="256", weight=50]; 
+Sevilla -> Jaen [label="242", weight=50]; 
+Jaen -> Sevilla [label="242", weight=50]; 
+Granada -> Jaen [label="99", weight=50]; 
+Jaen -> Granada [label="99", weight=50]; 
+Granada -> Murcia [label="278", weight=50]; 
+Murcia -> Granada [label="278", weight=50]; 
+Jaen -> Madrid [label="335", weight=50]; 
+Madrid -> Jaen [label="335", weight=50]; 
+Murcia -> Valencia [label="241", weight=50]; 
+Valencia -> Murcia [label="241", weight=50]; 
+Murcia -> Albacete [label="150", weight=50]; 
+Albacete -> Murcia [label="150", weight=50]; 
+Albacete -> Valencia [label="191", weight=50]; 
+Valencia -> Albacete [label="191", weight=50]; 
+Albacete -> Madrid [label="251", weight=50]; 
+Madrid -> Albacete [label="251", weight=50]; 
+Valencia -> Barcelona [label="349", weight=50]; 
+Barcelona -> Valencia [label="349", weight=50]; 
+Barcelona -> Gerona [label="100", weight=50]; 
+Gerona -> Barcelona [label="100", weight=50]; 
+Barcelona -> Zaragoza [label="296", weight=50]; 
+Zaragoza -> Barcelona [label="296", weight=50]; 
+Zaragoza -> Madrid [label="325", weight=50]; 
+Madrid -> Zaragoza [label="325", weight=50]; 
+Madrid -> Badajoz [label="403", weight=50]; 
+Badajoz -> Madrid [label="403", weight=50]; 
+Madrid -> Valladolid [label="193", weight=50]; 
+Valladolid -> Madrid [label="193", weight=50]; 
+Valladolid -> Vigo [label="356", weight=50]; 
+Vigo -> Valladolid [label="356", weight=50]; 
+Valladolid -> Coruna [label="455", weight=50]; 
+Coruna -> Valladolid [label="455", weight=50]; 
+Vigo -> Coruna [label="171", weight=50]; 
+Coruna -> Vigo [label="171", weight=50]; 
+Valladolid -> Bilbao [label="280", weight=50]; 
+Bilbao -> Valladolid [label="280", weight=50]; 
+Bilbao -> Madrid [label="395", weight=50]; 
+Madrid -> Bilbao [label="395", weight=50]; 
+Zaragoza -> Bilbao [label="324", weight=50]; 
+Bilbao -> Zaragoza [label="324", weight=50]; 
+Bilbao -> Oviedo [label="304", weight=50]; 
+Oviedo -> Bilbao [label="304", weight=50]; 
+
+
+}
+subgraph cluster_Clientes{
+node[shape=box]; 
+rankdir=LR; 
+  
+  
+subgraph cluster_Clientes1{ 
+0; 
+ 1; 
+ 2; 
+ 3; 
+ 4; 
+ 5; 
+ 6; 
+ 7; 
+ 8; 
+ 9; 
+ 10; 
+ 11; 
+ 12; 
+ 13; 
+ 14; 
+ 15; 
+ 16; 
+ 17; 
+ 18; 
+ 19; 
+ 20; 
+ 21; 
+ 22; 
+ 23; 
+ 24; 
+ 25; 
+ 26; 
+ 27; 
+ 28; 
+ 29; 
+ 30; 
+ 31; 
+ 32; 
+ 33; 
+ 34; 
+ 35; 
+ 36; 
+ 
+} 
+  
+"4 \njoel" -> "41 \njazmin" -> "78 \ndiego" -> "6855655584235 \njacki"; 
+"8965478123654 \npedro"; 
+"4655566666488 \nasusena"; 
+"5648973254612 \nmiguel"; 
+"4855258666636 \npaola" -> "14 \nchepe"; 
+"6655585556656 \nalison"; 
+"2365489784561 \njuan"; 
+"3002875340101 \nAngel" -> "26 \nalexa" -> "63 \ngabriel" -> "100 \njunior"; 
+"34 \nalejandra"; 
+"8565526523633 \nmarivel"; 
+  
+  
+4 -> "4 \njoel"; 
+8 -> "8965478123654 \npedro"; 
+11 -> "4655566666488 \nasusena"; 
+13 -> "5648973254612 \nmiguel"; 
+14 -> "4855258666636 \npaola"; 
+16 -> "6655585556656 \nalison"; 
+18 -> "2365489784561 \njuan"; 
+26 -> "3002875340101 \nAngel"; 
+34 -> "34 \nalejandra"; 
+35 -> "8565526523633 \nmarivel"; 
+ 
+  
+
+
+}
+subgraph cluster_Conductores{
+node[shape=box width=2 height=0.8]; 
+rankdir=LR; 
+"1005957733221\nRolando" 
+"1005957733221\nRolando"->"3005952367401\nPedro" 
+"1005957733221\nRolando"->"9805952367756\nVirginia" 
+"3005952367401\nPedro" 
+"3005952367401\nPedro"->"3033988367401\nFernanda" 
+"3005952367401\nPedro"->"1005957733221\nRolando" 
+"3033988367401\nFernanda" 
+"3033988367401\nFernanda"->"4005952367401\nMaria" 
+"3033988367401\nFernanda"->"3005952367401\nPedro" 
+"4005952367401\nMaria" 
+"4005952367401\nMaria"->"5004153267401\nMario" 
+"4005952367401\nMaria"->"3033988367401\nFernanda" 
+"5004153267401\nMario" 
+"5004153267401\nMario"->"6005952367401\nSegio" 
+"5004153267401\nMario"->"4005952367401\nMaria" 
+"6005952367401\nSegio" 
+"6005952367401\nSegio"->"7805544360001\nLuis" 
+"6005952367401\nSegio"->"5004153267401\nMario" 
+"7805544360001\nLuis" 
+"7805544360001\nLuis"->"9805952367756\nVirginia" 
+"7805544360001\nLuis"->"6005952367401\nSegio" 
+"9805952367756\nVirginia" 
+"9805952367756\nVirginia"->"1005957733221\nRolando" 
+"9805952367756\nVirginia"->"7805544360001\nLuis" 
+
+
+}
+subgraph cluster_Registros{
+node[shape=box]; 
+rankdir=LR; 
+"27709ba57e5a26fde3f9848668cb7f13" -> "NULL"; 
+"27709ba57e5a26fde3f9848668cb7f13"  
+"27709ba57e5a26fde3f9848668cb7f13" -> "7a280cf81ef8b8225a7314cbd20191b4"; 
+"7a280cf81ef8b8225a7314cbd20191b4" -> "27709ba57e5a26fde3f9848668cb7f13";  
+"7a280cf81ef8b8225a7314cbd20191b4"  
+"7a280cf81ef8b8225a7314cbd20191b4" -> "e11782c2960175cba9b9bb0e84e7caa5"; 
+"e11782c2960175cba9b9bb0e84e7caa5" -> "7a280cf81ef8b8225a7314cbd20191b4";  
+"e11782c2960175cba9b9bb0e84e7caa5"  
+"e11782c2960175cba9b9bb0e84e7caa5" -> "a5e18d188597e0551ae2eb3e00354851"; 
+"a5e18d188597e0551ae2eb3e00354851" -> "e11782c2960175cba9b9bb0e84e7caa5";  
+"a5e18d188597e0551ae2eb3e00354851"  
+"a5e18d188597e0551ae2eb3e00354851" -> "NULL.";  
+
+
+}
+subgraph cluster_101{
+node[shape=box]; 
+"Tiempo: 0\nSevilla" -> "Tiempo: 256\nGranada" -> "Tiempo: 534\nMurcia"
+
+
+}
+subgraph cluster_102{
+node[shape=box]; 
+"Tiempo: 0\nJaen" -> "Tiempo: 99\nGranada"
+
+
+}
+subgraph cluster_103{
+node[shape=box]; 
+"Tiempo: 0\nJaen" -> "Tiempo: 99\nGranada"
+
+
+}
+subgraph cluster_104{
+node[shape=box]; 
+"Tiempo: 0\nCadiz" -> "Tiempo: 125\nSevilla" -> "Tiempo: 381\nGranada"
+
+
+}
+
+ 
+"27709ba57e5a26fde3f9848668cb7f13" -> "4 \njoel"; 
+"27709ba57e5a26fde3f9848668cb7f13" -> "5004153267401\nMario" ;
+"27709ba57e5a26fde3f9848668cb7f13" -> "Tiempo: 0\nSevilla"; 
+"7a280cf81ef8b8225a7314cbd20191b4" -> "4 \njoel"; 
+"7a280cf81ef8b8225a7314cbd20191b4" -> "5004153267401\nMario" ;
+"7a280cf81ef8b8225a7314cbd20191b4" -> "Tiempo: 0\nJaen"; 
+"e11782c2960175cba9b9bb0e84e7caa5" -> "4655566666488 \nasusena"; 
+"e11782c2960175cba9b9bb0e84e7caa5" -> "3005952367401\nPedro" ;
+"e11782c2960175cba9b9bb0e84e7caa5" -> "Tiempo: 0\nJaen"; 
+"a5e18d188597e0551ae2eb3e00354851" -> "4655566666488 \nasusena"; 
+"a5e18d188597e0551ae2eb3e00354851" -> "3005952367401\nPedro" ;
+"a5e18d188597e0551ae2eb3e00354851" -> "Tiempo: 0\nCadiz"; 
+
+ }

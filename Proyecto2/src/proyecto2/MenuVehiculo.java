@@ -36,6 +36,7 @@ public class MenuVehiculo extends javax.swing.JFrame {
         this.estructuraConductores=estructuraConductores;
         this.tree=estructuraVehiculos;
         this.estructuraRuta=estructuraRuta;
+        this.estructuraRegistroViajes=estructuraRegistroViajes;
     }
     
     public void setArbol(ArbolB tree){

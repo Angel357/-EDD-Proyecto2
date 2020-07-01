@@ -36,13 +36,13 @@ public class ReportesTexto extends javax.swing.JFrame {
         initComponents();
         this.setDefaultCloseOperation(0);
         this.setLocationRelativeTo(null);
-        jComboBox1.removeAllItems();
-        jComboBox1.addItem("Seleccionar...");
-        jComboBox1.addItem("Estructura Completa");
-        jComboBox1.addItem("Top 10 viajes largos");
-        jComboBox1.addItem("Top 10 clientes con viajes");
-        jComboBox1.addItem("Top 10 conductores con viajes");
-        jComboBox1.addItem("Top 10 vehiculos con viajes");
+        cbReportes.removeAllItems();
+        cbReportes.addItem("Seleccionar...");
+        cbReportes.addItem("Estructura Completa");
+        cbReportes.addItem("Top 10 viajes largos");
+        cbReportes.addItem("Top 10 clientes con viajes");
+        cbReportes.addItem("Top 10 conductores con viajes");
+        cbReportes.addItem("Top 10 vehiculos con viajes");
         cbViajes.removeAllItems();
         cbViajes.addItem("Seleccionar...");
         
@@ -70,12 +70,11 @@ public class ReportesTexto extends javax.swing.JFrame {
     }
     
     public void setViajes(){
-        Block aux=estructuraRegistroViajes.start;
-        while(aux!=null){
-            cbViajes.addItem(aux.key);
-            aux=aux.next;
-        }
-        
+            Block aux=estructuraRegistroViajes.start;
+            while(aux!=null){
+                cbViajes.addItem(aux.index+"-"+aux.placa+"; "+aux.horaFechaGenerado);
+                aux=aux.next;
+            }   
     }
     
 
@@ -93,13 +92,14 @@ public class ReportesTexto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbReportes = new javax.swing.JComboBox<String>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         cbViajes = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,10 +124,11 @@ public class ReportesTexto extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbReportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbReportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cbReportesActionPerformed(evt);
             }
         });
 
@@ -151,12 +152,15 @@ public class ReportesTexto extends javax.swing.JFrame {
             }
         });
 
+        cbViajes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbViajes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbViajes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbViajesActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Viajes");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,39 +175,44 @@ public class ReportesTexto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(jLabel2)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbViajes, 0, 194, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                            .addComponent(cbReportes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addGap(41, 41, 41)
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)))
+                        .addComponent(jButton4))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton2)
                         .addComponent(jButton3)
                         .addComponent(jButton4)))
-                .addGap(26, 26, 26)
-                .addComponent(cbViajes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbViajes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
@@ -219,29 +228,50 @@ public class ReportesTexto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cbReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbReportesActionPerformed
         // TODO add your handling code here:
      
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cbReportesActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if(jComboBox1.getSelectedIndex()!=0){
-             encrypt();
+//        if(cbReportes.getSelectedIndex()!=0){
+//             encrypt();
+//        }else{
+//            JOptionPane.showMessageDialog(null, "Opcion no valida!");
+//        }
+//        cbReportes.addItem("Seleccionar...");
+//        cbReportes.addItem("Estructura Completa");
+//        cbReportes.addItem("Top 10 viajes largos");
+//        cbReportes.addItem("Top 10 clientes con viajes");
+//        cbReportes.addItem("Top 10 conductores con viajes");
+//        cbReportes.addItem("Top 10 vehiculos con viajes");
+        
+        if(!String.valueOf(cbReportes.getSelectedItem()).equals("Seleccionar...")){
+            if(String.valueOf(cbReportes.getSelectedItem()).equals("Estructura Completa")&&String.valueOf(cbViajes.getSelectedItem()).equals("Seleccionar...")){
+                estructuraRegistroViajes.GraficaGeneral();
+            }
+            else if(String.valueOf(cbReportes.getSelectedItem()).equals("Estructura Completa")&&!String.valueOf(cbViajes.getSelectedItem()).equals("Seleccionar...")){
+                System.out.println(cbViajes.getSelectedItem());
+                String index[]=String.valueOf(cbViajes.getSelectedItem()).split("-");
+                System.out.println("hola");
+                System.out.println(index[0]);
+                estructuraRegistroViajes.GraficaGeneralPorViaje(index[0]);
+            }
         }else{
-            JOptionPane.showMessageDialog(null, "Opcion no valida!");
+            JOptionPane.showMessageDialog(null, "Seleccione primero que tipo de reporte desea ver!");
         }
        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        if (jComboBox1.getSelectedIndex() != 0) {
+        if (cbReportes.getSelectedIndex() != 0) {
             encrypt();
 
             jTextArea2.append(comp.decompress(resultado) + "\n");
-            System.out.println(jComboBox1.getSelectedItem().toString());
-            String archivoGenName = jComboBox1.getSelectedItem().toString().trim().replace(" ", "").toLowerCase() + ".edd";
+            System.out.println(cbReportes.getSelectedItem().toString());
+            String archivoGenName = cbReportes.getSelectedItem().toString().trim().replace(" ", "").toLowerCase() + ".edd";
             try {
                 File archivo = new File(archivoGenName);
 
@@ -321,14 +351,15 @@ public class ReportesTexto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbReportes;
     private javax.swing.JComboBox cbViajes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;

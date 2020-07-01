@@ -18,6 +18,8 @@ public class ReporteArbolB extends javax.swing.JFrame {
      */
     public ReporteArbolB() {
         initComponents();
+       this.setLocationRelativeTo(null);
+       this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
     public void setImage(String image)

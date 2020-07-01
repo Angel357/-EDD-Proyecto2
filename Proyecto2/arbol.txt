@@ -1,9 +1,13 @@
 digraph {
 node[shape=record, height = 0.3];
-node0[label="PAE"];
-node1[label="|PAA|f<0>|PAB|f<1>|PAC|f<2>|PAD|f<3>|"];
+node0[label="<f0>|F|<f1>|K|<f2>|P|"];
+node1[label="<f0>|A|<f1>|B|<f2>|C|<f3>|D|"];
 node0->node1
-node2[label="|PAF|f<0>|PAG|f<1>|PAH|f<2>|PAI|f<3>|PAJ|f<4>|PAK|f<5>|"];
+node2[label="<f0>|G|<f1>|H|<f2>|I|<f3>|J|"];
 node0->node2
+node3[label="<f0>|L|<f1>|M|<f2>|N|<f3>|O|"];
+node0->node3
+node4[label="<f0>|Q|<f1>|R|<f2>|S|<f3>|T|<f4>|W|<f5>|X|<f6>|Y|<f7>|Z|"];
+node0->node4
 
 }

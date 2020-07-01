@@ -46,7 +46,7 @@ public class Grafo extends javax.swing.JFrame {
             escribir.write("digraph { \r\n");
             
             escribir.write("rankdir=LR;\r\n");
-            GraficoGeneral+="rankdir=LR;\\r\\n  \n";
+            GraficoGeneral+="rankdir=LR;  \n";
             String rutatotal="";
             //en este string se guardara todo el archivo de texto
             String registro="";
@@ -71,7 +71,8 @@ public class Grafo extends javax.swing.JFrame {
                         
                         listaVertices.Insertar(Reg[0], Reg[1], Integer.parseInt(Reg[2]));
                         escribir.write(Reg[0]+" -> "+Reg[1]+" [label=\""+Reg[2]+"\", weight=50];\r\n");
-                        GraficoGeneral+=Reg[0]+" -> "+Reg[1]+" [label=\\\""+Reg[2]+"\\\", weight=50];\\r\\n \n";
+                        
+                        GraficoGeneral+=Reg[0]+" -> "+Reg[1]+" [label=\""+Reg[2]+"\", weight=50]; \n";
                     }
                 }
                 input.close();

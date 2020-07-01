@@ -122,8 +122,7 @@ public class nodoArbolB {
             String test = "";
             int i = 0;
             if (this.hoja == true) {
-                escribir.write("node" + counter++ + "[label=\"|");
-
+                escribir.write("node" + counter++ + "[label=\"");
             }
             for (i = 0; i < this.n; i++) {
                 if (this.hoja == false) {
@@ -131,16 +130,10 @@ public class nodoArbolB {
                     test += keys[i];
                     C[i].getDot(counter++);
                 } else {
-                    escribir.write(keys[i] + "|" + "f<" + i + ">|");
+                    escribir.write("<f" + i + ">|" + keys[i] + "|");
                 }
             }
 
-            /*
-              if (this.hoja == true) {
-            System.out.print("\"];" + "\r\n");
-            System.out.println("node0->"  + "node"+ counter + "\r\n");
-            }
-             */
             if (this.hoja == true) {
                 escribir.write("\"];" + "\r\n");
                 counter--;

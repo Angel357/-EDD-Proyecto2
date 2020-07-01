@@ -315,13 +315,13 @@ public class TablaHash {
         }
         
         
-        GraficoGeneral= "node[shape=box];\\r\\n \n"
-                         + "rankdir=LR;\\r\\n \n \\r\\n \n \\r\\n \n"
-                         + "subgraph cluster_1{ \\r\\n"
-                         + Coordenadas+"\\r\\n \n}"
-                         + "\\r\\n \n \\r\\n \n"
-                         + ListasCoordenadas+" \\r\\n \n \\r\\n \n"
-                         + CoordenadaAinicio+"\\r\\n \n \\r\\n \n";
+        GraficoGeneral= "node[shape=box]; \n"
+                         + "rankdir=LR; \n  \n  \n"
+                         + "subgraph cluster_Clientes1{ \n"
+                         + Coordenadas+" \n}"
+                         + " \n  \n"
+                         + ListasCoordenadas+"  \n  \n"
+                         + CoordenadaAinicio+" \n  \n";
         
         
         Runtime cmd=Runtime.getRuntime();
