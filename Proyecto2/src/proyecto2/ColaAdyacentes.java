@@ -123,8 +123,8 @@ public class ColaAdyacentes {
             }
         }
         ruta = new Ruta();
+        ruta.Tamaño=0;
         while(Pad!=null){
-            ruta.Tamaño=0;
             ruta.insertar(Pad.peso, Pad.acumulado, Pad.nombre);
             Pad=Pad.Padre;
         }

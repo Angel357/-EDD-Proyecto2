@@ -126,76 +126,88 @@ subgraph cluster_Clientes1{
 subgraph cluster_Conductores{
 node[shape=box width=2 height=0.8]; 
 rankdir=LR; 
-"201602750\nWilson Gaspar" 
-"201602750\nWilson Gaspar"->"201602751\nWilson Gaspar" 
-"201602750\nWilson Gaspar"->"201602759\nWilson Gaspar" 
-"201602751\nWilson Gaspar" 
-"201602751\nWilson Gaspar"->"201602752\nWilson Gaspar" 
-"201602751\nWilson Gaspar"->"201602750\nWilson Gaspar" 
-"201602752\nWilson Gaspar" 
-"201602752\nWilson Gaspar"->"201602753\nWilson Gaspar" 
-"201602752\nWilson Gaspar"->"201602751\nWilson Gaspar" 
-"201602753\nWilson Gaspar" 
-"201602753\nWilson Gaspar"->"201602754\nernesto gonzales" 
-"201602753\nWilson Gaspar"->"201602752\nWilson Gaspar" 
-"201602754\nernesto gonzales" 
-"201602754\nernesto gonzales"->"201602755\nWilson Gaspar" 
-"201602754\nernesto gonzales"->"201602753\nWilson Gaspar" 
-"201602755\nWilson Gaspar" 
-"201602755\nWilson Gaspar"->"201602758\nWilson Gaspar" 
-"201602755\nWilson Gaspar"->"201602754\nernesto gonzales" 
-"201602758\nWilson Gaspar" 
-"201602758\nWilson Gaspar"->"201602759\nWilson Gaspar" 
-"201602758\nWilson Gaspar"->"201602755\nWilson Gaspar" 
-"201602759\nWilson Gaspar" 
-"201602759\nWilson Gaspar"->"201602750\nWilson Gaspar" 
-"201602759\nWilson Gaspar"->"201602758\nWilson Gaspar" 
+"1005957733221\nRolando" 
+"1005957733221\nRolando"->"3005952367401\nPedro" 
+"1005957733221\nRolando"->"9805952367756\nVirginia" 
+"3005952367401\nPedro" 
+"3005952367401\nPedro"->"3033988367401\nFernanda" 
+"3005952367401\nPedro"->"1005957733221\nRolando" 
+"3033988367401\nFernanda" 
+"3033988367401\nFernanda"->"4005952367401\nMaria" 
+"3033988367401\nFernanda"->"3005952367401\nPedro" 
+"4005952367401\nMaria" 
+"4005952367401\nMaria"->"5004153267401\nMario" 
+"4005952367401\nMaria"->"3033988367401\nFernanda" 
+"5004153267401\nMario" 
+"5004153267401\nMario"->"6005952367401\nSergio" 
+"5004153267401\nMario"->"4005952367401\nMaria" 
+"6005952367401\nSergio" 
+"6005952367401\nSergio"->"7805544360001\nLuis" 
+"6005952367401\nSergio"->"5004153267401\nMario" 
+"7805544360001\nLuis" 
+"7805544360001\nLuis"->"9805952367756\nVirginia" 
+"7805544360001\nLuis"->"6005952367401\nSergio" 
+"9805952367756\nVirginia" 
+"9805952367756\nVirginia"->"1005957733221\nRolando" 
+"9805952367756\nVirginia"->"7805544360001\nLuis" 
 
 
 }
 subgraph cluster_Registros{
 node[shape=box]; 
 rankdir=LR; 
-"063af86953fecd2cb377dc6905d2eb0f" -> "NULL"; 
-"063af86953fecd2cb377dc6905d2eb0f"  
-"063af86953fecd2cb377dc6905d2eb0f" -> "4f6b3009e1117838fc27142bee2620a0"; 
-"4f6b3009e1117838fc27142bee2620a0" -> "063af86953fecd2cb377dc6905d2eb0f";  
-"4f6b3009e1117838fc27142bee2620a0"  
-"4f6b3009e1117838fc27142bee2620a0" -> "926490de96c64de72b52712d5412424a"; 
-"926490de96c64de72b52712d5412424a" -> "4f6b3009e1117838fc27142bee2620a0";  
-"926490de96c64de72b52712d5412424a"  
-"926490de96c64de72b52712d5412424a" -> "NULL.";  
+"58581b94a3e0a2452baec8f206a1927d" -> "NULL"; 
+"58581b94a3e0a2452baec8f206a1927d"  
+"58581b94a3e0a2452baec8f206a1927d" -> "e4b27c31bf5c6858c61caef84be1077c"; 
+"e4b27c31bf5c6858c61caef84be1077c" -> "58581b94a3e0a2452baec8f206a1927d";  
+"e4b27c31bf5c6858c61caef84be1077c"  
+"e4b27c31bf5c6858c61caef84be1077c" -> "eb6c780724935900287d563cb7bae2cb"; 
+"eb6c780724935900287d563cb7bae2cb" -> "e4b27c31bf5c6858c61caef84be1077c";  
+"eb6c780724935900287d563cb7bae2cb"  
+"eb6c780724935900287d563cb7bae2cb" -> "01f246c6500a80dc0e2666670bff31dd"; 
+"01f246c6500a80dc0e2666670bff31dd" -> "eb6c780724935900287d563cb7bae2cb";  
+"01f246c6500a80dc0e2666670bff31dd"  
+"01f246c6500a80dc0e2666670bff31dd" -> "NULL.";  
 
 
 }
 subgraph cluster_101{
 node[shape=box]; 
-"Tiempo: 0\nGranada" -> "Tiempo: 256\nSevilla"
+"Tiempo: 0\nMadrid" -> "Tiempo: 335\nJaen" -> "Tiempo: 577\nSevilla" -> "Tiempo: 702\nCadiz"
 
 
 }
 subgraph cluster_102{
 node[shape=box]; 
-"Tiempo: 0\nCadiz" -> "Tiempo: 125\nSevilla" -> "Tiempo: 367\nJaen" -> "Tiempo: 702\nMadrid" -> "Tiempo: 1097\nBilbao"
+"Tiempo: 0\nMadrid" -> "Tiempo: 395\nBilbao"
 
 
 }
 subgraph cluster_103{
 node[shape=box]; 
-"Tiempo: 0\nAlbacete" -> "Tiempo: 251\nMadrid" -> "Tiempo: 444\nValladolid" -> "Tiempo: 800\nVigo"
+"Tiempo: 0\nGranada" -> "Tiempo: 99\nJaen" -> "Tiempo: 434\nMadrid" -> "Tiempo: 837\nBadajoz"
+
+
+}
+subgraph cluster_104{
+node[shape=box]; 
+"Tiempo: 0\nMurcia" -> "Tiempo: 150\nAlbacete" -> "Tiempo: 401\nMadrid" -> "Tiempo: 594\nValladolid" -> "Tiempo: 950\nVigo"
 
 
 }
 
  
-"063af86953fecd2cb377dc6905d2eb0f" -> "6855655584235 \njacki"; 
-"063af86953fecd2cb377dc6905d2eb0f" -> "201602753\nWilson Gaspar" ;
-"063af86953fecd2cb377dc6905d2eb0f" -> "Tiempo: 0\nGranada"; 
-"4f6b3009e1117838fc27142bee2620a0" -> "6855655584235 \njacki"; 
-"4f6b3009e1117838fc27142bee2620a0" -> "201602753\nWilson Gaspar" ;
-"4f6b3009e1117838fc27142bee2620a0" -> "Tiempo: 0\nCadiz"; 
-"926490de96c64de72b52712d5412424a" -> "8965478123654 \npedro"; 
-"926490de96c64de72b52712d5412424a" -> "201602750\nWilson Gaspar" ;
-"926490de96c64de72b52712d5412424a" -> "Tiempo: 0\nAlbacete"; 
+"58581b94a3e0a2452baec8f206a1927d" -> "4 \njoel"; 
+"58581b94a3e0a2452baec8f206a1927d" -> "1005957733221\nRolando" ;
+"58581b94a3e0a2452baec8f206a1927d" -> "Tiempo: 0\nMadrid"; 
+"e4b27c31bf5c6858c61caef84be1077c" -> "4 \njoel"; 
+"e4b27c31bf5c6858c61caef84be1077c" -> "1005957733221\nRolando" ;
+"e4b27c31bf5c6858c61caef84be1077c" -> "Tiempo: 0\nMadrid"; 
+"eb6c780724935900287d563cb7bae2cb" -> "4 \njoel"; 
+"eb6c780724935900287d563cb7bae2cb" -> "1005957733221\nRolando" ;
+"eb6c780724935900287d563cb7bae2cb" -> "Tiempo: 0\nGranada"; 
+"01f246c6500a80dc0e2666670bff31dd" -> "41 \njazmin"; 
+"01f246c6500a80dc0e2666670bff31dd" -> "3033988367401\nFernanda" ;
+"01f246c6500a80dc0e2666670bff31dd" -> "Tiempo: 0\nMurcia"; 
 
  }

@@ -41,12 +41,18 @@ public class Proyecto2 {
         menu.setEstructuras(tablaClientes, listaConductores,arbolVehiculos,grafoRutas,registroViajes);
         
         menu.setVisible(true);
-        
-//        Block test = new Block("PAAA");
-//        System.out.println("Hora:" + test.getHoraFechaGenerado());
-        
-        
-        
+//        
+////        Block test = new Block("PAAA");
+////        System.out.println("Hora:" + test.getHoraFechaGenerado());
+//        ListaTop t= new ListaTop();
+//        t.InsertarTopViajes("", 98);
+//        t.InsertarTopViajes("", 5);
+//        t.InsertarTopViajes("", 20);
+//        t.InsertarTopViajes("", 100);
+//        t.InsertarTopViajes("", 30);
+//        t.InsertarTopViajes("", 52);
+//        t.Imprimir("top carros");
+//        
         
     }
     

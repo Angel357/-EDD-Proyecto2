@@ -126,61 +126,61 @@ subgraph cluster_Clientes1{
 subgraph cluster_Conductores{
 node[shape=box width=2 height=0.8]; 
 rankdir=LR; 
-"201602750\nWilson Gaspar" 
-"201602750\nWilson Gaspar"->"201602751\nWilson Gaspar" 
-"201602750\nWilson Gaspar"->"201602759\nWilson Gaspar" 
-"201602751\nWilson Gaspar" 
-"201602751\nWilson Gaspar"->"201602752\nWilson Gaspar" 
-"201602751\nWilson Gaspar"->"201602750\nWilson Gaspar" 
-"201602752\nWilson Gaspar" 
-"201602752\nWilson Gaspar"->"201602753\nWilson Gaspar" 
-"201602752\nWilson Gaspar"->"201602751\nWilson Gaspar" 
-"201602753\nWilson Gaspar" 
-"201602753\nWilson Gaspar"->"201602754\nernesto gonzales" 
-"201602753\nWilson Gaspar"->"201602752\nWilson Gaspar" 
-"201602754\nernesto gonzales" 
-"201602754\nernesto gonzales"->"201602755\nWilson Gaspar" 
-"201602754\nernesto gonzales"->"201602753\nWilson Gaspar" 
-"201602755\nWilson Gaspar" 
-"201602755\nWilson Gaspar"->"201602758\nWilson Gaspar" 
-"201602755\nWilson Gaspar"->"201602754\nernesto gonzales" 
-"201602758\nWilson Gaspar" 
-"201602758\nWilson Gaspar"->"201602759\nWilson Gaspar" 
-"201602758\nWilson Gaspar"->"201602755\nWilson Gaspar" 
-"201602759\nWilson Gaspar" 
-"201602759\nWilson Gaspar"->"201602750\nWilson Gaspar" 
-"201602759\nWilson Gaspar"->"201602758\nWilson Gaspar" 
+"1005957733221\nRolando" 
+"1005957733221\nRolando"->"3005952367401\nPedro" 
+"1005957733221\nRolando"->"9805952367756\nVirginia" 
+"3005952367401\nPedro" 
+"3005952367401\nPedro"->"3033988367401\nFernanda" 
+"3005952367401\nPedro"->"1005957733221\nRolando" 
+"3033988367401\nFernanda" 
+"3033988367401\nFernanda"->"4005952367401\nMaria" 
+"3033988367401\nFernanda"->"3005952367401\nPedro" 
+"4005952367401\nMaria" 
+"4005952367401\nMaria"->"5004153267401\nMario" 
+"4005952367401\nMaria"->"3033988367401\nFernanda" 
+"5004153267401\nMario" 
+"5004153267401\nMario"->"6005952367401\nSergio" 
+"5004153267401\nMario"->"4005952367401\nMaria" 
+"6005952367401\nSergio" 
+"6005952367401\nSergio"->"7805544360001\nLuis" 
+"6005952367401\nSergio"->"5004153267401\nMario" 
+"7805544360001\nLuis" 
+"7805544360001\nLuis"->"9805952367756\nVirginia" 
+"7805544360001\nLuis"->"6005952367401\nSergio" 
+"9805952367756\nVirginia" 
+"9805952367756\nVirginia"->"1005957733221\nRolando" 
+"9805952367756\nVirginia"->"7805544360001\nLuis" 
 
 
 }
 subgraph cluster_Registros{
 node[shape=box]; 
 rankdir=LR; 
-"b18b6357042e9f3fabad81bbfc28541d" -> "NULL"; 
-"b18b6357042e9f3fabad81bbfc28541d"  
-"b18b6357042e9f3fabad81bbfc28541d" -> "2b21242c33373eea91a5530e7ca4985f"; 
-"2b21242c33373eea91a5530e7ca4985f" -> "b18b6357042e9f3fabad81bbfc28541d";  
-"2b21242c33373eea91a5530e7ca4985f"  
-"2b21242c33373eea91a5530e7ca4985f" -> "a443afde5e17d1ab5fe69890b0a74636"; 
-"a443afde5e17d1ab5fe69890b0a74636" -> "2b21242c33373eea91a5530e7ca4985f";  
-"a443afde5e17d1ab5fe69890b0a74636"  
-"a443afde5e17d1ab5fe69890b0a74636" -> "4c72c4bb94057dc31bf0919a2869f50a"; 
-"4c72c4bb94057dc31bf0919a2869f50a" -> "a443afde5e17d1ab5fe69890b0a74636";  
-"4c72c4bb94057dc31bf0919a2869f50a"  
-"4c72c4bb94057dc31bf0919a2869f50a" -> "NULL.";  
+"58581b94a3e0a2452baec8f206a1927d" -> "NULL"; 
+"58581b94a3e0a2452baec8f206a1927d"  
+"58581b94a3e0a2452baec8f206a1927d" -> "e4b27c31bf5c6858c61caef84be1077c"; 
+"e4b27c31bf5c6858c61caef84be1077c" -> "58581b94a3e0a2452baec8f206a1927d";  
+"e4b27c31bf5c6858c61caef84be1077c"  
+"e4b27c31bf5c6858c61caef84be1077c" -> "eb6c780724935900287d563cb7bae2cb"; 
+"eb6c780724935900287d563cb7bae2cb" -> "e4b27c31bf5c6858c61caef84be1077c";  
+"eb6c780724935900287d563cb7bae2cb"  
+"eb6c780724935900287d563cb7bae2cb" -> "01f246c6500a80dc0e2666670bff31dd"; 
+"01f246c6500a80dc0e2666670bff31dd" -> "eb6c780724935900287d563cb7bae2cb";  
+"01f246c6500a80dc0e2666670bff31dd"  
+"01f246c6500a80dc0e2666670bff31dd" -> "NULL.";  
 
 
 }
-subgraph cluster_104{
+subgraph cluster_101{
 node[shape=box]; 
-"Tiempo: 0\nCoruna" -> "Tiempo: 455\nValladolid" -> "Tiempo: 648\nMadrid"
+"Tiempo: 0\nMadrid" -> "Tiempo: 335\nJaen" -> "Tiempo: 577\nSevilla" -> "Tiempo: 702\nCadiz"
 
 
 }
 
  
-"4c72c4bb94057dc31bf0919a2869f50a" -> "4655566666488 \nasusena"; 
-"4c72c4bb94057dc31bf0919a2869f50a" -> "201602750\nWilson Gaspar" ;
-"4c72c4bb94057dc31bf0919a2869f50a" -> "Tiempo: 0\nCoruna"; 
+"58581b94a3e0a2452baec8f206a1927d" -> "4 \njoel"; 
+"58581b94a3e0a2452baec8f206a1927d" -> "1005957733221\nRolando" ;
+"58581b94a3e0a2452baec8f206a1927d" -> "Tiempo: 0\nMadrid"; 
 
  }

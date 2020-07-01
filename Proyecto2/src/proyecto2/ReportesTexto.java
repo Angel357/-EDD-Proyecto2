@@ -23,6 +23,7 @@ public class ReportesTexto extends javax.swing.JFrame {
     ArbolB estructuraVehiculos;
     ColaAdyacentes estructuraRuta;
     Chain estructuraRegistroViajes;
+    ListaTop reportesTop;
     
     //ventanas
     MenuGeneral menu;
@@ -36,6 +37,7 @@ public class ReportesTexto extends javax.swing.JFrame {
         initComponents();
         this.setDefaultCloseOperation(0);
         this.setLocationRelativeTo(null);
+        reportesTop=new ListaTop();
         cbReportes.removeAllItems();
         cbReportes.addItem("Seleccionar...");
         cbReportes.addItem("Estructura Completa");
@@ -201,13 +203,14 @@ public class ReportesTexto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton2)
                         .addComponent(jButton3)
-                        .addComponent(jButton4)))
+                        .addComponent(jButton4))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbViajes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,12 +255,145 @@ public class ReportesTexto extends javax.swing.JFrame {
                 estructuraRegistroViajes.GraficaGeneral();
             }
             else if(String.valueOf(cbReportes.getSelectedItem()).equals("Estructura Completa")&&!String.valueOf(cbViajes.getSelectedItem()).equals("Seleccionar...")){
-                System.out.println(cbViajes.getSelectedItem());
+                
                 String index[]=String.valueOf(cbViajes.getSelectedItem()).split("-");
-                System.out.println("hola");
-                System.out.println(index[0]);
                 estructuraRegistroViajes.GraficaGeneralPorViaje(index[0]);
             }
+            else{
+                Block aux;
+                Block aux2;
+                
+                switch(String.valueOf(cbReportes.getSelectedItem())){
+                    
+                    case "Top 10 viajes largos":
+                        reportesTop.Inicio=null;
+                        aux=estructuraRegistroViajes.start;
+                        while(aux!=null){
+                            reportesTop.InsertarTopViajes(aux.placa+" "+aux.horaFechaGenerado, aux.estructuraRutaCorta.Tamaño);
+                            aux=aux.next;
+                        }
+                        reportesTop.Imprimir("Top 10 viajes largos");
+                        jTextArea1.setText(reportesTop.reporte);
+                        break;
+                        
+                        
+                        
+                    case "Top 10 clientes con viajes":
+                        reportesTop.Inicio=null;
+                        aux=estructuraRegistroViajes.start;
+                         
+                        while(aux!=null){
+                            String cliente[]=aux.ClienteSeleccionado.split(";");
+                            if(aux.verificado==false){
+                              int contador=1; 
+                               if(aux.next!=null){
+                                    aux2=aux.next;
+                                    while(aux2!=null){
+                                        String cliente2[]=aux2.ClienteSeleccionado.split(";");
+                                        if(aux2.verificado==false&&cliente[0].equals(cliente2[0])){
+                                            contador++;
+                                            aux2.verificado=true;
+                                        }
+                                        aux2=aux2.next;
+                                    }
+                                    aux.verificado=true;
+                                    reportesTop.InsertarTopViajes(cliente[1], contador);
+                                }else{
+                                    aux.verificado=true;
+                                    reportesTop.InsertarTopViajes(cliente[1], contador);
+                                }
+                            }
+                            
+                            aux=aux.next;
+                        }
+                        aux=estructuraRegistroViajes.start;
+                        while(aux!=null){
+                            aux.verificado=false;
+                            aux=aux.next;
+                        }
+                        reportesTop.Imprimir("Top 10 clientes con viajes");
+                        jTextArea1.setText(reportesTop.reporte);
+                        break;
+                        
+                        
+                        
+                    case "Top 10 conductores con viajes":
+                        reportesTop.Inicio=null;
+                        aux=estructuraRegistroViajes.start;
+                        while(aux!=null){
+                            String conductor[]=aux.ConductorSeleccionado.split(";");
+                            if(aux.verificado==false){
+                               int contador=1; 
+                               if(aux.next!=null){
+                                    aux2=aux.next;
+                                    while(aux2!=null){
+                                        String conductor2[]=aux2.ConductorSeleccionado.split(";");
+                                        if(aux2.verificado==false&&conductor[0].equals(conductor2[0])){
+                                            contador++;
+                                            aux2.verificado=true;
+                                        }
+                                        aux2=aux2.next;
+                                    }
+                                    aux.verificado=true;
+                                    reportesTop.InsertarTopViajes(conductor[1], contador);
+                                }else{
+                                    aux.verificado=true;
+                                    reportesTop.InsertarTopViajes(conductor[1], contador);
+                                }
+                            }
+                            
+                            aux=aux.next;
+                        }
+                        aux=estructuraRegistroViajes.start;
+                        while(aux!=null){
+                            aux.verificado=false;
+                            aux=aux.next;
+                        }
+                        reportesTop.Imprimir("Top 10 conductores con viajes");
+                        jTextArea1.setText(reportesTop.reporte);
+                        break;
+                        
+                        
+                        
+                        
+                    case "Top 10 vehiculos con viajes":
+                        reportesTop.Inicio=null;
+                        aux=estructuraRegistroViajes.start;
+                        while(aux!=null){
+                            String vehiculo =aux.VehiculoSeleccionado;
+                            if(aux.verificado==false){
+                               int contador=1; 
+                               if(aux.next!=null){
+                                    aux2=aux.next;
+                                    while(aux2!=null){
+                                        String vehiculo2=aux2.VehiculoSeleccionado;
+                                        if(aux2.verificado==false&&vehiculo.equals(vehiculo2)){
+                                            contador++;
+                                            aux2.verificado=true;
+                                        }
+                                        aux2=aux2.next;
+                                    }
+                                    aux.verificado=true;
+                                    reportesTop.InsertarTopViajes(vehiculo, contador);
+                                }else{
+                                    aux.verificado=true;
+                                    reportesTop.InsertarTopViajes(vehiculo, contador);
+                                }
+                            }
+                            
+                            aux=aux.next;
+                        }
+                        aux=estructuraRegistroViajes.start;
+                        while(aux!=null){
+                            aux.verificado=false;
+                            aux=aux.next;
+                        }
+                        reportesTop.Imprimir("Top 10 vehiculos con viajes");
+                        jTextArea1.setText(reportesTop.reporte);
+                        break;
+                }//fin de switch de reportes
+                
+            }//fin de condicionales para los reportes
         }else{
             JOptionPane.showMessageDialog(null, "Seleccione primero que tipo de reporte desea ver!");
         }

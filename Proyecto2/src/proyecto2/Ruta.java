@@ -31,6 +31,7 @@ public class Ruta {
             nuevo.siguiente=Inicio;
             Inicio=nuevo;
         }        
+        System.out.println(Tamaño);
     }
     
    public void Graficar(){

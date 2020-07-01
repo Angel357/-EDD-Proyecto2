@@ -95,8 +95,7 @@ public class Chain {
     // graphing stuff
     public void graph(){ getDot(start); }
     
-        public void getDot(Block n)
-    {
+    public void getDot(Block n){
         Block aux = n;
 
         String label;
