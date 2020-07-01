@@ -80,6 +80,7 @@ public class Viajes extends javax.swing.JFrame {
         CargaOrigenDestino();
         
     }
+    
     public void CargaClientes(){
         NodoHash[] aux=estructuraClientes.arregloHash;
         for(int x=0;x<aux.length;x++){
@@ -93,6 +94,7 @@ public class Viajes extends javax.swing.JFrame {
             }
         }    
     }
+    
     public void CargaConductores(){
         NodoLD aux = estructuraConductores.start;
         
@@ -105,11 +107,16 @@ public class Viajes extends javax.swing.JFrame {
     public void CargaVehiculos(){
       nodoArbolB aux=estructuraVehiculos.root;
         int i = 0;
-        for (i = 0; i < aux.n ; i++)
+        /*for (i = 0; i < aux.n ; i++)
         {
             cbVehiculo.addItem(aux.keys[i]);
+        }*/
+        String dato="";
+        String t=estructuraVehiculos.root.imprimir2(dato);
+        String datos[]=t.split("\n");
+        for(String date:datos){
+            cbVehiculo.addItem(date);
         }
-        
             
     }
     public void CargaOrigenDestino(){

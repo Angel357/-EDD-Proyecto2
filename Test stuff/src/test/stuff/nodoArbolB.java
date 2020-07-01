@@ -35,6 +35,7 @@ public class nodoArbolB {
         this.n = 0;
     }
 
+    
     // Mostrar arbol traverse
     public void imprimir(int counter) {
         String test = "";

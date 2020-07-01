@@ -126,52 +126,77 @@ subgraph cluster_Clientes1{
 subgraph cluster_Conductores{
 node[shape=box width=2 height=0.8]; 
 rankdir=LR; 
-"201602750\nWilson Gaspar" 
-"201602750\nWilson Gaspar"->"201602751\nWilson Gaspar" 
-"201602750\nWilson Gaspar"->"201602759\nWilson Gaspar" 
-"201602751\nWilson Gaspar" 
-"201602751\nWilson Gaspar"->"201602752\nWilson Gaspar" 
-"201602751\nWilson Gaspar"->"201602750\nWilson Gaspar" 
-"201602752\nWilson Gaspar" 
-"201602752\nWilson Gaspar"->"201602753\nWilson Gaspar" 
-"201602752\nWilson Gaspar"->"201602751\nWilson Gaspar" 
-"201602753\nWilson Gaspar" 
-"201602753\nWilson Gaspar"->"201602754\nernesto gonzales" 
-"201602753\nWilson Gaspar"->"201602752\nWilson Gaspar" 
-"201602754\nernesto gonzales" 
-"201602754\nernesto gonzales"->"201602755\nWilson Gaspar" 
-"201602754\nernesto gonzales"->"201602753\nWilson Gaspar" 
-"201602755\nWilson Gaspar" 
-"201602755\nWilson Gaspar"->"201602758\nWilson Gaspar" 
-"201602755\nWilson Gaspar"->"201602754\nernesto gonzales" 
-"201602758\nWilson Gaspar" 
-"201602758\nWilson Gaspar"->"201602759\nWilson Gaspar" 
-"201602758\nWilson Gaspar"->"201602755\nWilson Gaspar" 
-"201602759\nWilson Gaspar" 
-"201602759\nWilson Gaspar"->"201602750\nWilson Gaspar" 
-"201602759\nWilson Gaspar"->"201602758\nWilson Gaspar" 
+"1005957733221\nRolando" 
+"1005957733221\nRolando"->"3005952367401\nPedro" 
+"1005957733221\nRolando"->"9805952367756\nVirginia" 
+"3005952367401\nPedro" 
+"3005952367401\nPedro"->"3033988367401\nFernanda" 
+"3005952367401\nPedro"->"1005957733221\nRolando" 
+"3033988367401\nFernanda" 
+"3033988367401\nFernanda"->"4005952367401\nMaria" 
+"3033988367401\nFernanda"->"3005952367401\nPedro" 
+"4005952367401\nMaria" 
+"4005952367401\nMaria"->"5004153267401\nMario" 
+"4005952367401\nMaria"->"3033988367401\nFernanda" 
+"5004153267401\nMario" 
+"5004153267401\nMario"->"6005952367401\nSergio" 
+"5004153267401\nMario"->"4005952367401\nMaria" 
+"6005952367401\nSergio" 
+"6005952367401\nSergio"->"7805544360001\nLuis" 
+"6005952367401\nSergio"->"5004153267401\nMario" 
+"7805544360001\nLuis" 
+"7805544360001\nLuis"->"9805952367756\nVirginia" 
+"7805544360001\nLuis"->"6005952367401\nSergio" 
+"9805952367756\nVirginia" 
+"9805952367756\nVirginia"->"1005957733221\nRolando" 
+"9805952367756\nVirginia"->"7805544360001\nLuis" 
 
 
 }
 subgraph cluster_Registros{
 node[shape=box]; 
 rankdir=LR; 
+<<<<<<< HEAD
 "1f6e5103b355acbcbada6b05cf6a2d8e" -> "NULL"; 
 "1f6e5103b355acbcbada6b05cf6a2d8e"  
 "1f6e5103b355acbcbada6b05cf6a2d8e" -> "NULL.";  
+=======
+"58581b94a3e0a2452baec8f206a1927d" -> "NULL"; 
+"58581b94a3e0a2452baec8f206a1927d"  
+"58581b94a3e0a2452baec8f206a1927d" -> "e4b27c31bf5c6858c61caef84be1077c"; 
+"e4b27c31bf5c6858c61caef84be1077c" -> "58581b94a3e0a2452baec8f206a1927d";  
+"e4b27c31bf5c6858c61caef84be1077c"  
+"e4b27c31bf5c6858c61caef84be1077c" -> "eb6c780724935900287d563cb7bae2cb"; 
+"eb6c780724935900287d563cb7bae2cb" -> "e4b27c31bf5c6858c61caef84be1077c";  
+"eb6c780724935900287d563cb7bae2cb"  
+"eb6c780724935900287d563cb7bae2cb" -> "01f246c6500a80dc0e2666670bff31dd"; 
+"01f246c6500a80dc0e2666670bff31dd" -> "eb6c780724935900287d563cb7bae2cb";  
+"01f246c6500a80dc0e2666670bff31dd"  
+"01f246c6500a80dc0e2666670bff31dd" -> "NULL.";  
+>>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 
 
 }
 subgraph cluster_101{
 node[shape=box]; 
+<<<<<<< HEAD
 "Tiempo: 0\nSevilla" -> "Tiempo: 256\nGranada"
+=======
+"Tiempo: 0\nMadrid" -> "Tiempo: 335\nJaen" -> "Tiempo: 577\nSevilla" -> "Tiempo: 702\nCadiz"
+>>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 
 
 }
 
  
+<<<<<<< HEAD
 "1f6e5103b355acbcbada6b05cf6a2d8e" -> "8965478123654 \npedro"; 
 "1f6e5103b355acbcbada6b05cf6a2d8e" -> "201602753\nWilson Gaspar" ;
 "1f6e5103b355acbcbada6b05cf6a2d8e" -> "Tiempo: 0\nSevilla"; 
+=======
+"58581b94a3e0a2452baec8f206a1927d" -> "4 \njoel"; 
+"58581b94a3e0a2452baec8f206a1927d" -> "1005957733221\nRolando" ;
+"58581b94a3e0a2452baec8f206a1927d" -> "Tiempo: 0\nMadrid"; 
+>>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 
  }

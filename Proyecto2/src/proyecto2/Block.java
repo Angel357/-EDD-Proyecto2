@@ -40,6 +40,7 @@ public class Block {
     public String placa;
     Block next;
     Block prev;
+    boolean verificado;
     public int index;
     
     public Block(String placa)
@@ -55,6 +56,7 @@ public class Block {
     public Block(String placa,TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,String OrigenSeleccionado, String DestinoSeleccionado, String ClienteSeleccionado,
                              String ConductorSeleccionado, String VehiculoSeleccionado, Ruta estructuraRutaCorta, int index)
     {
+        this.verificado=false;
         this.placa=placa;
         this.key = obtenerHash(formatKey(placa));
         next = null;

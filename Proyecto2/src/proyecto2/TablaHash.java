@@ -66,7 +66,7 @@ public class TablaHash {
     public void VerificarDispersion(){
         if(contadorHash>porcentajeDispersion)
         {
-         TablaHash nueva=new TablaHash(size*2);
+         TablaHash nueva=new TablaHash(size+37);
          for(int x=0;x<size;x++)
             {
                 if(arregloHash[x]!=null)
@@ -80,7 +80,7 @@ public class TablaHash {
                     }
                 }
             }
-         setDatos(size+10);
+         setDatos(size+37);
          arregloHash=nueva.arregloHash;
          
         }

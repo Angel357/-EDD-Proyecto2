@@ -21,6 +21,7 @@ public class nodoArbolB {
     nodoArbolB[] C; // arreglo de punteros hijos
     int n; // total de nodos
     boolean hoja;  // verificar si es hoja
+    String datos;
     
     // Graph stuff
     FileWriter escribir;
@@ -34,6 +35,7 @@ public class nodoArbolB {
         this.objV = new ObjVehiculo[2 * t - 1];
         this.C = new nodoArbolB[2 * t];
         this.n = 0;
+        this.datos="";
     }
 
     // Mostrar arbol traverse
@@ -46,13 +48,44 @@ public class nodoArbolB {
             }
 
             System.out.print(keys[i] + " ");
+            datos+=keys[i]+"\n";
         }
 
         if (hoja == false) {
             C[i].imprimir();
         }
     }
+    
     //---------------------------------- GRAFICAS --------------------------------
+
+    public String imprimir2(String dato)
+    {
+        
+        int i = 0;
+      
+        for (i = 0; i < this.n ; i++)
+        {
+            if(this.hoja == false)
+            {
+                C[i].imprimir2(datos);
+            }
+            
+            System.out.print(keys[i] + " ");
+            datos+=keys[i]+"\n";
+        }
+        
+        if(hoja == false){
+            C[i].imprimir2(datos);
+        }
+        
+        return datos;
+    }
+    
+    public void getDato(){
+       // String datos;
+        datos=imprimir2(datos);
+        //this.datosvehiculos=datos;
+    }
 
     public void getGraph() {
         try {

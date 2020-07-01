@@ -139,6 +139,7 @@ rankdir=LR;
 "4005952367401\nMaria"->"5004153267401\nMario" 
 "4005952367401\nMaria"->"3033988367401\nFernanda" 
 "5004153267401\nMario" 
+<<<<<<< HEAD
 "5004153267401\nMario"->"6005952367401\nSegio" 
 "5004153267401\nMario"->"4005952367401\nMaria" 
 "6005952367401\nSegio" 
@@ -147,6 +148,16 @@ rankdir=LR;
 "7805544360001\nLuis" 
 "7805544360001\nLuis"->"9805952367756\nVirginia" 
 "7805544360001\nLuis"->"6005952367401\nSegio" 
+=======
+"5004153267401\nMario"->"6005952367401\nSergio" 
+"5004153267401\nMario"->"4005952367401\nMaria" 
+"6005952367401\nSergio" 
+"6005952367401\nSergio"->"7805544360001\nLuis" 
+"6005952367401\nSergio"->"5004153267401\nMario" 
+"7805544360001\nLuis" 
+"7805544360001\nLuis"->"9805952367756\nVirginia" 
+"7805544360001\nLuis"->"6005952367401\nSergio" 
+>>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 "9805952367756\nVirginia" 
 "9805952367756\nVirginia"->"1005957733221\nRolando" 
 "9805952367756\nVirginia"->"7805544360001\nLuis" 
@@ -156,6 +167,7 @@ rankdir=LR;
 subgraph cluster_Registros{
 node[shape=box]; 
 rankdir=LR; 
+<<<<<<< HEAD
 "27709ba57e5a26fde3f9848668cb7f13" -> "NULL"; 
 "27709ba57e5a26fde3f9848668cb7f13"  
 "27709ba57e5a26fde3f9848668cb7f13" -> "7a280cf81ef8b8225a7314cbd20191b4"; 
@@ -168,35 +180,66 @@ rankdir=LR;
 "a5e18d188597e0551ae2eb3e00354851" -> "e11782c2960175cba9b9bb0e84e7caa5";  
 "a5e18d188597e0551ae2eb3e00354851"  
 "a5e18d188597e0551ae2eb3e00354851" -> "NULL.";  
+=======
+"58581b94a3e0a2452baec8f206a1927d" -> "NULL"; 
+"58581b94a3e0a2452baec8f206a1927d"  
+"58581b94a3e0a2452baec8f206a1927d" -> "e4b27c31bf5c6858c61caef84be1077c"; 
+"e4b27c31bf5c6858c61caef84be1077c" -> "58581b94a3e0a2452baec8f206a1927d";  
+"e4b27c31bf5c6858c61caef84be1077c"  
+"e4b27c31bf5c6858c61caef84be1077c" -> "eb6c780724935900287d563cb7bae2cb"; 
+"eb6c780724935900287d563cb7bae2cb" -> "e4b27c31bf5c6858c61caef84be1077c";  
+"eb6c780724935900287d563cb7bae2cb"  
+"eb6c780724935900287d563cb7bae2cb" -> "01f246c6500a80dc0e2666670bff31dd"; 
+"01f246c6500a80dc0e2666670bff31dd" -> "eb6c780724935900287d563cb7bae2cb";  
+"01f246c6500a80dc0e2666670bff31dd"  
+"01f246c6500a80dc0e2666670bff31dd" -> "NULL.";  
+>>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 
 
 }
 subgraph cluster_101{
 node[shape=box]; 
+<<<<<<< HEAD
 "Tiempo: 0\nSevilla" -> "Tiempo: 256\nGranada" -> "Tiempo: 534\nMurcia"
+=======
+"Tiempo: 0\nMadrid" -> "Tiempo: 335\nJaen" -> "Tiempo: 577\nSevilla" -> "Tiempo: 702\nCadiz"
+>>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 
 
 }
 subgraph cluster_102{
 node[shape=box]; 
+<<<<<<< HEAD
 "Tiempo: 0\nJaen" -> "Tiempo: 99\nGranada"
+=======
+"Tiempo: 0\nMadrid" -> "Tiempo: 395\nBilbao"
+>>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 
 
 }
 subgraph cluster_103{
 node[shape=box]; 
+<<<<<<< HEAD
 "Tiempo: 0\nJaen" -> "Tiempo: 99\nGranada"
+=======
+"Tiempo: 0\nGranada" -> "Tiempo: 99\nJaen" -> "Tiempo: 434\nMadrid" -> "Tiempo: 837\nBadajoz"
+>>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 
 
 }
 subgraph cluster_104{
 node[shape=box]; 
+<<<<<<< HEAD
 "Tiempo: 0\nCadiz" -> "Tiempo: 125\nSevilla" -> "Tiempo: 381\nGranada"
+=======
+"Tiempo: 0\nMurcia" -> "Tiempo: 150\nAlbacete" -> "Tiempo: 401\nMadrid" -> "Tiempo: 594\nValladolid" -> "Tiempo: 950\nVigo"
+>>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 
 
 }
 
  
+<<<<<<< HEAD
 "27709ba57e5a26fde3f9848668cb7f13" -> "4 \njoel"; 
 "27709ba57e5a26fde3f9848668cb7f13" -> "5004153267401\nMario" ;
 "27709ba57e5a26fde3f9848668cb7f13" -> "Tiempo: 0\nSevilla"; 
@@ -209,5 +252,19 @@ node[shape=box];
 "a5e18d188597e0551ae2eb3e00354851" -> "4655566666488 \nasusena"; 
 "a5e18d188597e0551ae2eb3e00354851" -> "3005952367401\nPedro" ;
 "a5e18d188597e0551ae2eb3e00354851" -> "Tiempo: 0\nCadiz"; 
+=======
+"58581b94a3e0a2452baec8f206a1927d" -> "4 \njoel"; 
+"58581b94a3e0a2452baec8f206a1927d" -> "1005957733221\nRolando" ;
+"58581b94a3e0a2452baec8f206a1927d" -> "Tiempo: 0\nMadrid"; 
+"e4b27c31bf5c6858c61caef84be1077c" -> "4 \njoel"; 
+"e4b27c31bf5c6858c61caef84be1077c" -> "1005957733221\nRolando" ;
+"e4b27c31bf5c6858c61caef84be1077c" -> "Tiempo: 0\nMadrid"; 
+"eb6c780724935900287d563cb7bae2cb" -> "4 \njoel"; 
+"eb6c780724935900287d563cb7bae2cb" -> "1005957733221\nRolando" ;
+"eb6c780724935900287d563cb7bae2cb" -> "Tiempo: 0\nGranada"; 
+"01f246c6500a80dc0e2666670bff31dd" -> "41 \njazmin"; 
+"01f246c6500a80dc0e2666670bff31dd" -> "3033988367401\nFernanda" ;
+"01f246c6500a80dc0e2666670bff31dd" -> "Tiempo: 0\nMurcia"; 
+>>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 
  }

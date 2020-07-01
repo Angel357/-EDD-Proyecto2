@@ -32,5 +32,6 @@ public class Proyecto2 {
         MenuGeneral menu = new MenuGeneral();
         menu.setEstructuras(tablaClientes, listaConductores, arbolVehiculos, grafoRutas, registroViajes);
         menu.setVisible(true);
+
     }
 }
