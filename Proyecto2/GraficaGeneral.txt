@@ -139,16 +139,6 @@ rankdir=LR;
 "4005952367401\nMaria"->"5004153267401\nMario" 
 "4005952367401\nMaria"->"3033988367401\nFernanda" 
 "5004153267401\nMario" 
-<<<<<<< HEAD
-"5004153267401\nMario"->"6005952367401\nSegio" 
-"5004153267401\nMario"->"4005952367401\nMaria" 
-"6005952367401\nSegio" 
-"6005952367401\nSegio"->"7805544360001\nLuis" 
-"6005952367401\nSegio"->"5004153267401\nMario" 
-"7805544360001\nLuis" 
-"7805544360001\nLuis"->"9805952367756\nVirginia" 
-"7805544360001\nLuis"->"6005952367401\nSegio" 
-=======
 "5004153267401\nMario"->"6005952367401\nSergio" 
 "5004153267401\nMario"->"4005952367401\nMaria" 
 "6005952367401\nSergio" 
@@ -157,7 +147,6 @@ rankdir=LR;
 "7805544360001\nLuis" 
 "7805544360001\nLuis"->"9805952367756\nVirginia" 
 "7805544360001\nLuis"->"6005952367401\nSergio" 
->>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
 "9805952367756\nVirginia" 
 "9805952367756\nVirginia"->"1005957733221\nRolando" 
 "9805952367756\nVirginia"->"7805544360001\nLuis" 
@@ -167,104 +156,78 @@ rankdir=LR;
 subgraph cluster_Registros{
 node[shape=box]; 
 rankdir=LR; 
-<<<<<<< HEAD
-"27709ba57e5a26fde3f9848668cb7f13" -> "NULL"; 
-"27709ba57e5a26fde3f9848668cb7f13"  
-"27709ba57e5a26fde3f9848668cb7f13" -> "7a280cf81ef8b8225a7314cbd20191b4"; 
-"7a280cf81ef8b8225a7314cbd20191b4" -> "27709ba57e5a26fde3f9848668cb7f13";  
-"7a280cf81ef8b8225a7314cbd20191b4"  
-"7a280cf81ef8b8225a7314cbd20191b4" -> "e11782c2960175cba9b9bb0e84e7caa5"; 
-"e11782c2960175cba9b9bb0e84e7caa5" -> "7a280cf81ef8b8225a7314cbd20191b4";  
-"e11782c2960175cba9b9bb0e84e7caa5"  
-"e11782c2960175cba9b9bb0e84e7caa5" -> "a5e18d188597e0551ae2eb3e00354851"; 
-"a5e18d188597e0551ae2eb3e00354851" -> "e11782c2960175cba9b9bb0e84e7caa5";  
-"a5e18d188597e0551ae2eb3e00354851"  
-"a5e18d188597e0551ae2eb3e00354851" -> "NULL.";  
-=======
-"58581b94a3e0a2452baec8f206a1927d" -> "NULL"; 
-"58581b94a3e0a2452baec8f206a1927d"  
-"58581b94a3e0a2452baec8f206a1927d" -> "e4b27c31bf5c6858c61caef84be1077c"; 
-"e4b27c31bf5c6858c61caef84be1077c" -> "58581b94a3e0a2452baec8f206a1927d";  
-"e4b27c31bf5c6858c61caef84be1077c"  
-"e4b27c31bf5c6858c61caef84be1077c" -> "eb6c780724935900287d563cb7bae2cb"; 
-"eb6c780724935900287d563cb7bae2cb" -> "e4b27c31bf5c6858c61caef84be1077c";  
-"eb6c780724935900287d563cb7bae2cb"  
-"eb6c780724935900287d563cb7bae2cb" -> "01f246c6500a80dc0e2666670bff31dd"; 
-"01f246c6500a80dc0e2666670bff31dd" -> "eb6c780724935900287d563cb7bae2cb";  
-"01f246c6500a80dc0e2666670bff31dd"  
-"01f246c6500a80dc0e2666670bff31dd" -> "NULL.";  
->>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
+"fd945f1ea1991184ada007141a2792d8" -> "NULL"; 
+"fd945f1ea1991184ada007141a2792d8"  
+"fd945f1ea1991184ada007141a2792d8" -> "d0e6c01260789ab632393ed7de0e1064"; 
+"d0e6c01260789ab632393ed7de0e1064" -> "fd945f1ea1991184ada007141a2792d8";  
+"d0e6c01260789ab632393ed7de0e1064"  
+"d0e6c01260789ab632393ed7de0e1064" -> "e5ae2aee8513dd85de08d120c0b065af"; 
+"e5ae2aee8513dd85de08d120c0b065af" -> "d0e6c01260789ab632393ed7de0e1064";  
+"e5ae2aee8513dd85de08d120c0b065af"  
+"e5ae2aee8513dd85de08d120c0b065af" -> "b2f93bc7b4dd75c371f9f5c0312c0cb1"; 
+"b2f93bc7b4dd75c371f9f5c0312c0cb1" -> "e5ae2aee8513dd85de08d120c0b065af";  
+"b2f93bc7b4dd75c371f9f5c0312c0cb1"  
+"b2f93bc7b4dd75c371f9f5c0312c0cb1" -> "NULL.";  
+
+
+}
+subgraph cluster_Arbol{
+node[shape=record, height = 0.3];
+node0[label="<f0>|F|<f1>|K|<f2>|P|<f3>|P568ggg|<f4>|P697QWR|<f5>|T|"];
+node1[label="<f0>|A|<f1>|B|<f2>|C|<f3>|D|"];
+node0->node1
+node2[label="<f0>|G|<f1>|H|<f2>|I|<f3>|J|"];
+node0->node2
+node3[label="<f0>|L|<f1>|M|<f2>|N|<f3>|O|"];
+node0->node3
+node4[label="<f0>|P111AAA|<f1>|P125DDD|<f2>|P369SKL|<f3>|P453DBN|<f4>|P456CBJ|<f5>|P456GHJ|<f6>|P457LKN|<f7>|P546hfv|"];
+node0->node4
+node5[label="<f0>|P569DHG|<f1>|P569dhj|<f2>|P638SPO|<f3>|P693QWE|"];
+node0->node5
+node6[label="<f0>|P754HTY|<f1>|P896ERT|<f2>|Q|<f3>|R|<f4>|S|"];
+node0->node6
+node7[label="<f0>|W|<f1>|X|<f2>|Y|<f3>|Z|"];
+node0->node7
 
 
 }
 subgraph cluster_101{
 node[shape=box]; 
-<<<<<<< HEAD
-"Tiempo: 0\nSevilla" -> "Tiempo: 256\nGranada" -> "Tiempo: 534\nMurcia"
-=======
-"Tiempo: 0\nMadrid" -> "Tiempo: 335\nJaen" -> "Tiempo: 577\nSevilla" -> "Tiempo: 702\nCadiz"
->>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
+"Tiempo: 0\nGranada" -> "Tiempo: 256\nSevilla"
 
 
 }
 subgraph cluster_102{
 node[shape=box]; 
-<<<<<<< HEAD
-"Tiempo: 0\nJaen" -> "Tiempo: 99\nGranada"
-=======
-"Tiempo: 0\nMadrid" -> "Tiempo: 395\nBilbao"
->>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
+"Tiempo: 0\nGranada" -> "Tiempo: 99\nJaen" -> "Tiempo: 434\nMadrid"
 
 
 }
 subgraph cluster_103{
 node[shape=box]; 
-<<<<<<< HEAD
-"Tiempo: 0\nJaen" -> "Tiempo: 99\nGranada"
-=======
-"Tiempo: 0\nGranada" -> "Tiempo: 99\nJaen" -> "Tiempo: 434\nMadrid" -> "Tiempo: 837\nBadajoz"
->>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
+"Tiempo: 0\nMadrid" -> "Tiempo: 395\nBilbao"
 
 
 }
 subgraph cluster_104{
 node[shape=box]; 
-<<<<<<< HEAD
-"Tiempo: 0\nCadiz" -> "Tiempo: 125\nSevilla" -> "Tiempo: 381\nGranada"
-=======
-"Tiempo: 0\nMurcia" -> "Tiempo: 150\nAlbacete" -> "Tiempo: 401\nMadrid" -> "Tiempo: 594\nValladolid" -> "Tiempo: 950\nVigo"
->>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
+"Tiempo: 0\nCadiz" -> "Tiempo: 125\nSevilla" -> "Tiempo: 367\nJaen" -> "Tiempo: 702\nMadrid" -> "Tiempo: 1097\nBilbao"
 
 
 }
 
  
-<<<<<<< HEAD
-"27709ba57e5a26fde3f9848668cb7f13" -> "4 \njoel"; 
-"27709ba57e5a26fde3f9848668cb7f13" -> "5004153267401\nMario" ;
-"27709ba57e5a26fde3f9848668cb7f13" -> "Tiempo: 0\nSevilla"; 
-"7a280cf81ef8b8225a7314cbd20191b4" -> "4 \njoel"; 
-"7a280cf81ef8b8225a7314cbd20191b4" -> "5004153267401\nMario" ;
-"7a280cf81ef8b8225a7314cbd20191b4" -> "Tiempo: 0\nJaen"; 
-"e11782c2960175cba9b9bb0e84e7caa5" -> "4655566666488 \nasusena"; 
-"e11782c2960175cba9b9bb0e84e7caa5" -> "3005952367401\nPedro" ;
-"e11782c2960175cba9b9bb0e84e7caa5" -> "Tiempo: 0\nJaen"; 
-"a5e18d188597e0551ae2eb3e00354851" -> "4655566666488 \nasusena"; 
-"a5e18d188597e0551ae2eb3e00354851" -> "3005952367401\nPedro" ;
-"a5e18d188597e0551ae2eb3e00354851" -> "Tiempo: 0\nCadiz"; 
-=======
-"58581b94a3e0a2452baec8f206a1927d" -> "4 \njoel"; 
-"58581b94a3e0a2452baec8f206a1927d" -> "1005957733221\nRolando" ;
-"58581b94a3e0a2452baec8f206a1927d" -> "Tiempo: 0\nMadrid"; 
-"e4b27c31bf5c6858c61caef84be1077c" -> "4 \njoel"; 
-"e4b27c31bf5c6858c61caef84be1077c" -> "1005957733221\nRolando" ;
-"e4b27c31bf5c6858c61caef84be1077c" -> "Tiempo: 0\nMadrid"; 
-"eb6c780724935900287d563cb7bae2cb" -> "4 \njoel"; 
-"eb6c780724935900287d563cb7bae2cb" -> "1005957733221\nRolando" ;
-"eb6c780724935900287d563cb7bae2cb" -> "Tiempo: 0\nGranada"; 
-"01f246c6500a80dc0e2666670bff31dd" -> "41 \njazmin"; 
-"01f246c6500a80dc0e2666670bff31dd" -> "3033988367401\nFernanda" ;
-"01f246c6500a80dc0e2666670bff31dd" -> "Tiempo: 0\nMurcia"; 
->>>>>>> 5481927d7f03489968b9026778027cd5148d2b76
+"fd945f1ea1991184ada007141a2792d8" -> "78 \ndiego"; 
+"fd945f1ea1991184ada007141a2792d8" -> "1005957733221\nRolando" ;
+"fd945f1ea1991184ada007141a2792d8" -> "Tiempo: 0\nGranada"; 
+"d0e6c01260789ab632393ed7de0e1064" -> "78 \ndiego"; 
+"d0e6c01260789ab632393ed7de0e1064" -> "4005952367401\nMaria" ;
+"d0e6c01260789ab632393ed7de0e1064" -> "Tiempo: 0\nGranada"; 
+"e5ae2aee8513dd85de08d120c0b065af" -> "8965478123654 \npedro"; 
+"e5ae2aee8513dd85de08d120c0b065af" -> "3005952367401\nPedro" ;
+"e5ae2aee8513dd85de08d120c0b065af" -> "Tiempo: 0\nMadrid"; 
+"b2f93bc7b4dd75c371f9f5c0312c0cb1" -> "8965478123654 \npedro"; 
+"b2f93bc7b4dd75c371f9f5c0312c0cb1" -> "3005952367401\nPedro" ;
+"b2f93bc7b4dd75c371f9f5c0312c0cb1" -> "Tiempo: 0\nCadiz"; 
 
  }

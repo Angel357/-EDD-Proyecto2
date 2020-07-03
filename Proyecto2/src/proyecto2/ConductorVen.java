@@ -334,7 +334,8 @@ public class ConductorVen extends javax.swing.JFrame {
     // boton de acciones, agregar, modificar, motrar eliminar
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
+       if(!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")){
+        
         switch (opt) {
 
             // Si esta en la opcion agregar
@@ -421,6 +422,9 @@ public class ConductorVen extends javax.swing.JFrame {
 
         System.out.println("Impresion de lista");
         lista.imprimir();
+       }else{
+           JOptionPane.showMessageDialog(null, "Rellene todas las casillas primero");
+       }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

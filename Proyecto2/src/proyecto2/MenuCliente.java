@@ -20,6 +20,7 @@ public class MenuCliente extends javax.swing.JFrame {
     ArbolB estructuraVehiculos;
     ColaAdyacentes estructuraRuta;
     Chain estructuraRegistroViajes;
+    ListaAuxArbol listaAuxArbol;
     
     
     Cliente c;
@@ -31,12 +32,13 @@ public class MenuCliente extends javax.swing.JFrame {
         this.setDefaultCloseOperation(0);
        // this.h = t;
     }
-    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes){
+    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes,ListaAuxArbol listaAuxArbol){
             this.h=estructuraClientes;
             this.estructuraConductores=estructuraConductores;
             this.estructuraVehiculos=estructuraVehiculos;
             this.estructuraRuta=estructuraRuta;
             this.estructuraRegistroViajes=estructuraRegistroViajes;
+            this.listaAuxArbol=listaAuxArbol;
         }
     public void setVentanas(Cliente ventanaCliente, MenuGeneral menu){
         this.c=ventanaCliente;
@@ -203,7 +205,7 @@ public class MenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReporteActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        menu.setEstructuras(h, estructuraConductores, estructuraVehiculos, estructuraRuta,estructuraRegistroViajes);
+        menu.setEstructuras(h, estructuraConductores, estructuraVehiculos, estructuraRuta,estructuraRegistroViajes,listaAuxArbol);
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed

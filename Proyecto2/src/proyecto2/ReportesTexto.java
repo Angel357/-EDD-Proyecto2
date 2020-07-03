@@ -24,6 +24,7 @@ public class ReportesTexto extends javax.swing.JFrame {
     ColaAdyacentes estructuraRuta;
     Chain estructuraRegistroViajes;
     ListaTop reportesTop;
+    ListaAuxArbol listaAuxArbol;
     
     //ventanas
     MenuGeneral menu;
@@ -59,12 +60,13 @@ public class ReportesTexto extends javax.swing.JFrame {
         jTextArea2.append(resultado.encryptedData + "\n");
     }
     
-    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes){
+    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes,ListaAuxArbol listaAuxArbol){
         this.estructuraClientes=estructuraClientes;
         this.estructuraConductores=estructuraConductores;
         this.estructuraVehiculos=estructuraVehiculos;
         this.estructuraRuta=estructuraRuta;
         this.estructuraRegistroViajes=estructuraRegistroViajes;
+        this.listaAuxArbol=listaAuxArbol;
     }
     
     public void setVentanas(MenuGeneral menu){
@@ -402,6 +404,7 @@ public class ReportesTexto extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        encrypt();
         if (cbReportes.getSelectedIndex() != 0) {
             encrypt();
 
@@ -436,7 +439,7 @@ public class ReportesTexto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       menu.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
+       menu.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes,listaAuxArbol);
        menu.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

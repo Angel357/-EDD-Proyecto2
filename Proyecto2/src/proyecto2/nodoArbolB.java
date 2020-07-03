@@ -61,24 +61,25 @@ public class nodoArbolB {
     public String imprimir2(String dato)
     {
         
-        int i = 0;
+       
       
-        for (i = 0; i < this.n ; i++)
+        for (int i = 0; i < this.n ; i++)
         {
             if(this.hoja == false)
             {
-                C[i].imprimir2(datos);
+                String r= C[i].imprimir2(datos);
+                return datos+r;
             }
             
             System.out.print(keys[i] + " ");
             datos+=keys[i]+"\n";
         }
-        
         if(hoja == false){
-            C[i].imprimir2(datos);
+            String s=C[i].imprimir2(datos);
+            return datos+s;
+        }else{
         }
-        
-        return datos;
+            return datos;
     }
     
     public void getDato(){
