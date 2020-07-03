@@ -431,7 +431,8 @@ public class Vehiculo extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         
-        String rutatotal = "";
+        try{
+            String rutatotal = "";
         String registro = "";
         
         FileDialog dialogArchivo;
@@ -467,6 +468,10 @@ public class Vehiculo extends javax.swing.JFrame {
             tree.insertar(nuevo[0], insertarV);
         }
         JOptionPane.showMessageDialog(null, "Carga masiva completada!");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se abrio el archivo correcto!");
+        }
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

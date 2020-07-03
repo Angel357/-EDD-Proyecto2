@@ -105,19 +105,19 @@ public class Viajes extends javax.swing.JFrame {
         cbConductor.addItem(aux.data.getDpi()+";"+aux.data.getNombres());
     }
     public void CargaVehiculos(){
-      nodoArbolB aux=estructuraVehiculos.root;
-        int i = 0;
-        /*for (i = 0; i < aux.n ; i++)
-        {
-            cbVehiculo.addItem(aux.keys[i]);
-        }*/
-        String dato="";
-        String t=estructuraVehiculos.root.imprimir2(dato);
-        String datos[]=t.split("\n");
-        for(String date:datos){
-            cbVehiculo.addItem(date);
-        }
-            
+//      nodoArbolB aux=estructuraVehiculos.root;
+//        int i = 0;
+//        /*for (i = 0; i < aux.n ; i++)
+//        {
+//            cbVehiculo.addItem(aux.keys[i]);
+//        }*/
+//        String dato="";
+//        String t=estructuraVehiculos.root.imprimir2(dato);
+//        String datos[]=t.split("\n");
+//        for(String date:datos){
+//            cbVehiculo.addItem(date);
+//        }
+//            
     }
     public void CargaOrigenDestino(){
         NodoVertice aux=estructuraRuta.g.listaVertices.Inicio;

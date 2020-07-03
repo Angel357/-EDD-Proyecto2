@@ -434,43 +434,46 @@ public class ConductorVen extends javax.swing.JFrame {
     //Carga masiva de conductores
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        
-        String rutatotal = "";
-        String registro = "";
-        
-        FileDialog dialogArchivo;
-        dialogArchivo = new FileDialog(this, "Lista de Archivos desde Frame", FileDialog.LOAD);
-        dialogArchivo.setVisible(true);
-        // obtener informacion de archivo
-        if (dialogArchivo.getFile() != null) {
-
-            String directorio = dialogArchivo.getDirectory();
-            String nombreArchivo = dialogArchivo.getFile();
-            rutatotal = directorio + nombreArchivo;
-        }
-        
-        // escribir en linea
         try {
-            Scanner input = new Scanner(new File("/"+rutatotal));
-            while (input.hasNextLine()) {
-                String line = input.nextLine();
-                registro+=line;
+            String rutatotal = "";
+            String registro = "";
+
+            FileDialog dialogArchivo;
+            dialogArchivo = new FileDialog(this, "Lista de Archivos desde Frame", FileDialog.LOAD);
+            dialogArchivo.setVisible(true);
+            // obtener informacion de archivo
+            if (dialogArchivo.getFile() != null) {
+
+                String directorio = dialogArchivo.getDirectory();
+                String nombreArchivo = dialogArchivo.getFile();
+                rutatotal = directorio + nombreArchivo;
             }
-            input.close();
-        } catch (Exception ex) { ex.printStackTrace();}
-        
-        String[] arregloRegistro=registro.split(";");
-        Conductor insertarC;
-        for(int x=0;x<arregloRegistro.length;x++){
-            
-            String[] nuevo=arregloRegistro[x].split("%");
-            System.out.print(nuevo[0]+  " " + nuevo[1] + " " + nuevo[2] + " " + nuevo[3] + " " + nuevo[4] + " " + nuevo[5] + " " + nuevo[6]+ "\n");
-            insertarC= new Conductor(new BigInteger(nuevo[0]), nuevo[1], nuevo[2], nuevo[3], nuevo[4], nuevo[5], nuevo[6]);
-            lista.insertarFinal(insertarC);
+
+            // escribir en linea
+            try {
+                Scanner input = new Scanner(new File("/" + rutatotal));
+                while (input.hasNextLine()) {
+                    String line = input.nextLine();
+                    registro += line;
+                }
+                input.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+            String[] arregloRegistro = registro.split(";");
+            Conductor insertarC;
+            for (int x = 0; x < arregloRegistro.length; x++) {
+
+                String[] nuevo = arregloRegistro[x].split("%");
+                System.out.print(nuevo[0] + " " + nuevo[1] + " " + nuevo[2] + " " + nuevo[3] + " " + nuevo[4] + " " + nuevo[5] + " " + nuevo[6] + "\n");
+                insertarC = new Conductor(new BigInteger(nuevo[0]), nuevo[1], nuevo[2], nuevo[3], nuevo[4], nuevo[5], nuevo[6]);
+                lista.insertarFinal(insertarC);
+            }
+            JOptionPane.showMessageDialog(null, "Carga masiva completada!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Archivo incorrecto cargado!");
         }
-        JOptionPane.showMessageDialog(null, "Carga masiva completada!");
-        
-        lista.imprimir();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     // Buscar

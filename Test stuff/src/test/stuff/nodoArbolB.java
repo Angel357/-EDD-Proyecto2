@@ -25,6 +25,7 @@ public class nodoArbolB {
     /// Cosas de grafica
     FileWriter escribir;
     File archivo;
+    String datos;
 
     nodoArbolB(int t, boolean hoja) {
         this.t = t;
@@ -38,7 +39,7 @@ public class nodoArbolB {
     
     // Mostrar arbol traverse
     public void imprimir(int counter) {
-        String test = "";
+        //String test = "";
         int i = 0;
         if (this.hoja == true) {
             //hijos = hijos +  "<";
@@ -46,7 +47,7 @@ public class nodoArbolB {
         }
         for (i = 0; i < this.n; i++) {
             if (this.hoja == false) {
-                test += keys[i];
+                //test += keys[i];
                 C[i].imprimir(counter++);
             } else {
                 System.out.print(keys[i] + "|" + "f<" + i + ">|");
@@ -61,10 +62,36 @@ public class nodoArbolB {
         }
         if (hoja == false) {
             C[i].imprimir(counter++);
-            System.out.println("test" + test);
+            //System.out.println("test" + test);
         }
     }
     
+    public String imprimir2(String dato) {
+
+        int i = 0;
+
+        for (i = 0; i < this.n; i++) {
+            if (this.hoja == false) {
+                //dato += keys[i] + "\n";
+                C[i].imprimir2(dato);
+            }
+
+            System.out.print(keys[i] + " ");
+            return dato += keys[i];
+        }
+
+        if (hoja == false) {
+            C[i].imprimir2(dato);
+        }
+        return dato;
+    }
+
+    public void getDato() {
+        // String datos;
+        //datos = imprimir2(datos);
+        //this.datosvehiculos=datos;
+    }
+
     public void getGraph()
     {    
         try{

@@ -32,6 +32,7 @@ public class ArbolB {
         if (this.root != null) {
             this.root.imprimir(1);
             this.root.getGraph();
+            this.root.imprimir2("");
         }
     }
 

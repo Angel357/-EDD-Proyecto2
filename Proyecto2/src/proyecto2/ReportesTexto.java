@@ -28,7 +28,13 @@ public class ReportesTexto extends javax.swing.JFrame {
     //ventanas
     MenuGeneral menu;
     
+    //
     ResultadoH resultado;
+    ResultadoH topViajes;
+    ResultadoH topClientes;
+    ResultadoH topConductores;
+    ResultadoH topVehiculos;
+    
     CompresionH comp;
     /**
      * Creates new form ReportesTexto
@@ -50,6 +56,7 @@ public class ReportesTexto extends javax.swing.JFrame {
         
         jTextArea2.setLineWrap(true);
         jTextArea2.setWrapStyleWord(true);
+        System.out.println(" " + cbReportes.getSelectedIndex());
     }
     
     public void encrypt() {
@@ -57,6 +64,26 @@ public class ReportesTexto extends javax.swing.JFrame {
         comp = new CompresionH();
         resultado = comp.comprimir(data);
         jTextArea2.append(resultado.encryptedData + "\n");
+        
+        int opt = cbReportes.getSelectedIndex();
+
+        switch(opt){
+            case 2:
+                topViajes = resultado;
+                break;
+            case 3:
+                topClientes = resultado;
+                break;
+            case 4:
+                topConductores = resultado;
+                break;
+            case 5:
+                topVehiculos = resultado;
+                break;
+            default:
+                System.out.println("Hay un problema en encripcion!");
+                break;
+        }
     }
     
     public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes){
@@ -77,8 +104,7 @@ public class ReportesTexto extends javax.swing.JFrame {
                 cbViajes.addItem(aux.index+"-"+aux.placa+"; "+aux.horaFechaGenerado);
                 aux=aux.next;
             }   
-    }
-    
+    }   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,7 +120,7 @@ public class ReportesTexto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        cbReportes = new javax.swing.JComboBox<String>();
+        cbReportes = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
@@ -127,7 +153,7 @@ public class ReportesTexto extends javax.swing.JFrame {
         });
 
         cbReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbReportes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbReportes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbReportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbReportesActionPerformed(evt);
@@ -146,6 +172,11 @@ public class ReportesTexto extends javax.swing.JFrame {
         });
 
         jButton4.setText("Decomprimir");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Limpear");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +193,8 @@ public class ReportesTexto extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Viajes");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Viajes: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,9 +213,7 @@ public class ReportesTexto extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(jLabel2)))
+                            .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbViajes, 0, 194, Short.MAX_VALUE)
@@ -238,11 +268,7 @@ public class ReportesTexto extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-//        if(cbReportes.getSelectedIndex()!=0){
-//             encrypt();
-//        }else{
-//            JOptionPane.showMessageDialog(null, "Opcion no valida!");
-//        }
+//        
 //        cbReportes.addItem("Seleccionar...");
 //        cbReportes.addItem("Estructura Completa");
 //        cbReportes.addItem("Top 10 viajes largos");
@@ -402,10 +428,13 @@ public class ReportesTexto extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
+     
+        jTextArea2.setText("");
         if (cbReportes.getSelectedIndex() != 0) {
             encrypt();
 
-            jTextArea2.append(comp.decompress(resultado) + "\n");
+
             System.out.println(cbReportes.getSelectedItem().toString());
             String archivoGenName = cbReportes.getSelectedItem().toString().trim().replace(" ", "").toLowerCase() + ".edd";
             try {
@@ -422,6 +451,8 @@ public class ReportesTexto extends javax.swing.JFrame {
                 }
 
                 FileWriter escribir = new FileWriter(archivo, true);
+                
+                //
                 escribir.write(resultado.encryptedData);
                 //Cerramos la conexion
                 escribir.close();
@@ -450,6 +481,41 @@ public class ReportesTexto extends javax.swing.JFrame {
     private void cbViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbViajesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbViajesActionPerformed
+
+    // Descomprimir
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        int opt = cbReportes.getSelectedIndex();
+        try {
+            if (opt >= 2 && opt <= 5) {
+                switch (opt) {
+                    case 2:
+                        jTextArea1.setText(topViajes.encryptedData);
+                        jTextArea2.setText(comp.decompress(topViajes));
+                        break;
+                    case 3:
+                        jTextArea1.setText(topClientes.encryptedData);
+                        jTextArea2.setText(comp.decompress(topClientes));
+                        break;
+                    case 4:
+                        jTextArea1.setText(topConductores.encryptedData);
+                        jTextArea2.setText(comp.decompress(topConductores));
+                        break;
+                    case 5:
+                        jTextArea1.setText(topVehiculos.encryptedData);
+                        jTextArea2.setText(comp.decompress(topVehiculos));
+                        break;
+                    default:
+                        System.out.println("Hay un problema descomprimiendo!");
+                        break;
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Opcion no valida para descomprimir!");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede descomprimir porque no esta comprimido!");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

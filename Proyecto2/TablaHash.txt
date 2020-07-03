@@ -44,28 +44,8 @@ subgraph cluster_1{
 
  }
  
-"4 \njoel" -> "41 \njazmin" -> "78 \ndiego" -> "6855655584235 \njacki"; 
-"8965478123654 \npedro"; 
-"4655566666488 \nasusena"; 
-"5648973254612 \nmiguel"; 
-"4855258666636 \npaola" -> "14 \nchepe"; 
-"6655585556656 \nalison"; 
-"2365489784561 \njuan"; 
-"3002875340101 \nAngel" -> "26 \nalexa" -> "63 \ngabriel" -> "100 \njunior"; 
-"34 \nalejandra"; 
-"8565526523633 \nmarivel"; 
  
  
-4 -> "4 \njoel"; 
-8 -> "8965478123654 \npedro"; 
-11 -> "4655566666488 \nasusena"; 
-13 -> "5648973254612 \nmiguel"; 
-14 -> "4855258666636 \npaola"; 
-16 -> "6655585556656 \nalison"; 
-18 -> "2365489784561 \njuan"; 
-26 -> "3002875340101 \nAngel"; 
-34 -> "34 \nalejandra"; 
-35 -> "8565526523633 \nmarivel"; 
 
  
  }

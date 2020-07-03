@@ -16,6 +16,16 @@ import java.util.Scanner;
 public class TestStuff {
     
     public static void main(String[] args) {
+        /*
+        ResultadoH resultado;
+        CompresionH comp;
+        String data = "Hola mundo!";
+        comp = new CompresionH();
+        resultado = comp.comprimir(data);
+        System.out.println("encrypted: " +  resultado.encryptedData);
+        */
+        
+        
         ArbolB test = new ArbolB(5);
         
         test.insertar("A");
@@ -46,6 +56,4 @@ public class TestStuff {
         
         test.imprimir();
     }
-
-    
 }

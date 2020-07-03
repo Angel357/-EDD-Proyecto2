@@ -24,6 +24,8 @@ public class CompresionH {
         NodoHuffman root = constuirArbolHuffman(freq);
         Map<Character, String> tablaB = buscarTabla(root);
         return new ResultadoH(generarCodigo(data,tablaB), root);
+        //System.out.println(generarCodigo(data, tablaB));
+        //return null;
     }
     
     public String generarCodigo(String data, Map<Character, String> tablaB)
@@ -36,6 +38,7 @@ public class CompresionH {
         return generar.toString();
     }
     
+    // construir tabla de huffman
     public void impConstruirTabla(NodoHuffman nodo, 
             String s, 
             Map<Character, String> tablaBuscar){
@@ -49,6 +52,7 @@ public class CompresionH {
         
     }
     
+    // Tabla de compresion
     public Map<Character, String> buscarTabla(NodoHuffman root)
     {
         Map<Character, String> tablaBuscar = new HashMap<>();
@@ -56,7 +60,7 @@ public class CompresionH {
         return tablaBuscar;
     }
     
-    // construir tabla
+    // construir arbol
     public NodoHuffman constuirArbolHuffman(int[] freq)
     {
          // verificar si tengo que hacer mi propia priorityQueue;
@@ -85,6 +89,7 @@ public class CompresionH {
         return priorityQueue.poll();
     }
     
+    // tabla de frequencia ascii a chars
     public int[] construirTablaFrequencia(String data)
     {
         int [] freq = new int[alfabeto];

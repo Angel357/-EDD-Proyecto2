@@ -58,35 +58,6 @@ public class nodoArbolB {
     
     //---------------------------------- GRAFICAS --------------------------------
 
-    public String imprimir2(String dato)
-    {
-        
-        int i = 0;
-      
-        for (i = 0; i < this.n ; i++)
-        {
-            if(this.hoja == false)
-            {
-                C[i].imprimir2(datos);
-            }
-            
-            System.out.print(keys[i] + " ");
-            datos+=keys[i]+"\n";
-        }
-        
-        if(hoja == false){
-            C[i].imprimir2(datos);
-        }
-        
-        return datos;
-    }
-    
-    public void getDato(){
-       // String datos;
-        datos=imprimir2(datos);
-        //this.datosvehiculos=datos;
-    }
-
     public void getGraph() {
         try {
             archivo = new File("arbol.txt");
@@ -98,6 +69,7 @@ public class nodoArbolB {
                     e.printStackTrace();
                 }
             }
+            
             //--------------------------------------- Cabecera
             escribir = new FileWriter(archivo, true);
             escribir.write("digraph {\r\n");
@@ -106,14 +78,15 @@ public class nodoArbolB {
             int i = 0;
             escribir.write("node0[label=\"");
             while (this.keys[i] != null) {
-                escribir.write("<f" + i +">|");
+                escribir.write("<f" + i + ">|");
                 escribir.write(this.keys[i]);
                 escribir.write("|");
                 i++;
             }
             escribir.write("\"];" + "\r\n");
-            escribir.close();
 
+            escribir.close();
+            
             // Body
             getDot(1);
 
