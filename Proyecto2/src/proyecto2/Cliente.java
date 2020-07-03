@@ -380,6 +380,7 @@ public class Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAccionActionPerformed
 
     private void btnCargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargaActionPerformed
+    try{
      //este string sirve para almacenar la ruta del archivo que selecciones
      String rutatotal="";
      //en este string se guardara todo el archivo de texto
@@ -418,7 +419,10 @@ public class Cliente extends javax.swing.JFrame {
             t.Insertar(nuevo[0], nuevo[1], nuevo[2], nuevo[3], nuevo[4], nuevo[5], 1);
         }
         JOptionPane.showMessageDialog(null, "Carga masiva de clientes completada!");
-        
+    }catch(Exception v){
+        JOptionPane.showMessageDialog(null, "archivo de carga de rutas incorrecto");
+            
+    }  
         
     }//GEN-LAST:event_btnCargaActionPerformed
 

@@ -22,6 +22,7 @@ public class MenuGeneral extends javax.swing.JFrame {
     ArbolB estructuraVehiculos;
     ColaAdyacentes estructuraRuta;
     Chain estructuraRegistroViajes;
+    ListaAuxArbol listaAuxArbol;
     
     //ventanas 
     Cliente ventanaClientes;
@@ -48,12 +49,13 @@ public class MenuGeneral extends javax.swing.JFrame {
         ventanaReportes=new ReportesTexto();
     }
     
-    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes){
+    public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes,ListaAuxArbol listaAuxArbol){
         this.estructuraClientes=estructuraClientes;
         this.estructuraConductores=estructuraConductores;
         this.estructuraVehiculos=estructuraVehiculos;
         this.estructuraRuta=estructuraRuta;
         this.estructuraRegistroViajes=estructuraRegistroViajes;
+        this.listaAuxArbol=listaAuxArbol;
     }
     
 
@@ -166,29 +168,29 @@ public class MenuGeneral extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVehiculosActionPerformed
-       ventanaMenuVehiculo.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
+       ventanaMenuVehiculo.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes,listaAuxArbol);
        ventanaMenuVehiculo.setVentanas(ventanaVehiculo, this);
        ventanaMenuVehiculo.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btnVehiculosActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-      ventanaMenuCliente.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
+      ventanaMenuCliente.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes,listaAuxArbol);
       ventanaMenuCliente.setVentanas(ventanaClientes, this);
       ventanaMenuCliente.setVisible(true);
       this.setVisible(false);
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnConductoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConductoresActionPerformed
-       ventanaMenuConductores.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
+       ventanaMenuConductores.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes,listaAuxArbol);
        ventanaMenuConductores.setVentanas(ventanaConductor, this);
        ventanaMenuConductores.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btnConductoresActionPerformed
 
     private void btnViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViajesActionPerformed
-       ventanaViajes.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
-       ventanaViajes.setVentanas(this);
+       ventanaViajes.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes,listaAuxArbol);
+       ventanaViajes.setVentanas(this,ventanaVehiculo);
        ventanaViajes.cargarDatos();
        ventanaViajes.setVisible(true);
        this.setVisible(false);
@@ -199,7 +201,7 @@ public class MenuGeneral extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRutasActionPerformed
 
     private void btnreportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportesActionPerformed
-        ventanaReportes.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes);
+        ventanaReportes.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta, estructuraRegistroViajes,listaAuxArbol);
         ventanaReportes.setVentanas(this);
         try{
         ventanaReportes.setViajes();

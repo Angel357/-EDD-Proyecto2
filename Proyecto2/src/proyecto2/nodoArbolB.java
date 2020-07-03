@@ -57,7 +57,36 @@ public class nodoArbolB {
     }
     
     //---------------------------------- GRAFICAS --------------------------------
-
+    public String imprimir2(String dato)
+    {
+        
+       
+      
+        for (int i = 0; i < this.n ; i++)
+        {
+            if(this.hoja == false)
+            {
+                String r= C[i].imprimir2(datos);
+                return datos+r;
+            }
+            
+            System.out.print(keys[i] + " ");
+            datos+=keys[i]+"\n";
+        }
+        if(hoja == false){
+            String s=C[i].imprimir2(datos);
+            return datos+s;
+        }else{
+        }
+            return datos;
+    }
+    
+    public void getDato(){
+       // String datos;
+        datos=imprimir2(datos);
+        //this.datosvehiculos=datos;
+    }
+        
     public void getGraph() {
         try {
             archivo = new File("arbol.txt");

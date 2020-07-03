@@ -26,8 +26,10 @@ public class Viajes extends javax.swing.JFrame {
     ColaAdyacentes estructuraRuta;
     Chain estructuraRegistroViajes;
     Ruta estructuraRutaCorta;
+    ListaAuxArbol listaAuxArbol;
     //ventanas
     MenuGeneral menu;
+    Vehiculo v;
     boolean bandera=false;
     
     
@@ -37,16 +39,18 @@ public class Viajes extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-   public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes){
+   public void setEstructuras(TablaHash estructuraClientes,ListaConductor estructuraConductores, ArbolB estructuraVehiculos, ColaAdyacentes estructuraRuta,Chain estructuraRegistroViajes,ListaAuxArbol listaAuxArbol){
         this.estructuraClientes=estructuraClientes;
         this.estructuraConductores=estructuraConductores;
         this.estructuraVehiculos=estructuraVehiculos;
         this.estructuraRuta=estructuraRuta;
         this.estructuraRegistroViajes=estructuraRegistroViajes;
+        this.listaAuxArbol=listaAuxArbol;
     }
 
-    public void setVentanas(MenuGeneral menu){
+    public void setVentanas(MenuGeneral menu,Vehiculo v){
         this.menu=menu;
+        this.v=v;
     }
     
     public void cargarDatos(){
@@ -117,7 +121,11 @@ public class Viajes extends javax.swing.JFrame {
 //        for(String date:datos){
 //            cbVehiculo.addItem(date);
 //        }
-//            
+
+       String placas[]=v.datos.split("\n");
+       for(String dato:placas){
+           cbVehiculo.addItem(dato);
+       }             
     }
     public void CargaOrigenDestino(){
         NodoVertice aux=estructuraRuta.g.listaVertices.Inicio;
@@ -330,7 +338,7 @@ public class Viajes extends javax.swing.JFrame {
     }//GEN-LAST:event_cbOrigenActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-       menu.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta,estructuraRegistroViajes);
+       menu.setEstructuras(estructuraClientes, estructuraConductores, estructuraVehiculos, estructuraRuta,estructuraRegistroViajes,listaAuxArbol);
        menu.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed

@@ -21,7 +21,7 @@ public class Vehiculo extends javax.swing.JFrame {
     ArbolB tree; // declarando arbol de grado 5
     MenuVehiculo menu;
     int opt;
-    
+    String datos="";
     /**
      * Creates new form Vehiculo
      */
@@ -334,6 +334,7 @@ public class Vehiculo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         // Insertar un dato.
+       if(!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")&&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")&&!jTextField7.getText().equals("")&&!jTextField8.getText().equals("")){
         switch (opt) {
 
             // Si esta en la opcion agregar
@@ -347,6 +348,7 @@ public class Vehiculo extends javax.swing.JFrame {
                         clean();
                     } else {
                         //Obtener datos de un Objeto Vehiculo y crear nuevo objeto
+                        datos+=jTextField2.getText()+"\n";
                         String placa = jTextField2.getText().toUpperCase().trim().replace(" ", "");
                         String marca = jTextField3.getText().toUpperCase().trim().replace(" ", "");
                         String modelo = jTextField4.getText().toUpperCase().trim().replace(" ", "");
@@ -393,6 +395,10 @@ public class Vehiculo extends javax.swing.JFrame {
         
         System.out.println("Impresion del arbol construido");
         tree.imprimir();
+        
+       }else{
+           JOptionPane.showMessageDialog(null, "Rellene todas las casillas primero");
+       }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Regresar a menu
@@ -463,6 +469,7 @@ public class Vehiculo extends javax.swing.JFrame {
             String[] nuevo=arregloRegistro[x].split(":");
             
             // Impresion de datos que estoy inertando
+            datos+=nuevo[0]+"\n";
             System.out.print(nuevo[0]+  " " + nuevo[1] + " " + nuevo[2] + " " + nuevo[3] + " " + nuevo[4] + " " + nuevo[5] + " " + nuevo[6]+ "\n");
             insertarV= new ObjVehiculo(nuevo[0], nuevo[1], nuevo[2], nuevo[3], nuevo[4], nuevo[5], nuevo[6]);
             tree.insertar(nuevo[0], insertarV);

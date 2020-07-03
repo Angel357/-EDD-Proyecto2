@@ -1,8 +1,10 @@
 package proyecto2;
 
+import java.awt.FileDialog;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -29,6 +31,7 @@ public class Chain {
     
     Block start;
     String GraficoGeneral="";
+    String GraficaArbol;
     
     int index;
     
@@ -194,7 +197,7 @@ public class Chain {
     
     public void GraficaGeneral(){
         getDot(start);
-        
+        getGraficaArbol();
         
         try{
               File fold=new File("GraficaGeneral.txt");
@@ -213,6 +216,7 @@ public class Chain {
             
             
             escribir.write("digraph {\r\n");
+            
             escribir.write("subgraph cluster_Grafo{\r\n");
             String grafGrafo[]= estructuraRuta.g.GraficoGeneral.split("\n");
             for(String registro:grafGrafo){
@@ -221,15 +225,14 @@ public class Chain {
             escribir.write("\r\n");
             //escribir.write(estructuraRuta.g.GraficoGeneral);
             System.out.println("\n\n"+estructuraRuta.g.GraficoGeneral);
-            
             escribir.write("\r\n}\r\n");
+            
             escribir.write("subgraph cluster_Clientes{\r\n");
             String grafClientes[]=estructuraClientes.GraficoGeneral.split("\n");
             for(String registro:grafClientes){
                 escribir.write(registro+"\r\n");
             }
             escribir.write("\r\n");
-            
             //escribir.write(estructuraClientes.GraficoGeneral);
             System.out.println("\n\n"+estructuraClientes.GraficoGeneral);
             escribir.write("\r\n}\r\n");
@@ -241,9 +244,9 @@ public class Chain {
                 escribir.write(registro+"\r\n");
             }
             escribir.write("\r\n");
-            
             System.out.println("\n\n"+estructuraConductores.GraficoGeneral);
             escribir.write("\r\n}\r\n");
+            
             escribir.write("subgraph cluster_Registros{\r\n");
             //escribir.write(GraficoGeneral);
             String grafRegistros[]=GraficoGeneral.split("\n");
@@ -251,9 +254,18 @@ public class Chain {
                 escribir.write(registro+"\r\n");
             }
             escribir.write("\r\n");
-            
             System.out.println("\n\n"+GraficoGeneral);
             escribir.write("\r\n}\r\n");
+            
+            escribir.write("subgraph cluster_Arbol{\r\n");
+            String grafArbol[]=GraficaArbol.split("\n");
+            for(String registro:grafArbol){
+                escribir.write(registro+"\r\n");
+            }
+            escribir.write("\r\n");
+            escribir.write("\r\n}\r\n");
+            
+            
             Block aux=start;
             int x=0;
             while(aux!=null){
@@ -314,6 +326,7 @@ public class Chain {
     public void GraficaGeneralPorViaje(String index){
         GraficoGeneral="";
         getDot(start);
+        getGraficaArbol();
         int Index =Integer.parseInt(index);
         System.out.println(index);
         try{
@@ -364,6 +377,7 @@ public class Chain {
             
             System.out.println("\n\n"+estructuraConductores.GraficoGeneral);
             escribir.write("\r\n}\r\n");
+            
             escribir.write("subgraph cluster_Registros{\r\n");
             //escribir.write(GraficoGeneral);
             String grafRegistros[]=GraficoGeneral.split("\n");
@@ -374,6 +388,17 @@ public class Chain {
             
             System.out.println("\n\n"+GraficoGeneral);
             escribir.write("\r\n}\r\n");
+            
+                 escribir.write("subgraph cluster_Arbol{\r\n");
+            String grafArbol[]=GraficaArbol.split("\n");
+            for(String registro:grafArbol){
+                escribir.write(registro+"\r\n");
+            }
+            escribir.write("\r\n");
+            escribir.write("\r\n}\r\n");
+            
+            
+            
             Block aux=start;
             int x=0;
             while(aux!=null){
@@ -437,6 +462,31 @@ public class Chain {
                 ReporteHash r=new ReporteHash();
                 r.setImagen("GraficaGeneralViaje.png");
                 r.setVisible(true);
+    }
+    
+    public void getGraficaArbol(){
+        GraficaArbol="";
+        String rutatotal="arbol.txt";
+     //en este string se guardara todo el archivo de texto
+     String registro="";
+   
+        try {
+            Scanner input = new Scanner(new File(rutatotal));
+            
+            while (input.hasNextLine()) {
+                String line = input.nextLine();
+                //cuando lo va recorriendo lo almacena en el string registro
+                registro+=line+"\n";
+            }
+            input.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        String dato[]=registro.split("\n");
+        for(int x=1;x<dato.length-1;x++){
+            GraficaArbol+=dato[x]+"\n";
+        }
+        
     }
     
 }// fin clase chain

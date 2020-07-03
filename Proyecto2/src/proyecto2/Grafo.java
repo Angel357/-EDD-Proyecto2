@@ -73,11 +73,14 @@ public class Grafo extends javax.swing.JFrame {
                         escribir.write(Reg[0]+" -> "+Reg[1]+" [label=\""+Reg[2]+"\", weight=50];\r\n");
                         
                         GraficoGeneral+=Reg[0]+" -> "+Reg[1]+" [label=\""+Reg[2]+"\", weight=50]; \n";
+                        
                     }
                 }
                 input.close();
             } catch (Exception ex) {
                 ex.printStackTrace();
+                JOptionPane.showMessageDialog(null, "archivo de carga de rutas incorrecto");
+            GenerarGrafo();
             }
             
             escribir.write("\r\n\r\n }");
@@ -94,6 +97,7 @@ public class Grafo extends javax.swing.JFrame {
             //cmd.exec("start TablaHash.txt");
         }catch(Exception ex){
             System.out.println("ex: "+ex.getMessage());
+            
         }
         listaVertices.Imprimir();
         try{
